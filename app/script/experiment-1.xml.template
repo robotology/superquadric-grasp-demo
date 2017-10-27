@@ -1,0 +1,136 @@
+<application>
+    <name>experiment-1-withSFM</name>
+
+    <dependencies>
+        <port>/lbpExtract/rpc:i</port>
+        <port>/memory/rpc</port>
+        <port>/SFM/rpc/</port>
+        <port>/icub/camcalib/left/out</port>
+    </dependencies>
+    
+    <module>
+       <name>experiment-1</name>
+       <parameters> --from config.ini </parameters>
+       <node>icub21</node>
+    </module>
+
+    <module>
+       <name>testing-module</name>
+       <node>icub21</node>
+    </module>
+   
+    <connection>
+        <from>/experiment-1/blob:rpc</from>
+        <to>/lbpExtract/rpc:i</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/experiment-1/OPC:rpc</from>
+        <to>/memory/rpc</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/experiment-1/SFM:rpc</from>
+        <to>/SFM/rpc</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/experiment-1/superq:rpc</from>
+        <to>/superquadric-model/rpc</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/experiment-1/grasp:rpc</from>
+        <to>/superquadric-grasp/rpc</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/testing-module/blob:rpc</from>
+        <to>/lbpExtract/rpc:i</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/testing-module/OPC:rpc</from>
+        <to>/memory/rpc</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/testing-module/SFM:rpc</from>
+        <to>/SFM/rpc</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/testing-module/superq:rpc</from>
+        <to>/superquadric-model/rpc</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/testing-module/point:o</from>
+        <to>/superquadric-model/point:i</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <module>
+       <name>superquadric-model</name>
+        <parameters> --from config-classes.ini </parameters>
+       <node>icub21</node>
+    </module>
+    <module>
+       <name>yarpview</name>
+       <parameters>--name /dispSuperq --out /dispBlobs/out --x 1600 --y 370 --w 600 --h 600 --p 200</parameters>
+       <node>icub22</node>
+    </module>
+
+    <connection>
+        <from>/superquadric-model/img:o</from>
+        <to>/dispSuperq</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/icub/camcalib/left/out</from>
+        <to>/superquadric-model/img:i</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/superquadric-model/blob:rpc</from>
+        <to>/testing-module/rpc</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+ <module>
+       <name>superquadric-grasp</name>
+       <parameters> --from config.ini </parameters>
+       <node>icub21</node>
+    </module>
+
+    <module>
+       <name>yarpview</name>
+       <parameters>--name /dispPose --out /dispPose/out --x 1600 --y 370 --w 600 --h 600 --p  200</parameters>
+       <node>icub22</node>
+    </module>
+
+    <connection>
+        <from>/superquadric-grasp/img:o</from>
+        <to>/dispPose</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/icub/camcalib/left/out</from>
+        <to>/superquadric-grasp/img:i</to>
+        <protocol>udp</protocol>
+    </connection>
+
+</application>
+
