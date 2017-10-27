@@ -1,0 +1,506 @@
+\section{grasp\+Demo\+\_\+\+I\+DL Class Reference}
+\label{classgraspDemo__IDL}\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+
+
+\hyperlink{classgraspDemo__IDL}{grasp\+Demo\+\_\+\+I\+DL} I\+DL Interface to grasp-\/demo services.  
+
+
+
+
+{\ttfamily \#include $<$grasp\+Demo\+\_\+\+I\+D\+L.\+h$>$}
+
+
+
+Inherits Wire.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual yarp\+::os\+::\+Bottle \hyperlink{classgraspDemo__IDL_a7ad1111fcda1fd6b6759cece23c6e0f4}{get\+\_\+blob} ()
+\begin{DoxyCompactList}\small\item\em Send the current 2D blob. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_af758a4f305a714b81462a17f0f86e318}{set\+\_\+object\+\_\+name} (const std\+::string \&entry)
+\begin{DoxyCompactList}\small\item\em Set the name of the object (stored by the object property collector). \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classgraspDemo__IDL_a55b811e44696b496da721da5a9f9beb4}{get\+\_\+object\+\_\+name} ()
+\begin{DoxyCompactList}\small\item\em Get the name of the object. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_adbfee0a84908c87b633b05e9b5d306c2}{go\+\_\+next} ()
+\begin{DoxyCompactList}\small\item\em Ask to go to the next step, following the pipeline\+: 1-\/ compute superquadric 2-\/ compute pose 3-\/ ask the robot to move. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_a3ae8ff9135f0b72a12f423a03412e4ee}{start\+\_\+from\+\_\+scratch} ()
+\begin{DoxyCompactList}\small\item\em The pipeline is restarted and is waiting the command \char`\"{}go\+\_\+next\char`\"{} to start from step 1. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_aed9067a7983154f5189dcd833f376e40}{acquire\+\_\+superq} ()
+\begin{DoxyCompactList}\small\item\em If you want just to perform step 1. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classgraspDemo__IDL_a3dd467a705bd6977d6ee7416e439ebdc}{check\+\_\+superq} ()
+\begin{DoxyCompactList}\small\item\em Ask if the superquadric has been computed. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_aa3bc2e6efe297a22d3df556ca63103bd}{compute\+\_\+pose} ()
+\begin{DoxyCompactList}\small\item\em If you want just to perform step 2 (if step 1 has been performed). \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classgraspDemo__IDL_a2e6cb4a651443ccbd63999eeaf10d5e7}{check\+\_\+pose} ()
+\begin{DoxyCompactList}\small\item\em To ask if the pose has been computed. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_aec86f807d6baf8ab6b8bd5f321225c95}{grasp\+\_\+object} ()
+\begin{DoxyCompactList}\small\item\em If you want just to perform step 3 (if step 2 has been performed). \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_a7fbe57e4cfca528567a8d84a659b8f12}{go\+\_\+back\+\_\+home} ()
+\begin{DoxyCompactList}\small\item\em Ask the robot to stop and go back to home position with the arm that is moving. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_a18069fb03cae17d4e09a52adfcd06a09}{go\+\_\+to\+\_\+basket} ()
+\begin{DoxyCompactList}\small\item\em Ask the robot to put the object in a box on its side. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_af81380d0426728f5288afb35a0087891}{clear\+\_\+poses} ()
+\begin{DoxyCompactList}\small\item\em Clear all the computed poses. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_affd8c910d151bb08d4c97626f7b6c508}{clear\+\_\+superq} ()
+\begin{DoxyCompactList}\small\item\em Clear the computed superq. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_a68a1a97bb9c29769a3fc3c5c158bed0a}{set\+\_\+hand\+\_\+for\+\_\+computation} (const std\+::string \&entry)
+\begin{DoxyCompactList}\small\item\em Set the hand for pose computation. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classgraspDemo__IDL_a68b2d4eaa388f71a5519580b56b906c7}{get\+\_\+hand\+\_\+for\+\_\+computation} ()
+\begin{DoxyCompactList}\small\item\em Get the hand for pose computation. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_a23eeae69cf9067064b6757219abb334f}{set\+\_\+hand\+\_\+for\+\_\+moving} (const std\+::string \&entry)
+\begin{DoxyCompactList}\small\item\em Set the hand for moving. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classgraspDemo__IDL_a702688abfa7858c4650cd22e4516665a}{get\+\_\+hand\+\_\+for\+\_\+moving} ()
+\begin{DoxyCompactList}\small\item\em Get the hand for pose computation. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classgraspDemo__IDL_ab1ea4a6835cbd7a7eef2f347c11f7968}{get\+\_\+automatic\+\_\+hand} ()
+\begin{DoxyCompactList}\small\item\em Get if automatic selection of the hand is on or off. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_a0be94184ab18c9d312fb7c2e27b3d04d}{set\+\_\+automatic\+\_\+hand} (const std\+::string \&entry)
+\begin{DoxyCompactList}\small\item\em Set if automatic selection of the hand is on or off. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_afd4e51de3917fe3a5caaf160459ac54d}{set\+\_\+filtered\+\_\+superq} (const std\+::string \&entry)
+\begin{DoxyCompactList}\small\item\em Set if to ask the filtered superquadric or not. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classgraspDemo__IDL_a17792a60708878e1962b9068eac6451d}{get\+\_\+filtered\+\_\+superq} ()
+\begin{DoxyCompactList}\small\item\em Get if to ask the filtered superquadric or not. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_a15203d03a49ac4225a2401b2b0428960}{set\+\_\+reset\+\_\+filter} (const std\+::string \&entry)
+\begin{DoxyCompactList}\small\item\em Set if to reset the filtered superquadric or not. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classgraspDemo__IDL_a13d16f7545403a90df04a5a1e0faa14b}{get\+\_\+reset\+\_\+filter} ()
+\begin{DoxyCompactList}\small\item\em Get if to reset the filtered superquadric or not. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_ad05df16c2b205b0eb5f9338de63d89b4}{set\+\_\+object\+\_\+class} (const std\+::string \&entry)
+\begin{DoxyCompactList}\small\item\em Set the current object class. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classgraspDemo__IDL_a66d89e8ebe9f764fbdd9d95bb0191b94}{get\+\_\+object\+\_\+class} ()
+\begin{DoxyCompactList}\small\item\em Get the current object class. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classgraspDemo__IDL_a7b718062e0170fe1520a05b441aaecc8}{calibrate} ()
+\begin{DoxyCompactList}\small\item\em Calibrate plane height via superquadric computation. \end{DoxyCompactList}\item 
+virtual bool {\bfseries read} (yarp\+::os\+::\+Connection\+Reader \&connection) Y\+A\+R\+P\+\_\+\+O\+V\+E\+R\+R\+I\+DE\label{classgraspDemo__IDL_abb26b6731fe87c79de367ae824db7483}
+
+\item 
+virtual std\+::vector$<$ std\+::string $>$ {\bfseries help} (const std\+::string \&function\+Name=\char`\"{}-\/-\/all\char`\"{})\label{classgraspDemo__IDL_a952412e2b4df1068fa5ed0f9c2894ac5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classgraspDemo__IDL}{grasp\+Demo\+\_\+\+I\+DL} I\+DL Interface to grasp-\/demo services. 
+
+Definition at line 18 of file grasp\+Demo\+\_\+\+I\+D\+L.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!acquire\+\_\+superq@{acquire\+\_\+superq}}
+\index{acquire\+\_\+superq@{acquire\+\_\+superq}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{acquire\+\_\+superq()}{acquire_superq()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::acquire\+\_\+superq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_aed9067a7983154f5189dcd833f376e40}
+
+
+If you want just to perform step 1. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!calibrate@{calibrate}}
+\index{calibrate@{calibrate}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{calibrate()}{calibrate()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::calibrate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a7b718062e0170fe1520a05b441aaecc8}
+
+
+Calibrate plane height via superquadric computation. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!check\+\_\+pose@{check\+\_\+pose}}
+\index{check\+\_\+pose@{check\+\_\+pose}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{check\+\_\+pose()}{check_pose()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string grasp\+Demo\+\_\+\+I\+D\+L\+::check\+\_\+pose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a2e6cb4a651443ccbd63999eeaf10d5e7}
+
+
+To ask if the pose has been computed. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!check\+\_\+superq@{check\+\_\+superq}}
+\index{check\+\_\+superq@{check\+\_\+superq}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{check\+\_\+superq()}{check_superq()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string grasp\+Demo\+\_\+\+I\+D\+L\+::check\+\_\+superq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a3dd467a705bd6977d6ee7416e439ebdc}
+
+
+Ask if the superquadric has been computed. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!clear\+\_\+poses@{clear\+\_\+poses}}
+\index{clear\+\_\+poses@{clear\+\_\+poses}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{clear\+\_\+poses()}{clear_poses()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::clear\+\_\+poses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_af81380d0426728f5288afb35a0087891}
+
+
+Clear all the computed poses. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!clear\+\_\+superq@{clear\+\_\+superq}}
+\index{clear\+\_\+superq@{clear\+\_\+superq}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{clear\+\_\+superq()}{clear_superq()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::clear\+\_\+superq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_affd8c910d151bb08d4c97626f7b6c508}
+
+
+Clear the computed superq. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!compute\+\_\+pose@{compute\+\_\+pose}}
+\index{compute\+\_\+pose@{compute\+\_\+pose}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{compute\+\_\+pose()}{compute_pose()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::compute\+\_\+pose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_aa3bc2e6efe297a22d3df556ca63103bd}
+
+
+If you want just to perform step 2 (if step 1 has been performed). 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!get\+\_\+automatic\+\_\+hand@{get\+\_\+automatic\+\_\+hand}}
+\index{get\+\_\+automatic\+\_\+hand@{get\+\_\+automatic\+\_\+hand}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{get\+\_\+automatic\+\_\+hand()}{get_automatic_hand()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string grasp\+Demo\+\_\+\+I\+D\+L\+::get\+\_\+automatic\+\_\+hand (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_ab1ea4a6835cbd7a7eef2f347c11f7968}
+
+
+Get if automatic selection of the hand is on or off. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!get\+\_\+blob@{get\+\_\+blob}}
+\index{get\+\_\+blob@{get\+\_\+blob}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{get\+\_\+blob()}{get_blob()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual yarp\+::os\+::\+Bottle grasp\+Demo\+\_\+\+I\+D\+L\+::get\+\_\+blob (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a7ad1111fcda1fd6b6759cece23c6e0f4}
+
+
+Send the current 2D blob. 
+
+\begin{DoxyReturn}{Returns}
+a bottle containing all the 2D points of the blob 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!get\+\_\+filtered\+\_\+superq@{get\+\_\+filtered\+\_\+superq}}
+\index{get\+\_\+filtered\+\_\+superq@{get\+\_\+filtered\+\_\+superq}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{get\+\_\+filtered\+\_\+superq()}{get_filtered_superq()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string grasp\+Demo\+\_\+\+I\+D\+L\+::get\+\_\+filtered\+\_\+superq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a17792a60708878e1962b9068eac6451d}
+
+
+Get if to ask the filtered superquadric or not. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!get\+\_\+hand\+\_\+for\+\_\+computation@{get\+\_\+hand\+\_\+for\+\_\+computation}}
+\index{get\+\_\+hand\+\_\+for\+\_\+computation@{get\+\_\+hand\+\_\+for\+\_\+computation}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{get\+\_\+hand\+\_\+for\+\_\+computation()}{get_hand_for_computation()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string grasp\+Demo\+\_\+\+I\+D\+L\+::get\+\_\+hand\+\_\+for\+\_\+computation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a68b2d4eaa388f71a5519580b56b906c7}
+
+
+Get the hand for pose computation. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}right\char`\"{}, \char`\"{}left\char`\"{} or \char`\"{}both\char`\"{}. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!get\+\_\+hand\+\_\+for\+\_\+moving@{get\+\_\+hand\+\_\+for\+\_\+moving}}
+\index{get\+\_\+hand\+\_\+for\+\_\+moving@{get\+\_\+hand\+\_\+for\+\_\+moving}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{get\+\_\+hand\+\_\+for\+\_\+moving()}{get_hand_for_moving()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string grasp\+Demo\+\_\+\+I\+D\+L\+::get\+\_\+hand\+\_\+for\+\_\+moving (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a702688abfa7858c4650cd22e4516665a}
+
+
+Get the hand for pose computation. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}right\char`\"{}, \char`\"{}left\char`\"{} or \char`\"{}both\char`\"{}. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!get\+\_\+object\+\_\+class@{get\+\_\+object\+\_\+class}}
+\index{get\+\_\+object\+\_\+class@{get\+\_\+object\+\_\+class}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{get\+\_\+object\+\_\+class()}{get_object_class()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string grasp\+Demo\+\_\+\+I\+D\+L\+::get\+\_\+object\+\_\+class (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a66d89e8ebe9f764fbdd9d95bb0191b94}
+
+
+Get the current object class. 
+
+\begin{DoxyReturn}{Returns}
+the current object class. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!get\+\_\+object\+\_\+name@{get\+\_\+object\+\_\+name}}
+\index{get\+\_\+object\+\_\+name@{get\+\_\+object\+\_\+name}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{get\+\_\+object\+\_\+name()}{get_object_name()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string grasp\+Demo\+\_\+\+I\+D\+L\+::get\+\_\+object\+\_\+name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a55b811e44696b496da721da5a9f9beb4}
+
+
+Get the name of the object. 
+
+\begin{DoxyReturn}{Returns}
+a string with the name of the object. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!get\+\_\+reset\+\_\+filter@{get\+\_\+reset\+\_\+filter}}
+\index{get\+\_\+reset\+\_\+filter@{get\+\_\+reset\+\_\+filter}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{get\+\_\+reset\+\_\+filter()}{get_reset_filter()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string grasp\+Demo\+\_\+\+I\+D\+L\+::get\+\_\+reset\+\_\+filter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a13d16f7545403a90df04a5a1e0faa14b}
+
+
+Get if to reset the filtered superquadric or not. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!go\+\_\+back\+\_\+home@{go\+\_\+back\+\_\+home}}
+\index{go\+\_\+back\+\_\+home@{go\+\_\+back\+\_\+home}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{go\+\_\+back\+\_\+home()}{go_back_home()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::go\+\_\+back\+\_\+home (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a7fbe57e4cfca528567a8d84a659b8f12}
+
+
+Ask the robot to stop and go back to home position with the arm that is moving. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!go\+\_\+next@{go\+\_\+next}}
+\index{go\+\_\+next@{go\+\_\+next}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{go\+\_\+next()}{go_next()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::go\+\_\+next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_adbfee0a84908c87b633b05e9b5d306c2}
+
+
+Ask to go to the next step, following the pipeline\+: 1-\/ compute superquadric 2-\/ compute pose 3-\/ ask the robot to move. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!go\+\_\+to\+\_\+basket@{go\+\_\+to\+\_\+basket}}
+\index{go\+\_\+to\+\_\+basket@{go\+\_\+to\+\_\+basket}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{go\+\_\+to\+\_\+basket()}{go_to_basket()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::go\+\_\+to\+\_\+basket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a18069fb03cae17d4e09a52adfcd06a09}
+
+
+Ask the robot to put the object in a box on its side. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!grasp\+\_\+object@{grasp\+\_\+object}}
+\index{grasp\+\_\+object@{grasp\+\_\+object}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{grasp\+\_\+object()}{grasp_object()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::grasp\+\_\+object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_aec86f807d6baf8ab6b8bd5f321225c95}
+
+
+If you want just to perform step 3 (if step 2 has been performed). 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!set\+\_\+automatic\+\_\+hand@{set\+\_\+automatic\+\_\+hand}}
+\index{set\+\_\+automatic\+\_\+hand@{set\+\_\+automatic\+\_\+hand}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{set\+\_\+automatic\+\_\+hand(const std\+::string \&entry)}{set_automatic_hand(const std::string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::set\+\_\+automatic\+\_\+hand (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a0be94184ab18c9d312fb7c2e27b3d04d}
+
+
+Set if automatic selection of the hand is on or off. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}on\char`\"{} or \char`\"{}off\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!set\+\_\+filtered\+\_\+superq@{set\+\_\+filtered\+\_\+superq}}
+\index{set\+\_\+filtered\+\_\+superq@{set\+\_\+filtered\+\_\+superq}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{set\+\_\+filtered\+\_\+superq(const std\+::string \&entry)}{set_filtered_superq(const std::string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::set\+\_\+filtered\+\_\+superq (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_afd4e51de3917fe3a5caaf160459ac54d}
+
+
+Set if to ask the filtered superquadric or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!set\+\_\+hand\+\_\+for\+\_\+computation@{set\+\_\+hand\+\_\+for\+\_\+computation}}
+\index{set\+\_\+hand\+\_\+for\+\_\+computation@{set\+\_\+hand\+\_\+for\+\_\+computation}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{set\+\_\+hand\+\_\+for\+\_\+computation(const std\+::string \&entry)}{set_hand_for_computation(const std::string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::set\+\_\+hand\+\_\+for\+\_\+computation (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a68a1a97bb9c29769a3fc3c5c158bed0a}
+
+
+Set the hand for pose computation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}right\char`\"{}, \char`\"{}left\char`\"{} or \char`\"{}both\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!set\+\_\+hand\+\_\+for\+\_\+moving@{set\+\_\+hand\+\_\+for\+\_\+moving}}
+\index{set\+\_\+hand\+\_\+for\+\_\+moving@{set\+\_\+hand\+\_\+for\+\_\+moving}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{set\+\_\+hand\+\_\+for\+\_\+moving(const std\+::string \&entry)}{set_hand_for_moving(const std::string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::set\+\_\+hand\+\_\+for\+\_\+moving (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a23eeae69cf9067064b6757219abb334f}
+
+
+Set the hand for moving. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}right\char`\"{} or \char`\"{}left\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!set\+\_\+object\+\_\+class@{set\+\_\+object\+\_\+class}}
+\index{set\+\_\+object\+\_\+class@{set\+\_\+object\+\_\+class}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{set\+\_\+object\+\_\+class(const std\+::string \&entry)}{set_object_class(const std::string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::set\+\_\+object\+\_\+class (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_ad05df16c2b205b0eb5f9338de63d89b4}
+
+
+Set the current object class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the name of the object class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!set\+\_\+object\+\_\+name@{set\+\_\+object\+\_\+name}}
+\index{set\+\_\+object\+\_\+name@{set\+\_\+object\+\_\+name}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{set\+\_\+object\+\_\+name(const std\+::string \&entry)}{set_object_name(const std::string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::set\+\_\+object\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_af758a4f305a714b81462a17f0f86e318}
+
+
+Set the name of the object (stored by the object property collector). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & is the name of the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!set\+\_\+reset\+\_\+filter@{set\+\_\+reset\+\_\+filter}}
+\index{set\+\_\+reset\+\_\+filter@{set\+\_\+reset\+\_\+filter}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{set\+\_\+reset\+\_\+filter(const std\+::string \&entry)}{set_reset_filter(const std::string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::set\+\_\+reset\+\_\+filter (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a15203d03a49ac4225a2401b2b0428960}
+
+
+Set if to reset the filtered superquadric or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. 
+\end{DoxyReturn}
+\index{grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}!start\+\_\+from\+\_\+scratch@{start\+\_\+from\+\_\+scratch}}
+\index{start\+\_\+from\+\_\+scratch@{start\+\_\+from\+\_\+scratch}!grasp\+Demo\+\_\+\+I\+DL@{grasp\+Demo\+\_\+\+I\+DL}}
+\subsubsection[{\texorpdfstring{start\+\_\+from\+\_\+scratch()}{start_from_scratch()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool grasp\+Demo\+\_\+\+I\+D\+L\+::start\+\_\+from\+\_\+scratch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classgraspDemo__IDL_a3ae8ff9135f0b72a12f423a03412e4ee}
+
+
+The pipeline is restarted and is waiting the command \char`\"{}go\+\_\+next\char`\"{} to start from step 1. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/upattacini/\+Desktop/superquadric-\/grasp-\/demo/idl\+\_\+dox/grasp\+Demo\+\_\+\+I\+D\+L.\+h\end{DoxyCompactItemize}

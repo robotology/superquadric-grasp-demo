@@ -1,0 +1,64 @@
+\section{superquadric-\/grasp-\/demo}
+\label{group__superquadric-grasp-demo}\index{superquadric-\/grasp-\/demo@{superquadric-\/grasp-\/demo}}
+
+
+An example on how to run the superquadric modeling and grasping demo.  
+
+
+An example on how to run the superquadric modeling and grasping demo. 
+
+Version\+:1.\+0 \begin{DoxyAuthor}{Author}
+Giulia Vezzani \href{mailto:giulia.vezzani@iit.it}{\tt giulia.\+vezzani@iit.\+it} ~\newline
+ 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Released under the terms of the G\+NU G\+PL v2.\+0 
+\end{DoxyCopyright}
+\hypertarget{group__superquadric-grasp-demo_intro_sec}{}\subsection{Description}\label{group__superquadric-grasp-demo_intro_sec}
+This module provides a wrapper code for performing the superquadric modeling and grasping demo. A tutorial on how to use the module is provided here\+: \href{https://github.com/robotology/superquadric-grasp-example/tree/gh-pages/grasp-demo#how-to-run-the-code}{\tt {\bfseries tutorial}}.
+
+This page illustrates the main parameters of the module (Section {\bfseries Parameters}), the available ports and services.\hypertarget{group__superquadric-grasp-demo_parameters_sec}{}\subsection{Parameters}\label{group__superquadric-grasp-demo_parameters_sec}
+
+\begin{DoxyItemize}
+\item --from\+: Configuration file name.
+\item --objname\+: The name of the object to be modeled and grasped.
+\item --hand\+\_\+for\+\_\+computing\+: Select the hand for which we want to compute a grasping pose. Available values\+: right, left, both.
+\item --hand\+\_\+for\+\_\+moving\+: Select the hand for which we want to use for executing the grasping. Available values\+: right, left.
+\item --choose\+\_\+hand\+: Select automatically the best hand for grasping the object. Available values\+: true, false.
+\item --filtered\+: Filter multiple superquadrics in order to improve the object model. Available values\+: on, off.
+\item --n\+\_\+pc\+: Number of point clouds used for averaging the superquadrics. 
+\end{DoxyItemize}\hypertarget{group__superquadric-grasp-demo_inputports_sec}{}\subsection{Input Ports}\label{group__superquadric-grasp-demo_inputports_sec}
+
+\begin{DoxyItemize}
+\item /superquadric-\/grasp-\/demo/img\+:i \mbox{[}yarp\+::sig\+::\+Image\+Of\+Pixel\+Rgb\mbox{]} \mbox{[}default carrier\+:tcp\mbox{]}\+: Receive the image from the left camera for saving the colored point cloud.
+\end{DoxyItemize}\hypertarget{group__superquadric-grasp-demo_outputports_sec}{}\subsection{Output Ports}\label{group__superquadric-grasp-demo_outputports_sec}
+\hypertarget{group__superquadric-grasp-demo_services_sec}{}\subsection{Services}\label{group__superquadric-grasp-demo_services_sec}
+
+\begin{DoxyItemize}
+\item /superquadric-\/grasp-\/demo/rpc \mbox{[}rpc-\/server\mbox{]}\+: service port . This service is described in \hyperlink{classgraspDemo__IDL}{grasp\+Demo\+\_\+\+I\+DL} (idl.\+thrift)
+\item /superquadric-\/grasp-\/demo/blob\+:rpc \mbox{[}rpc-\/client\mbox{]}\+:
+
+Ask for the 2D blob of the object.
+
+. This service is described in yarp\+::os\+::\+Bottle ()
+\item /superquadric-\/grasp-\/demo/\+O\+PC\+:rpc \mbox{[}rpc-\/client\mbox{]}\+:
+
+Ask for the 2D bounding box of the object.
+
+. This service is described in yarp\+::os\+::\+Bottle ()
+\item /superquadric-\/grasp-\/demo/\+S\+FM\+:rpc \mbox{[}rpc-\/client\mbox{]}\+:
+
+Ask for the 3D point cloud of the object.
+
+. This service is described in yarp\+::os\+::\+Bottle ()
+\item /superquadric-\/grasp-\/demo/superq\+:rpc \mbox{[}rpc-\/client\mbox{]}\+:
+
+Interact with the superquadric-\/model module.
+
+. This service is described in yarp\+::os\+::\+Bottle ()
+\item /superquadric-\/grasp-\/demo/grasp\+:rpc \mbox{[}rpc-\/client\mbox{]}\+:
+
+Interact with the superquadric-\/grasp module.
+
+. This service is described in yarp\+::os\+::\+Bottle () 
+\end{DoxyItemize}

@@ -1,0 +1,1597 @@
+\section{Grasp\+Demo Class Reference}
+\label{classGraspDemo}\index{Grasp\+Demo@{Grasp\+Demo}}
+
+
+The \hyperlink{classGraspDemo}{Grasp\+Demo} class provides a wrapper for the superquadric modeling and grasping frameworks.  
+
+
+
+
+Inherits R\+F\+Module, and superquadric\+Grasp\+Demo\+\_\+\+I\+DL.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries attach} (Rpc\+Server \&source)\label{classGraspDemo_a87bd98e4c5db533e4b49291ff0bfea2f}
+
+\item 
+Bottle \hyperlink{classGraspDemo_a4c953da01a507c3db576aceaa037ccf7}{get\+\_\+\+Blob} ()
+\begin{DoxyCompactList}\small\item\em Send the current 2D blob. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a3d0c212259e9708f114c974f4f8be5d8}{set\+\_\+object\+\_\+name} (const string \&object\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Set the name of the object (stored by the object property collector). \end{DoxyCompactList}\item 
+string \hyperlink{classGraspDemo_a0e63863ba87a3dfc2e431ef13d28b3b1}{get\+\_\+object\+\_\+name} ()
+\begin{DoxyCompactList}\small\item\em Get the name of the object. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_aba0999973563c9c351eced78c61c387c}{set\+\_\+hand\+\_\+for\+\_\+computation} (const string \&h)
+\begin{DoxyCompactList}\small\item\em Set the hand for pose computation. \end{DoxyCompactList}\item 
+string \hyperlink{classGraspDemo_a5a25b013010af2cefc14a7ee9537de8b}{get\+\_\+hand\+\_\+for\+\_\+computation} ()
+\begin{DoxyCompactList}\small\item\em Get the hand for pose computation. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a8d98d43216ba591f3859c686b15174df}{set\+\_\+hand\+\_\+for\+\_\+moving} (const string \&h)
+\begin{DoxyCompactList}\small\item\em Set the hand for moving. \end{DoxyCompactList}\item 
+string \hyperlink{classGraspDemo_ad81dd2f4eb0d2e0f31faf4e23866395f}{get\+\_\+hand\+\_\+for\+\_\+moving} ()
+\begin{DoxyCompactList}\small\item\em Get the hand for pose computation. \end{DoxyCompactList}\item 
+string \hyperlink{classGraspDemo_aaf774f3184d8c140deb7865fa3dbe4e6}{get\+\_\+automatic\+\_\+hand} ()
+\begin{DoxyCompactList}\small\item\em Get if automatic selection of the hand is on or off. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_ae609e2ec7eea3adb5fba5b11c8e71c33}{set\+\_\+automatic\+\_\+hand} (const string \&entry)
+\begin{DoxyCompactList}\small\item\em Set if automatic selection of the hand is on or off. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a478868cf5bd110f700327af69fa50a24}{go\+\_\+next} ()
+\begin{DoxyCompactList}\small\item\em Ask to go to the next step, following the pipeline\+: 1-\/ compute superquadric 2-\/ compute pose 3-\/ ask the robot to move. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a48b305f002b084ae751098e52b930b02}{start\+\_\+from\+\_\+scratch} ()
+\begin{DoxyCompactList}\small\item\em The pipeline is restarted and is waiting the command \char`\"{}go\+\_\+next\char`\"{} to start from step 1. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_aaccf8483cef8af69b7053d453ce0808e}{acquire\+\_\+superq} ()
+\begin{DoxyCompactList}\small\item\em If you want just to perform step 1. \end{DoxyCompactList}\item 
+string \hyperlink{classGraspDemo_adf4d974fbc66aa2706709985080d5625}{check\+\_\+superq} ()
+\begin{DoxyCompactList}\small\item\em To ask if the superquadric has been computed. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a6bd2f7ffee3191be392b1deb7d6c0a39}{compute\+\_\+pose} ()
+\begin{DoxyCompactList}\small\item\em If you want just to perform step 2 (if step 1 has been performed). \end{DoxyCompactList}\item 
+string \hyperlink{classGraspDemo_ac731568beb7e7f6fa65e18e1165a5d55}{check\+\_\+pose} ()
+\begin{DoxyCompactList}\small\item\em To ask if the pose has been computed. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a42dbb269c111baf3d3bfe389e49c315c}{grasp\+\_\+object} ()
+\begin{DoxyCompactList}\small\item\em If you want just to perform step 3 (if step 2 has been performed). \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a594b0cd3274a3117f4c5e636abc3898c}{go\+\_\+back\+\_\+home} ()
+\begin{DoxyCompactList}\small\item\em Ask the robot to stop and go back to home position with the arm that is moving. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a6a9ed07317e2d0f3fcb39f906dd3d0f0}{go\+\_\+to\+\_\+basket} ()
+\begin{DoxyCompactList}\small\item\em Ask the robot to put the object in a box on its side. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a26716535b8b8f3914cdb4d59c92de489}{clear\+\_\+poses} ()
+\begin{DoxyCompactList}\small\item\em Clear the computed superq. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a3299163baab1e29e4f036d4e1c4d0bb6}{clear\+\_\+superq} ()
+\begin{DoxyCompactList}\small\item\em Clear all the computed poses. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_ae7e85fa7ddb934061f32cb14c29a7bf7}{set\+\_\+filtered\+\_\+superq} (const string \&entry)
+\begin{DoxyCompactList}\small\item\em Set if to ask the filtered superquadric or not. \end{DoxyCompactList}\item 
+string \hyperlink{classGraspDemo_a5b9cc76696c412bb7935a7d26b6f1524}{get\+\_\+filtered\+\_\+superq} ()
+\begin{DoxyCompactList}\small\item\em Get if to ask the filtered superquadric or not. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a491b6098d6ca65dd3cc5223e50ffb86a}{set\+\_\+reset\+\_\+filter} (const string \&entry)
+\begin{DoxyCompactList}\small\item\em Set if to reset the filtered superquadric or not. \end{DoxyCompactList}\item 
+string \hyperlink{classGraspDemo_ad86eaf31952318292e312051f547b18e}{get\+\_\+reset\+\_\+filter} ()
+\begin{DoxyCompactList}\small\item\em Get if to reset the filtered superquadric or not. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a87b1af09ff3b37342e5d8d4684167c06}{set\+\_\+object\+\_\+class} (const string \&entry)
+\begin{DoxyCompactList}\small\item\em Set the current object class. \end{DoxyCompactList}\item 
+string \hyperlink{classGraspDemo_abae15028a7341b468dd12e7d6f84b31c}{get\+\_\+object\+\_\+class} ()
+\begin{DoxyCompactList}\small\item\em Get the current object class. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a86a475f7c16f2c70d486bf6a38dbb547}{getperiod} ()
+\begin{DoxyCompactList}\small\item\em Set the R\+F\+Module period. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a1530446b0bb96c1c2b43be52f61cc9b4}{calibrate} ()
+\begin{DoxyCompactList}\small\item\em Calibrate plane height via superquadric computation. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a13a8d5d06b3cedbd4025237ffbe1e7b3}{configure} (Resource\+Finder \&rf)
+\begin{DoxyCompactList}\small\item\em Configure method of the R\+F\+Module. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a22d5fb62d4c13fce0b27dfce65d3272a}{close} ()
+\begin{DoxyCompactList}\small\item\em Close all the ports. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a97b8a4cbbc94f444651a1746bd3a8164}{update\+Module} ()
+\begin{DoxyCompactList}\small\item\em Execute the state machine and the communications with external modules. \end{DoxyCompactList}\item 
+void \hyperlink{classGraspDemo_a85434849e19708c5270b41f8b68ccc81}{get\+Blob} ()\label{classGraspDemo_a85434849e19708c5270b41f8b68ccc81}
+
+\begin{DoxyCompactList}\small\item\em Acquire 2D blob of the object. \end{DoxyCompactList}\item 
+void \hyperlink{classGraspDemo_ab34b34da55d93d16b344ac37faaec8cd}{point\+From\+Name} ()\label{classGraspDemo_ab34b34da55d93d16b344ac37faaec8cd}
+
+\begin{DoxyCompactList}\small\item\em Get object 2D center from its name. \end{DoxyCompactList}\item 
+deque$<$ Vector $>$ \hyperlink{classGraspDemo_a14780589e408a271496b3b44ac3df874}{get3\+Dpoints} (Image\+Of$<$ Pixel\+Rgb $>$ $\ast$Img\+In)
+\begin{DoxyCompactList}\small\item\em Get 3D points by querying S\+FM. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a31f6cab85a8d544a65fb270226a9839c}{read\+Superq} (const string \&name\+\_\+obj, Vector \&x, const int \&dimension, Resource\+Finder $\ast$rf)
+\begin{DoxyCompactList}\small\item\em Read the superquadric from the configuration file, in offline mode. \end{DoxyCompactList}\item 
+Property \hyperlink{classGraspDemo_a4ff3132df68c4ef30b8e58b6f29f5bf9}{fill\+Property} (const Vector \&sol)
+\begin{DoxyCompactList}\small\item\em Fill a property with the solutions inside. \end{DoxyCompactList}\item 
+Vector \hyperlink{classGraspDemo_af6e521f663f44999c66cbe91aeedb23b}{get\+Bottle} (Bottle \&estimated\+\_\+superq, Bottle \&cmd)\label{classGraspDemo_af6e521f663f44999c66cbe91aeedb23b}
+
+\begin{DoxyCompactList}\small\item\em Process bottle with the superquadric. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_a5efe5f7b89a576b4f1e846cb7bd4bdaa}{superq\+Ok} (Vector \&sup)\label{classGraspDemo_a5efe5f7b89a576b4f1e846cb7bd4bdaa}
+
+\begin{DoxyCompactList}\small\item\em Check if the reconstructed superquadric is safe for grasping. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_ae500c0a1bba0ca6898b5183450ea6bf8}{get\+Plane} ()\label{classGraspDemo_ae500c0a1bba0ca6898b5183450ea6bf8}
+
+\begin{DoxyCompactList}\small\item\em Get plane information from superquadric-\/grasp module. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraspDemo_aa2513f4568fc185fa5b00d3fc6b15cdc}{pose\+Ok} (Bottle \&reply)\label{classGraspDemo_aa2513f4568fc185fa5b00d3fc6b15cdc}
+
+\begin{DoxyCompactList}\small\item\em Check if the reconstructed superquadric is safe for grasping. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classGraspDemo}{Grasp\+Demo} class provides a wrapper for the superquadric modeling and grasping frameworks. 
+
+It implements a state machine, that communicates with external modules, including the superquadric-\/model and -\/grasp modules, for making the i\+Cub grasping an unknown object. 
+
+Definition at line 48 of file main.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Grasp\+Demo@{Grasp\+Demo}!acquire\+\_\+superq@{acquire\+\_\+superq}}
+\index{acquire\+\_\+superq@{acquire\+\_\+superq}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{acquire\+\_\+superq()}{acquire_superq()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::acquire\+\_\+superq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_aaccf8483cef8af69b7053d453ce0808e}
+
+
+If you want just to perform step 1. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+
+
+Definition at line 279 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+280     \{
+281         go\_on=\textcolor{keyword}{true};
+282         superq\_received=\textcolor{keyword}{false};
+283         pose\_received=\textcolor{keyword}{false};
+284 
+285         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+286     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!calibrate@{calibrate}}
+\index{calibrate@{calibrate}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{calibrate()}{calibrate()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::calibrate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a1530446b0bb96c1c2b43be52f61cc9b4}
+
+
+Calibrate plane height via superquadric computation. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 553 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+554     \{
+555         Bottle cmd;
+556         \textcolor{keywordtype}{bool} ok\_calibration=\textcolor{keyword}{false};
+557         
+558         acquire_superq();
+559       
+560         \textcolor{keywordflow}{while} (!superq\_received)
+561             Time::delay(0.1);
+562 
+563         yInfo()<<\textcolor{stringliteral}{"Received superquadric: "}<<superq\_b.toString();
+564 
+565         Vector sup(11,0.0);
+566         sup=getBottle(superq\_b, cmd);
+567 
+568         \textcolor{keywordflow}{if} (!superq\_b.isNull())
+569         \{
+570             ok\_acq=\textcolor{keyword}{true};
+571 
+572             \textcolor{keywordflow}{if} (superq\_b.size()>0 && norm(sup.subVector(0,7))>0.0)
+573            \{
+574                 \textcolor{keywordflow}{if} (superqOk(sup))
+575                     superq\_ok=superq\_received=\textcolor{keyword}{true};
+576                 \textcolor{keywordflow}{else}
+577                     superq\_ok=superq\_received=\textcolor{keyword}{false};
+578             \}
+579             \textcolor{keywordflow}{else}
+580             \{
+581                 yError()<<\textcolor{stringliteral}{"Zero superquadric"};
+582                 superq\_ok=superq\_received=\textcolor{keyword}{false};
+583             \}
+584         \}
+585 
+586         \textcolor{keywordflow}{if} (superq\_ok)
+587         \{
+588             yDebug()<<\textcolor{stringliteral}{"Plane height: "}<<sup[7];
+589         \}
+590 
+591         \textcolor{keywordflow}{if} (sup[7]<0.0 && sup[7]>-0.18)
+592         \{
+593             Bottle cmd, reply\_pose;
+594             cmd.addString(\textcolor{stringliteral}{"set\_options"});
+595 
+596             Bottle &ext\_content=cmd.addList();
+597             Bottle &content=ext\_content.addList();
+598             content.addString(\textcolor{stringliteral}{"plane"});
+599             Bottle &plane\_bottle=content.addList();
+600             plane\_bottle.addDouble(0.0); plane\_bottle.addDouble(0.0); plane\_bottle.addDouble(1.0); 
+      plane\_bottle.addDouble(-sup[7]);
+601 
+602             cmd.addString(\textcolor{stringliteral}{"pose"});
+603 
+604             ok\_calibration=graspRpc.write(cmd, reply\_pose);
+605 
+606             yDebug()<<\textcolor{stringliteral}{"Ok set plane "}<<ok\_calibration;
+607 
+608         \}
+609 
+610         start_from_scratch();
+611 
+612         \textcolor{keywordflow}{return} ok\_calibration;
+613     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!check\+\_\+pose@{check\+\_\+pose}}
+\index{check\+\_\+pose@{check\+\_\+pose}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{check\+\_\+pose()}{check_pose()}}]{\setlength{\rightskip}{0pt plus 5cm}string Grasp\+Demo\+::check\+\_\+pose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_ac731568beb7e7f6fa65e18e1165a5d55}
+
+
+To ask if the pose has been computed. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 335 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+336     \{
+337         
+338         yDebug()<<\textcolor{stringliteral}{"check\_pose"};
+339         yDebug()<<\textcolor{stringliteral}{"pose rec"}<<pose\_ok;
+340         \textcolor{keywordflow}{if} (ok\_acq\_pose==\textcolor{keyword}{false})
+341         \{
+342             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"wait"};
+343         \}
+344         \textcolor{keywordflow}{else}
+345         \{
+346             \textcolor{keywordflow}{if} (pose\_ok)
+347                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"ok"};
+348             \textcolor{keywordflow}{else}
+349             \{
+350                 yDebug()<<\textcolor{stringliteral}{"returning again"};
+351                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"again"};
+352             \}
+353         \}
+354     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!check\+\_\+superq@{check\+\_\+superq}}
+\index{check\+\_\+superq@{check\+\_\+superq}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{check\+\_\+superq()}{check_superq()}}]{\setlength{\rightskip}{0pt plus 5cm}string Grasp\+Demo\+::check\+\_\+superq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_adf4d974fbc66aa2706709985080d5625}
+
+
+To ask if the superquadric has been computed. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 293 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+294     \{
+295         yDebug()<<\textcolor{stringliteral}{"check\_superq"};
+296         yDebug()<<\textcolor{stringliteral}{"superq rec"}<<superq\_ok;
+297         yDebug()<<\textcolor{stringliteral}{"superq rec"}<<ok\_acq;
+298         \textcolor{keywordflow}{if} (ok\_acq==\textcolor{keyword}{false})
+299         \{
+300             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"wait"};
+301         \}
+302         \textcolor{keywordflow}{else}
+303         \{
+304             \textcolor{keywordflow}{if} (superq\_ok)
+305                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"ok"};
+306             \textcolor{keywordflow}{else}
+307                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"again"};
+308         \}
+309     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!clear\+\_\+poses@{clear\+\_\+poses}}
+\index{clear\+\_\+poses@{clear\+\_\+poses}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{clear\+\_\+poses()}{clear_poses()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::clear\+\_\+poses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a26716535b8b8f3914cdb4d59c92de489}
+
+
+Clear the computed superq. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+
+
+Definition at line 420 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+421     \{
+422         Bottle cmd, reply;
+423         cmd.addString(\textcolor{stringliteral}{"clear\_poses"});
+424 
+425         graspRpc.write(cmd, reply);
+426 
+427         superq\_received=\textcolor{keyword}{false};
+428     
+429         pose\_received=\textcolor{keyword}{false};
+430 
+431         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+432     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!clear\+\_\+superq@{clear\+\_\+superq}}
+\index{clear\+\_\+superq@{clear\+\_\+superq}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{clear\+\_\+superq()}{clear_superq()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::clear\+\_\+superq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a3299163baab1e29e4f036d4e1c4d0bb6}
+
+
+Clear all the computed poses. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+
+
+Definition at line 439 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+440     \{
+441         Bottle cmd, reply;
+442         superq\_received=\textcolor{keyword}{false};
+443 
+444         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+445     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!close@{close}}
+\index{close@{close}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{close()}{close()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a22d5fb62d4c13fce0b27dfce65d3272a}
+
+
+Close all the ports. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+
+
+Definition at line 676 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+677     \{
+678         \textcolor{keywordflow}{if} (portBlobRpc.asPort().isOpen())
+679             portBlobRpc.close();
+680         \textcolor{keywordflow}{if} (portOPCrpc.asPort().isOpen())
+681             portOPCrpc.close();
+682         \textcolor{keywordflow}{if} (portSFMRpc.asPort().isOpen())
+683             portSFMRpc.close();
+684         \textcolor{keywordflow}{if} (superqRpc.asPort().isOpen())
+685             superqRpc.close();
+686         \textcolor{keywordflow}{if} (graspRpc.asPort().isOpen())
+687             graspRpc.close();
+688         \textcolor{keywordflow}{if} (!portImgIn.isClosed())
+689             portImgIn.close();
+690 
+691         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+692     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!compute\+\_\+pose@{compute\+\_\+pose}}
+\index{compute\+\_\+pose@{compute\+\_\+pose}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{compute\+\_\+pose()}{compute_pose()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::compute\+\_\+pose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a6bd2f7ffee3191be392b1deb7d6c0a39}
+
+
+If you want just to perform step 2 (if step 1 has been performed). 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 317 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+318     \{
+319         \textcolor{keywordflow}{if} (superq\_received==\textcolor{keyword}{true})
+320         \{
+321             go\_on=\textcolor{keyword}{true};
+322             pose\_received=\textcolor{keyword}{false};
+323 
+324             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+325         \}
+326         \textcolor{keywordflow}{else}
+327             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+328     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!configure@{configure}}
+\index{configure@{configure}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{configure(\+Resource\+Finder \&rf)}{configure(ResourceFinder &rf)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::configure (
+\begin{DoxyParamCaption}
+\item[{Resource\+Finder \&}]{rf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a13a8d5d06b3cedbd4025237ffbe1e7b3}
+
+
+Configure method of the R\+F\+Module. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 620 of file main.\+cpp.
+
+
+
+Referenced by pose\+Ok().
+
+
+\begin{DoxyCode}
+621     \{
+622         this->rf=&rf;
+623         method=rf.find(\textcolor{stringliteral}{"method"}).asString().c\_str();
+624         \textcolor{keywordflow}{if} (rf.find(\textcolor{stringliteral}{"method"}).isNull())
+625             method=\textcolor{stringliteral}{"name"};
+626 
+627         objname=rf.find(\textcolor{stringliteral}{"object\_name"}).asString().c\_str();
+628         \textcolor{keywordflow}{if} (rf.find(\textcolor{stringliteral}{"object\_name"}).isNull())
+629             objname=\textcolor{stringliteral}{"object"};
+630 
+631         filtered=(rf.check(\textcolor{stringliteral}{"filtered"}, Value(\textcolor{stringliteral}{"off"})).asString()==\textcolor{stringliteral}{"on"});
+632         reset=(rf.check(\textcolor{stringliteral}{"reset"}, Value(\textcolor{stringliteral}{"off"})).asString()==\textcolor{stringliteral}{"on"});
+633         hand\_for\_computation=rf.check(\textcolor{stringliteral}{"hand\_for\_computation"}, Value(\textcolor{stringliteral}{"both"})).asString();
+634         hand\_for\_moving=rf.check(\textcolor{stringliteral}{"hand\_for\_moving"}, Value(\textcolor{stringliteral}{"right"})).asString();
+635         choose\_hand=rf.check(\textcolor{stringliteral}{"choose\_hand"}, Value(\textcolor{keyword}{false})).asBool();
+636 
+637         n\_pc=rf.check(\textcolor{stringliteral}{"num\_point\_cloud"}, Value(5)).asInt();
+638 
+639         online=(rf.check(\textcolor{stringliteral}{"online"}, Value(\textcolor{stringliteral}{"off"})).asString()==\textcolor{stringliteral}{"on"});
+640 
+641         \textcolor{keywordflow}{if} (online==\textcolor{keyword}{false})
+642         \{
+643             readSuperq(\textcolor{stringliteral}{"object"}, \textcolor{keywordtype}{object}, 11, this->rf);
+644             superq=fillProperty(\textcolor{keywordtype}{object});
+645         \}
+646 
+647         portBlobRpc.open(\textcolor{stringliteral}{"/superquadric-grasp-demo/blob:rpc"});
+648         portOPCrpc.open(\textcolor{stringliteral}{"/superquadric-grasp-demo/OPC:rpc"});
+649         portSFMRpc.open(\textcolor{stringliteral}{"/superquadric-grasp-demo/SFM:rpc"});
+650         superqRpc.open(\textcolor{stringliteral}{"/superquadric-grasp-demo/superq:rpc"});
+651         graspRpc.open(\textcolor{stringliteral}{"/superquadric-grasp-demo/grasp:rpc"});
+652         portRpc.open(\textcolor{stringliteral}{"/superquadric-grasp-demo/rpc"});
+653         portImgIn.open(\textcolor{stringliteral}{"/superquadric-grasp-demo/img:i"});
+654 
+655         attach(portRpc);
+656 
+657         go\_on=\textcolor{keyword}{false};
+658         go\_home=\textcolor{keyword}{false};
+659         superq\_ok=\textcolor{keyword}{false};
+660         pose\_ok=\textcolor{keyword}{false};
+661         go\_basket=\textcolor{keyword}{false};
+662         superq\_received=\textcolor{keyword}{false};
+663         pose\_received=\textcolor{keyword}{false};
+664         robot\_moving=\textcolor{keyword}{false};
+665 
+666         superq\_aux.resize(12,0.0);
+667 
+668         \textcolor{keywordflow}{return}  \textcolor{keyword}{true};
+669     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!fill\+Property@{fill\+Property}}
+\index{fill\+Property@{fill\+Property}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{fill\+Property(const Vector \&sol)}{fillProperty(const Vector &sol)}}]{\setlength{\rightskip}{0pt plus 5cm}Property Grasp\+Demo\+::fill\+Property (
+\begin{DoxyParamCaption}
+\item[{const Vector \&}]{sol}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a4ff3132df68c4ef30b8e58b6f29f5bf9}
+
+
+Fill a property with the solutions inside. 
+
+\begin{DoxyReturn}{Returns}
+a property with the computed solutions. 
+\end{DoxyReturn}
+
+
+Definition at line 1213 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+1214     \{
+1215         Property superq;
+1216 
+1217         Bottle bottle;
+1218         Bottle &b1=bottle.addList();
+1219         b1.addDouble(sol[0]); b1.addDouble(sol[1]); b1.addDouble(sol[2]);
+1220         superq.put(\textcolor{stringliteral}{"dimensions"}, bottle.get(0));
+1221 
+1222         Bottle &b2=bottle.addList();
+1223         b2.addDouble(sol[3]); b2.addDouble(sol[4]);
+1224         superq.put(\textcolor{stringliteral}{"exponents"}, bottle.get(1));
+1225 
+1226         Bottle &b3=bottle.addList();
+1227         b3.addDouble(sol[5]); b3.addDouble(sol[6]); b3.addDouble(sol[7]);
+1228         superq.put(\textcolor{stringliteral}{"center"}, bottle.get(2));
+1229 
+1230         Bottle &b4=bottle.addList();
+1231         Vector orient=dcm2axis(euler2dcm(sol.subVector(8,10)));
+1232         b4.addDouble(orient[0]); b4.addDouble(orient[1]); b4.addDouble(orient[2]); b4.addDouble(orient[3]);
+1233         superq.put(\textcolor{stringliteral}{"orientation"}, bottle.get(3));
+1234         \textcolor{keywordflow}{return} superq;
+1235     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!get3\+Dpoints@{get3\+Dpoints}}
+\index{get3\+Dpoints@{get3\+Dpoints}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{get3\+Dpoints(\+Image\+Of$<$ Pixel\+Rgb $>$ $\ast$\+Img\+In)}{get3Dpoints(ImageOf< PixelRgb > *ImgIn)}}]{\setlength{\rightskip}{0pt plus 5cm}deque$<$Vector$>$ Grasp\+Demo\+::get3\+Dpoints (
+\begin{DoxyParamCaption}
+\item[{Image\+Of$<$ Pixel\+Rgb $>$ $\ast$}]{Img\+In}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a14780589e408a271496b3b44ac3df874}
+
+
+Get 3D points by querying S\+FM. 
+
+\begin{DoxyReturn}{Returns}
+a deque of Vectors with the point cloud 
+\end{DoxyReturn}
+
+
+Definition at line 1131 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+1132     \{
+1133         Bottle cmd,reply;
+1134         cmd.addString(\textcolor{stringliteral}{"Points"});
+1135         \textcolor{keywordtype}{int} count\_blob=0;
+1136 
+1137         deque<Vector> p;
+1138 
+1139         p.clear();
+1140 
+1141         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i=0; i<blob\_points.size(); i++)
+1142         \{
+1143             cv::Point single\_point=blob\_points[i];
+1144             cmd.addInt(single\_point.x);
+1145             cmd.addInt(single\_point.y);
+1146         \}
+1147 
+1148         \textcolor{keywordflow}{if} (portSFMRpc.write(cmd,reply))
+1149         \{
+1150             count\_blob=0;
+1151 
+1152             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} idx=0;idx<reply.size();idx+=3)
+1153             \{
+1154                 Vector point(6,0.0);
+1155 
+1156                 point[0]=reply.get(idx+0).asDouble();
+1157                 point[1]=reply.get(idx+1).asDouble();
+1158                 point[2]=reply.get(idx+2).asDouble();
+1159 
+1160                 \textcolor{keywordflow}{if} (ImgIn!=NULL && (filtered==\textcolor{keyword}{false}))
+1161                 \{
+1162                     PixelRgb px=ImgIn->pixel(blob\_points[count\_blob].x,blob\_points[count\_blob].y);
+1163                     point[3]=px.r;
+1164                     point[4]=px.g;
+1165                     point[5]=px.b;
+1166                 \}
+1167 
+1168                 count\_blob+=1;
+1169 
+1170                 \textcolor{keywordflow}{if} ((norm(point)>0))
+1171                 \{
+1172                     p.push\_back(point);
+1173                 \}
+1174             \}
+1175 
+1176             \textcolor{keywordflow}{if} (points.size()<=0)
+1177             \{
+1178                 yError(\textcolor{stringliteral}{"[SuperqComputation]: Some problems in point acquisition!"});
+1179             \}
+1180         \}
+1181         \textcolor{keywordflow}{else}
+1182         \{
+1183             yError(\textcolor{stringliteral}{"[SuperqComputation]: SFM reply is fail!"});
+1184             p.clear();
+1185         \}
+1186 
+1187         \textcolor{keywordflow}{return} p;
+1188     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!get\+\_\+automatic\+\_\+hand@{get\+\_\+automatic\+\_\+hand}}
+\index{get\+\_\+automatic\+\_\+hand@{get\+\_\+automatic\+\_\+hand}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{get\+\_\+automatic\+\_\+hand()}{get_automatic_hand()}}]{\setlength{\rightskip}{0pt plus 5cm}string Grasp\+Demo\+::get\+\_\+automatic\+\_\+hand (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_aaf774f3184d8c140deb7865fa3dbe4e6}
+
+
+Get if automatic selection of the hand is on or off. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. 
+\end{DoxyReturn}
+
+
+Definition at line 213 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+214     \{
+215         \textcolor{keywordflow}{if} (choose\_hand)
+216             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"on"};
+217         \textcolor{keywordflow}{else}
+218             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"off"};
+219     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!get\+\_\+\+Blob@{get\+\_\+\+Blob}}
+\index{get\+\_\+\+Blob@{get\+\_\+\+Blob}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{get\+\_\+\+Blob()}{get_Blob()}}]{\setlength{\rightskip}{0pt plus 5cm}Bottle Grasp\+Demo\+::get\+\_\+\+Blob (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a4c953da01a507c3db576aceaa037ccf7}
+
+
+Send the current 2D blob. 
+
+\begin{DoxyReturn}{Returns}
+a bottle containing all the 2D points of the blob 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+112     \{
+113         Bottle blob;
+114         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i=0; i<blob\_points.size(); i++)
+115         \{
+116             Bottle &b=blob.addList();
+117             b.addDouble(blob\_points[i].x); b.addDouble(blob\_points[i].y);
+118         \}
+119 
+120         \textcolor{keywordflow}{return} blob;
+121     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!get\+\_\+filtered\+\_\+superq@{get\+\_\+filtered\+\_\+superq}}
+\index{get\+\_\+filtered\+\_\+superq@{get\+\_\+filtered\+\_\+superq}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{get\+\_\+filtered\+\_\+superq()}{get_filtered_superq()}}]{\setlength{\rightskip}{0pt plus 5cm}string Grasp\+Demo\+::get\+\_\+filtered\+\_\+superq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a5b9cc76696c412bb7935a7d26b6f1524}
+
+
+Get if to ask the filtered superquadric or not. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 469 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+470     \{
+471         \textcolor{keywordflow}{if} (filtered)
+472             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"on"};
+473         \textcolor{keywordflow}{else}
+474             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"off"};
+475     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!get\+\_\+hand\+\_\+for\+\_\+computation@{get\+\_\+hand\+\_\+for\+\_\+computation}}
+\index{get\+\_\+hand\+\_\+for\+\_\+computation@{get\+\_\+hand\+\_\+for\+\_\+computation}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{get\+\_\+hand\+\_\+for\+\_\+computation()}{get_hand_for_computation()}}]{\setlength{\rightskip}{0pt plus 5cm}string Grasp\+Demo\+::get\+\_\+hand\+\_\+for\+\_\+computation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a5a25b013010af2cefc14a7ee9537de8b}
+
+
+Get the hand for pose computation. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}right\char`\"{}, \char`\"{}left\char`\"{} or \char`\"{}both\char`\"{}. 
+\end{DoxyReturn}
+
+
+Definition at line 173 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+174     \{
+175         \textcolor{keywordflow}{return} hand\_for\_computation;
+176     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!get\+\_\+hand\+\_\+for\+\_\+moving@{get\+\_\+hand\+\_\+for\+\_\+moving}}
+\index{get\+\_\+hand\+\_\+for\+\_\+moving@{get\+\_\+hand\+\_\+for\+\_\+moving}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{get\+\_\+hand\+\_\+for\+\_\+moving()}{get_hand_for_moving()}}]{\setlength{\rightskip}{0pt plus 5cm}string Grasp\+Demo\+::get\+\_\+hand\+\_\+for\+\_\+moving (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_ad81dd2f4eb0d2e0f31faf4e23866395f}
+
+
+Get the hand for pose computation. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}right\char`\"{}, \char`\"{}left\char`\"{} or \char`\"{}both\char`\"{}. 
+\end{DoxyReturn}
+
+
+Definition at line 203 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+204     \{
+205         \textcolor{keywordflow}{return} hand\_for\_moving;
+206     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!get\+\_\+object\+\_\+class@{get\+\_\+object\+\_\+class}}
+\index{get\+\_\+object\+\_\+class@{get\+\_\+object\+\_\+class}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{get\+\_\+object\+\_\+class()}{get_object_class()}}]{\setlength{\rightskip}{0pt plus 5cm}string Grasp\+Demo\+::get\+\_\+object\+\_\+class (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_abae15028a7341b468dd12e7d6f84b31c}
+
+
+Get the current object class. 
+
+\begin{DoxyReturn}{Returns}
+the current object class. 
+\end{DoxyReturn}
+
+
+Definition at line 533 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+534     \{
+535         \textcolor{keywordflow}{return} object\_class;
+536     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!get\+\_\+object\+\_\+name@{get\+\_\+object\+\_\+name}}
+\index{get\+\_\+object\+\_\+name@{get\+\_\+object\+\_\+name}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{get\+\_\+object\+\_\+name()}{get_object_name()}}]{\setlength{\rightskip}{0pt plus 5cm}string Grasp\+Demo\+::get\+\_\+object\+\_\+name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a0e63863ba87a3dfc2e431ef13d28b3b1}
+
+
+Get the name of the object. 
+
+\begin{DoxyReturn}{Returns}
+a string with the name of the object. 
+\end{DoxyReturn}
+
+
+Definition at line 144 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+145     \{
+146         \textcolor{keywordflow}{return} objname;
+147     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!get\+\_\+reset\+\_\+filter@{get\+\_\+reset\+\_\+filter}}
+\index{get\+\_\+reset\+\_\+filter@{get\+\_\+reset\+\_\+filter}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{get\+\_\+reset\+\_\+filter()}{get_reset_filter()}}]{\setlength{\rightskip}{0pt plus 5cm}string Grasp\+Demo\+::get\+\_\+reset\+\_\+filter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_ad86eaf31952318292e312051f547b18e}
+
+
+Get if to reset the filtered superquadric or not. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 499 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+500     \{
+501         \textcolor{keywordflow}{if} (reset)
+502             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"on"};
+503         \textcolor{keywordflow}{else}
+504             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"off"};
+505     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!getperiod@{getperiod}}
+\index{getperiod@{getperiod}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{getperiod()}{getperiod()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::getperiod (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a86a475f7c16f2c70d486bf6a38dbb547}
+
+
+Set the R\+F\+Module period. 
+
+\begin{DoxyReturn}{Returns}
+the value of the period. 
+\end{DoxyReturn}
+
+
+Definition at line 543 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+544     \{
+545         \textcolor{keywordflow}{return} 0.0;
+546     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!go\+\_\+back\+\_\+home@{go\+\_\+back\+\_\+home}}
+\index{go\+\_\+back\+\_\+home@{go\+\_\+back\+\_\+home}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{go\+\_\+back\+\_\+home()}{go_back_home()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::go\+\_\+back\+\_\+home (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a594b0cd3274a3117f4c5e636abc3898c}
+
+
+Ask the robot to stop and go back to home position with the arm that is moving. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 386 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+387     \{
+388         go\_home=\textcolor{keyword}{true};
+389         go\_basket=\textcolor{keyword}{false};
+390 
+391         robot\_moving=\textcolor{keyword}{true};
+392 
+393         go\_on=\textcolor{keyword}{false};
+394 
+395         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+396     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!go\+\_\+next@{go\+\_\+next}}
+\index{go\+\_\+next@{go\+\_\+next}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{go\+\_\+next()}{go_next()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::go\+\_\+next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a478868cf5bd110f700327af69fa50a24}
+
+
+Ask to go to the next step, following the pipeline\+: 1-\/ compute superquadric 2-\/ compute pose 3-\/ ask the robot to move. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+
+
+Definition at line 246 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+247     \{
+248         go\_on=\textcolor{keyword}{true};
+249 
+250         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+251     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!go\+\_\+to\+\_\+basket@{go\+\_\+to\+\_\+basket}}
+\index{go\+\_\+to\+\_\+basket@{go\+\_\+to\+\_\+basket}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{go\+\_\+to\+\_\+basket()}{go_to_basket()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::go\+\_\+to\+\_\+basket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a6a9ed07317e2d0f3fcb39f906dd3d0f0}
+
+
+Ask the robot to put the object in a box on its side. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 403 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+404     \{
+405         go\_basket=\textcolor{keyword}{true};
+406         go\_home=\textcolor{keyword}{false};
+407 
+408         robot\_moving=\textcolor{keyword}{true};
+409 
+410         go\_on=\textcolor{keyword}{false};
+411 
+412         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+413     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!grasp\+\_\+object@{grasp\+\_\+object}}
+\index{grasp\+\_\+object@{grasp\+\_\+object}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{grasp\+\_\+object()}{grasp_object()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::grasp\+\_\+object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a42dbb269c111baf3d3bfe389e49c315c}
+
+
+If you want just to perform step 3 (if step 2 has been performed). 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 363 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+364     \{
+365         \textcolor{keywordflow}{if} (pose\_received==\textcolor{keyword}{true})
+366         \{
+367             go\_on=\textcolor{keyword}{true};
+368             robot\_moving=\textcolor{keyword}{false};
+369             go\_home=\textcolor{keyword}{false};
+370 
+371             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+372         \}
+373         \textcolor{keywordflow}{else}
+374         \{
+375             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+376         \}
+377     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!read\+Superq@{read\+Superq}}
+\index{read\+Superq@{read\+Superq}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{read\+Superq(const string \&name\+\_\+obj, Vector \&x, const int \&dimension, Resource\+Finder $\ast$rf)}{readSuperq(const string &name_obj, Vector &x, const int &dimension, ResourceFinder *rf)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::read\+Superq (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name\+\_\+obj, }
+\item[{Vector \&}]{x, }
+\item[{const int \&}]{dimension, }
+\item[{Resource\+Finder $\ast$}]{rf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a31f6cab85a8d544a65fb270226a9839c}
+
+
+Read the superquadric from the configuration file, in offline mode. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+
+
+Definition at line 1195 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+1196     \{
+1197         \textcolor{keywordflow}{if} (Bottle *b=rf->find(name\_obj.c\_str()).asList())
+1198         \{
+1199             \textcolor{keywordflow}{if} (b->size()>=dimension)
+1200             \{
+1201                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i=0; i<b->size();i++)
+1202                     x.push\_back(b->get(i).asDouble());
+1203             \}
+1204             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+1205         \}
+1206     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!set\+\_\+automatic\+\_\+hand@{set\+\_\+automatic\+\_\+hand}}
+\index{set\+\_\+automatic\+\_\+hand@{set\+\_\+automatic\+\_\+hand}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{set\+\_\+automatic\+\_\+hand(const string \&entry)}{set_automatic_hand(const string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::set\+\_\+automatic\+\_\+hand (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_ae609e2ec7eea3adb5fba5b11c8e71c33}
+
+
+Set if automatic selection of the hand is on or off. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}on\char`\"{} or \char`\"{}off\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 227 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+228     \{
+229         \textcolor{keywordflow}{if} (entry==\textcolor{stringliteral}{"on"} || entry==\textcolor{stringliteral}{"off"})
+230         \{
+231             choose\_hand=(entry==\textcolor{stringliteral}{"on"});
+232             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+233         \}
+234         \textcolor{keywordflow}{else}
+235             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+236     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!set\+\_\+filtered\+\_\+superq@{set\+\_\+filtered\+\_\+superq}}
+\index{set\+\_\+filtered\+\_\+superq@{set\+\_\+filtered\+\_\+superq}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{set\+\_\+filtered\+\_\+superq(const string \&entry)}{set_filtered_superq(const string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::set\+\_\+filtered\+\_\+superq (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_ae7e85fa7ddb934061f32cb14c29a7bf7}
+
+
+Set if to ask the filtered superquadric or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. 
+\end{DoxyReturn}
+
+
+Definition at line 453 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+454     \{
+455         \textcolor{keywordflow}{if} ((entry==\textcolor{stringliteral}{"on"}) || (entry==\textcolor{stringliteral}{"off"}))
+456         \{
+457             filtered=(entry==\textcolor{stringliteral}{"on"});
+458             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+459         \}
+460         \textcolor{keywordflow}{else}
+461             \textcolor{keywordflow}{return} \textcolor{keyword}{false};          
+462     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!set\+\_\+hand\+\_\+for\+\_\+computation@{set\+\_\+hand\+\_\+for\+\_\+computation}}
+\index{set\+\_\+hand\+\_\+for\+\_\+computation@{set\+\_\+hand\+\_\+for\+\_\+computation}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{set\+\_\+hand\+\_\+for\+\_\+computation(const string \&h)}{set_hand_for_computation(const string &h)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::set\+\_\+hand\+\_\+for\+\_\+computation (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{h}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_aba0999973563c9c351eced78c61c387c}
+
+
+Set the hand for pose computation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}right\char`\"{}, \char`\"{}left\char`\"{} or \char`\"{}both\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+156     \{
+157         LockGuard lg(mutex);
+158         \textcolor{keywordflow}{if} ((h==\textcolor{stringliteral}{"right"}) || (h==\textcolor{stringliteral}{"left"}) || (h==\textcolor{stringliteral}{"both"}))
+159         \{
+160             hand\_for\_computation=h;
+161 
+162             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+163         \}
+164         \textcolor{keywordflow}{else}
+165             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+166     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!set\+\_\+hand\+\_\+for\+\_\+moving@{set\+\_\+hand\+\_\+for\+\_\+moving}}
+\index{set\+\_\+hand\+\_\+for\+\_\+moving@{set\+\_\+hand\+\_\+for\+\_\+moving}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{set\+\_\+hand\+\_\+for\+\_\+moving(const string \&h)}{set_hand_for_moving(const string &h)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::set\+\_\+hand\+\_\+for\+\_\+moving (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{h}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a8d98d43216ba591f3859c686b15174df}
+
+
+Set the hand for moving. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}right\char`\"{} or \char`\"{}left\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 184 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+185     \{
+186         LockGuard lg(mutex);
+187         \textcolor{keywordflow}{if} ((h==\textcolor{stringliteral}{"right"}) || (h==\textcolor{stringliteral}{"left"}))
+188         \{
+189             hand\_for\_moving=h;
+190 
+191             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+192         \}
+193         \textcolor{keywordflow}{else}
+194             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+195     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!set\+\_\+object\+\_\+class@{set\+\_\+object\+\_\+class}}
+\index{set\+\_\+object\+\_\+class@{set\+\_\+object\+\_\+class}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{set\+\_\+object\+\_\+class(const string \&entry)}{set_object_class(const string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::set\+\_\+object\+\_\+class (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a87b1af09ff3b37342e5d8d4684167c06}
+
+
+Set the current object class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the name of the object class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 513 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+514     \{
+515         object\_class=entry;
+516 
+517         \textcolor{keywordflow}{if} (object\_class == \textcolor{stringliteral}{"box"} || object\_class == \textcolor{stringliteral}{"sphere"} || object\_class == \textcolor{stringliteral}{"cylinder"})
+518             objname=entry;
+519 
+520         Bottle cmd, reply;
+521         cmd.addString(\textcolor{stringliteral}{"set\_object\_class"});
+522         cmd.addString(entry);
+523         superqRpc.write(cmd, reply);
+524 
+525         \textcolor{keywordflow}{return} (reply.get(0).asString()==\textcolor{stringliteral}{"ok"});
+526     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!set\+\_\+object\+\_\+name@{set\+\_\+object\+\_\+name}}
+\index{set\+\_\+object\+\_\+name@{set\+\_\+object\+\_\+name}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{set\+\_\+object\+\_\+name(const string \&object\+\_\+name)}{set_object_name(const string &object_name)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::set\+\_\+object\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{object\+\_\+name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a3d0c212259e9708f114c974f4f8be5d8}
+
+
+Set the name of the object (stored by the object property collector). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & is the name of the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+131     \{
+132         LockGuard lg(mutex);
+133         objname=object\_name;
+134         method=\textcolor{stringliteral}{"name"};
+135 
+136         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+137     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!set\+\_\+reset\+\_\+filter@{set\+\_\+reset\+\_\+filter}}
+\index{set\+\_\+reset\+\_\+filter@{set\+\_\+reset\+\_\+filter}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{set\+\_\+reset\+\_\+filter(const string \&entry)}{set_reset_filter(const string &entry)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::set\+\_\+reset\+\_\+filter (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a491b6098d6ca65dd3cc5223e50ffb86a}
+
+
+Set if to reset the filtered superquadric or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & can be \char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\char`\"{}on\char`\"{} or \char`\"{}off\char`\"{}. 
+\end{DoxyReturn}
+
+
+Definition at line 483 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+484     \{
+485         \textcolor{keywordflow}{if} ((entry==\textcolor{stringliteral}{"on"}) || (entry==\textcolor{stringliteral}{"off"}))
+486         \{
+487             reset=(entry==\textcolor{stringliteral}{"on"});
+488             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+489         \}
+490         \textcolor{keywordflow}{else}
+491             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+492     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!start\+\_\+from\+\_\+scratch@{start\+\_\+from\+\_\+scratch}}
+\index{start\+\_\+from\+\_\+scratch@{start\+\_\+from\+\_\+scratch}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{start\+\_\+from\+\_\+scratch()}{start_from_scratch()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::start\+\_\+from\+\_\+scratch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a48b305f002b084ae751098e52b930b02}
+
+
+The pipeline is restarted and is waiting the command \char`\"{}go\+\_\+next\char`\"{} to start from step 1. 
+
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+
+
+Definition at line 260 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+261     \{
+262         go\_on=\textcolor{keyword}{false};
+263         superq\_received=\textcolor{keyword}{false};
+264         pose\_received=\textcolor{keyword}{false};
+265         robot\_moving=\textcolor{keyword}{false};
+266         superq\_ok=\textcolor{keyword}{false};
+267         pose\_ok=\textcolor{keyword}{false};
+268         ok\_acq=\textcolor{keyword}{false};
+269         ok\_acq\_pose=\textcolor{keyword}{false};
+270 
+271         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+272     \}
+\end{DoxyCode}
+\index{Grasp\+Demo@{Grasp\+Demo}!update\+Module@{update\+Module}}
+\index{update\+Module@{update\+Module}!Grasp\+Demo@{Grasp\+Demo}}
+\subsubsection[{\texorpdfstring{update\+Module()}{updateModule()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Grasp\+Demo\+::update\+Module (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classGraspDemo_a97b8a4cbbc94f444651a1746bd3a8164}
+
+
+Execute the state machine and the communications with external modules. 
+
+\begin{DoxyReturn}{Returns}
+true/false on success/failure. 
+\end{DoxyReturn}
+
+
+Definition at line 699 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+700     \{
+701         \textcolor{keywordflow}{if} (online==\textcolor{keyword}{true})
+702         \{
+703             \textcolor{keywordflow}{if} (method==\textcolor{stringliteral}{"point"})
+704             \{
+705                 blob\_points.clear();
+706 
+707                 \textcolor{keywordflow}{if} (contour.size()>0)
+708                 \{
+709                     getBlob();
+710                 \}
+711                 \textcolor{keywordflow}{else}
+712                 \{
+713                     blob\_points.push\_back(cv::Point(0,0));
+714                 \}
+715             \}
+716             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (method==\textcolor{stringliteral}{"name"})
+717             \{
+718                 pointFromName();
+719 
+720                 \textcolor{keywordflow}{if} ((contour.size()>0) )
+721                 \{
+722                     getBlob();
+723                 \}
+724                 \textcolor{keywordflow}{else}
+725                 \{
+726                     blob\_points.push\_back(cv::Point(0,0));
+727                 \}
+728             \}
+729         \}
+730 
+731         
+732         \textcolor{keywordflow}{if} ((go\_on==\textcolor{keyword}{true}) && (superq\_received==\textcolor{keyword}{false}) && (online==\textcolor{keyword}{true}))
+733         \{
+734             ImgIn=portImgIn.read(\textcolor{keyword}{false});
+735 
+736             \textcolor{keywordflow}{if} (blob\_points.size()>1)
+737             \{
+738                 points=get3Dpoints(ImgIn);           
+739             \}
+740 
+741             \textcolor{keywordflow}{if} (!filtered)
+742             \{
+743                 Bottle cmd;
+744                 cmd.addString(\textcolor{stringliteral}{"get\_superq"});
+745 
+746                 Bottle &in1=cmd.addList();
+747 
+748                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i=0; i<points.size(); i++)
+749                 \{
+750                     Bottle &in=in1.addList();
+751                     in.addDouble(points[i][0]);
+752                     in.addDouble(points[i][1]);
+753                     in.addDouble(points[i][2]);
+754                     in.addDouble(points[i][3]);
+755                     in.addDouble(points[i][4]);
+756                     in.addDouble(points[i][5]);
+757                 \}
+758 
+759                 go\_on=\textcolor{keyword}{false};
+760 
+761                 ok\_acq=\textcolor{keyword}{false};
+762                 superqRpc.write(cmd, superq\_b);
+763 
+764                 yInfo()<<\textcolor{stringliteral}{"Received superquadric: "}<<superq\_b.toString();
+765 
+766                 Vector sup(11,0.0);
+767                 sup=getBottle(superq\_b, cmd);
+768                 
+769                 \textcolor{keywordflow}{if} (!superq\_b.isNull())
+770                 \{
+771                     ok\_acq=\textcolor{keyword}{true};
+772                     
+773                     \textcolor{keywordflow}{if} (superq\_b.size()>0 && norm(sup.subVector(0,7))>0.0)
+774                    \{
+775                         \textcolor{keywordflow}{if} (superqOk(sup))
+776                             superq\_ok=superq\_received=\textcolor{keyword}{true};
+777                         \textcolor{keywordflow}{else}
+778                             superq\_ok=superq\_received=\textcolor{keyword}{false};
+779                     \}
+780                     \textcolor{keywordflow}{else}
+781                     \{
+782                         yError()<<\textcolor{stringliteral}{"Zero superquadric"};
+783                         superq\_ok=superq\_received=\textcolor{keyword}{false};                       
+784                     \}
+785                 \}
+786                 \textcolor{keywordflow}{else}
+787                 \{
+788                     yError()<<\textcolor{stringliteral}{"Null superquadric"};  
+789                     ok\_acq=\textcolor{keyword}{false};
+790                 \}
+791             \}
+792             \textcolor{keywordflow}{else}
+793             \{
+794                 Bottle cmd, reply;
+795 
+796                 \textcolor{keywordflow}{if} (reset)
+797                 \{
+798                     cmd.addString(\textcolor{stringliteral}{"reset\_filter"});
+799                     superqRpc.write(cmd, reply);
+800                 \}
+801 
+802                 cmd.clear();
+803                 reply.clear();
+804 
+805                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} k=0; k<n\_pc; k++)
+806                 \{
+807                     cmd.addString(\textcolor{stringliteral}{"send\_point\_clouds"});
+808 
+809                     deque<Vector> pc;
+810 
+811                     Bottle &in0=cmd.addList();
+812 
+813                     pc.clear();
+814                   
+815 
+816                     \textcolor{keywordflow}{if} (blob\_points.size()>1)
+817                     \{
+818                         pc=get3Dpoints(ImgIn);
+819                     \}
+820 
+821                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i=0; i<pc.size(); i++)
+822                     \{
+823                         Bottle &in=in0.addList();
+824                         in.addDouble(pc[i][0]);
+825                         in.addDouble(pc[i][1]);
+826                         in.addDouble(pc[i][2]);                        
+827                     \}
+828 
+829                     superqRpc.write(cmd, reply);
+830 
+831                     cmd.clear();
+832                     reply.clear();
+833                 \}
+834 
+835                 cmd.addString(\textcolor{stringliteral}{"get\_superq\_filtered"});
+836 
+837                 go\_on=\textcolor{keyword}{false};
+838 
+839                 ok\_acq=\textcolor{keyword}{false};
+840                 ok\_acq=superqRpc.write(cmd, superq\_b);
+841 
+842                 yInfo()<<\textcolor{stringliteral}{"Received superquadric: "}<<superq\_b.toString();
+843 
+844                 Vector sup(11,0.0);
+845                 sup=getBottle(superq\_b, cmd);
+846                
+847                 \textcolor{keywordflow}{if} (!superq\_b.isNull())
+848                 \{
+849                     \textcolor{keywordflow}{if} (superq\_b.size()>0 && norm(sup.subVector(0,7))>0.0)
+850                    \{
+851                         \textcolor{keywordflow}{if} (superqOk(sup))
+852                             superq\_ok=superq\_received=\textcolor{keyword}{true};
+853                         \textcolor{keywordflow}{else}
+854                             superq\_ok=superq\_received=\textcolor{keyword}{false};
+855                     \}
+856                     \textcolor{keywordflow}{else}
+857                     \{
+858                         yError()<<\textcolor{stringliteral}{"Zero superquadric"};
+859                         superq\_ok=superq\_received=\textcolor{keyword}{false};                       
+860                     \}
+861                 \}
+862                 \textcolor{keywordflow}{else}
+863                     yError()<<\textcolor{stringliteral}{"Null superquadric"};
+864             \}
+865         \}
+866         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (online==\textcolor{keyword}{false})
+867             superq\_received=\textcolor{keyword}{true};
+868 
+869         \textcolor{keywordflow}{if} ((go\_on==\textcolor{keyword}{true}) && (superq\_received==\textcolor{keyword}{true}) && (pose\_received==\textcolor{keyword}{false}))
+870         \{
+871             Bottle cmd, reply\_pose;
+872             cmd.addString(\textcolor{stringliteral}{"get\_grasping\_pose"});
+873 
+874             getBottle(superq\_b, cmd);
+875 
+876             cmd.addString(hand\_for\_computation);
+877 
+878             yInfo()<<\textcolor{stringliteral}{"Command asked "}<<cmd.toString();
+879 
+880             ok\_acq\_pose=\textcolor{keyword}{false};
+881             ok\_acq\_pose=graspRpc.write(cmd, reply\_pose);
+882 
+883             yInfo()<<\textcolor{stringliteral}{"Received solution: "}<<reply\_pose.toString();
+884 
+885             getPlane();
+886 
+887             \textcolor{keywordflow}{if} (reply\_pose.size()>0)
+888             \{
+889                 \textcolor{keywordflow}{if} (poseOk(reply\_pose))
+890                     pose\_received=pose\_ok=\textcolor{keyword}{true};
+891                 \textcolor{keywordflow}{else}
+892                     pose\_received=pose\_ok=\textcolor{keyword}{false};
+893                 
+894                 yDebug()<<\textcolor{stringliteral}{"pose rec "}<<pose\_received;
+895             \}
+896             \textcolor{comment}{//else}
+897             \textcolor{comment}{//    pose\_received=false;}
+898 
+899             \textcolor{keywordflow}{if} (choose\_hand)
+900             \{
+901                 cmd.clear();
+902                 Bottle reply;
+903                 cmd.addString(\textcolor{stringliteral}{"get\_best\_hand"});
+904                 graspRpc.write(cmd,reply);
+905 
+906                 \textcolor{keywordflow}{if} (reply.get(0).asString()==\textcolor{stringliteral}{"right"} || reply.get(0).asString()==\textcolor{stringliteral}{"left"})
+907                 \{
+908                     hand\_for\_moving=reply.get(0).asString();
+909                     yInfo()<<\textcolor{stringliteral}{"Best hand for grasping the object: "}<<reply.get(0).asString();
+910                 \}
+911                 \textcolor{keywordflow}{else}
+912                     yError()<<\textcolor{stringliteral}{"No best pose received!"};
+913 
+914             \}
+915             yDebug()<<\textcolor{stringliteral}{"pose rec "}<<pose\_received;
+916 
+917             go\_on=\textcolor{keyword}{false};
+918         \}
+919 
+920         \textcolor{keywordflow}{if} ((go\_on==\textcolor{keyword}{true}) && (pose\_received==\textcolor{keyword}{true}) && (robot\_moving==\textcolor{keyword}{false}))
+921         \{
+922             Bottle cmd, reply;
+923             cmd.clear();
+924             cmd.addString(\textcolor{stringliteral}{"move"});
+925             cmd.addString(hand\_for\_moving);
+926 
+927             yInfo()<<\textcolor{stringliteral}{"Asked to move: "}<<cmd.toString();
+928 
+929             graspRpc.write(cmd, reply);
+930 
+931             \textcolor{keywordflow}{if} (reply.get(0).asString()==\textcolor{stringliteral}{"ok"})
+932             \{
+933                 yInfo()<<\textcolor{stringliteral}{"The robot is moving"};
+934                 robot\_moving=\textcolor{keyword}{true};
+935             \}
+936 
+937             go\_on=\textcolor{keyword}{false};
+938             superq\_ok=\textcolor{keyword}{false};
+939             pose\_ok=\textcolor{keyword}{false};
+940         \}
+941 
+942         \textcolor{keywordflow}{if} (go\_home==\textcolor{keyword}{true})
+943         \{
+944             Bottle cmd, reply;
+945             cmd.clear();
+946             cmd.addString(\textcolor{stringliteral}{"go\_home"});
+947             cmd.addString(hand\_for\_moving);
+948 
+949             yInfo()<<\textcolor{stringliteral}{"Asked to stop: "}<<cmd.toString();
+950 
+951             graspRpc.write(cmd, reply);
+952 
+953             go\_home=\textcolor{keyword}{false};
+954         \}
+955         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (go\_basket==\textcolor{keyword}{true})
+956         \{
+957             Bottle cmd, reply;
+958             cmd.clear();
+959             cmd.addString(\textcolor{stringliteral}{"go\_to\_basket"});
+960             cmd.addString(hand\_for\_moving);
+961 
+962             yInfo()<<\textcolor{stringliteral}{"Asked to stop: "}<<cmd.toString();
+963 
+964             graspRpc.write(cmd, reply);
+965 
+966             go\_basket=\textcolor{keyword}{false};
+967         \}
+968 
+969         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+970     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/upattacini/\+Desktop/superquadric-\/grasp-\/demo/src/main.\+cpp\end{DoxyCompactItemize}

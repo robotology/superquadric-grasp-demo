@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.11">
+  <compound refid="classGraspDemo" kind="class"><name>GraspDemo</name>
+    <member refid="classGraspDemo_1a282fac2da6707c119aa71b2453c283c3" kind="variable"><name>hand_for_computation</name></member>
+    <member refid="classGraspDemo_1af2bd8bbd100dee91f37b823a0b3aba66" kind="variable"><name>hand_for_moving</name></member>
+    <member refid="classGraspDemo_1a3875edb3e0d135ae0556465e3ab31c74" kind="variable"><name>method</name></member>
+    <member refid="classGraspDemo_1af4b4fea43ac9d26b8f57b74810f45d22" kind="variable"><name>objname</name></member>
+    <member refid="classGraspDemo_1a3a9f735e357ffbaa9f3e4511e749eb7a" kind="variable"><name>contour</name></member>
+    <member refid="classGraspDemo_1a759b2b9fc1a8770d13195759d1bb21e9" kind="variable"><name>blob_points</name></member>
+    <member refid="classGraspDemo_1aa26e8a7c9f95de1f8988ed423d42375c" kind="variable"><name>points</name></member>
+    <member refid="classGraspDemo_1a9da373eff71026138bf519a387219a8a" kind="variable"><name>portBlobRpc</name></member>
+    <member refid="classGraspDemo_1a72066c9d4668176bdeda7f0bf18756e6" kind="variable"><name>portOPCrpc</name></member>
+    <member refid="classGraspDemo_1af438d55a79f3c2616ba7d5c8622da4e0" kind="variable"><name>portSFMRpc</name></member>
+    <member refid="classGraspDemo_1a671c78288cdd98501f0c22811bc816bc" kind="variable"><name>superqRpc</name></member>
+    <member refid="classGraspDemo_1a9ffaf66dfbcb0eb64a6e8bf2d6195bbc" kind="variable"><name>graspRpc</name></member>
+    <member refid="classGraspDemo_1a9ac8d27c92ca86e6c64ae0474d5c80a4" kind="variable"><name>portRpc</name></member>
+    <member refid="classGraspDemo_1aa1bcc0ffcc5b49ed1bddc1b6ebc88166" kind="variable"><name>mutex</name></member>
+    <member refid="classGraspDemo_1a59ddec2d4308e3de8b480e3d04e364c7" kind="variable"><name>superq</name></member>
+    <member refid="classGraspDemo_1a8c630fa7bc8e1ef3beca3af869e5ffde" kind="variable"><name>object</name></member>
+    <member refid="classGraspDemo_1a3ab68fbafb358b9ec525bf221c6d0cb0" kind="variable"><name>superq_aux</name></member>
+    <member refid="classGraspDemo_1a1d599eded24c4583ef3e473a1d6bcf38" kind="variable"><name>plane</name></member>
+    <member refid="classGraspDemo_1a3ecff8d04faf16561704d9d88f56f937" kind="variable"><name>superq_b</name></member>
+    <member refid="classGraspDemo_1a58eb06896c5a20f642b9b3edfadd53c6" kind="variable"><name>object_class</name></member>
+    <member refid="classGraspDemo_1a24973dcbddf70d0b6581bc2605b5ddce" kind="variable"><name>n_pc</name></member>
+    <member refid="classGraspDemo_1a4a739f26593b8b6e3f2d40d9d2bc66b5" kind="variable"><name>go_on</name></member>
+    <member refid="classGraspDemo_1a473a5c5ff8111b1cbff640422ce53fa6" kind="variable"><name>reset</name></member>
+    <member refid="classGraspDemo_1a26ae3f26f0845ed99d2f501d2795c8c9" kind="variable"><name>online</name></member>
+    <member refid="classGraspDemo_1ad0e99d010e93545fe0f021d416f13e75" kind="variable"><name>go_home</name></member>
+    <member refid="classGraspDemo_1a73a5352729124a01d4551cd87a5438c8" kind="variable"><name>filtered</name></member>
+    <member refid="classGraspDemo_1a3a7f86b5f2103ca8f02801bdf330b5c4" kind="variable"><name>go_basket</name></member>
+    <member refid="classGraspDemo_1ad4a0db29810d25e7452123b79be5c9d6" kind="variable"><name>choose_hand</name></member>
+    <member refid="classGraspDemo_1a74039182b9de5186f55ba8069c812845" kind="variable"><name>ok_acq</name></member>
+    <member refid="classGraspDemo_1a3d782f0c17840166ae8591fbd8c0bfd8" kind="variable"><name>ok_acq_pose</name></member>
+    <member refid="classGraspDemo_1a619f0bfce06c12d95950851eccf06931" kind="variable"><name>superq_ok</name></member>
+    <member refid="classGraspDemo_1a0d7de9a9559942c740e1242db38d5fda" kind="variable"><name>pose_ok</name></member>
+    <member refid="classGraspDemo_1ab02905f27470fe3d44541addfa44946d" kind="variable"><name>superq_received</name></member>
+    <member refid="classGraspDemo_1a649f7ff7d5622ca71d9452249c0fc1a4" kind="variable"><name>pose_received</name></member>
+    <member refid="classGraspDemo_1adbf10cc224e42ca2b45e985be0dd37dc" kind="variable"><name>robot_moving</name></member>
+    <member refid="classGraspDemo_1acb73f7065691d6fe90291d78aa6d203c" kind="variable"><name>rf</name></member>
+    <member refid="classGraspDemo_1aa0d26fb6a483d9768a8abd2c0c256c4e" kind="variable"><name>ImgIn</name></member>
+    <member refid="classGraspDemo_1ada3db1a1eac426ae3a82f2ca3d4847bc" kind="variable"><name>portImgIn</name></member>
+    <member refid="classGraspDemo_1a87bd98e4c5db533e4b49291ff0bfea2f" kind="function"><name>attach</name></member>
+    <member refid="classGraspDemo_1a4c953da01a507c3db576aceaa037ccf7" kind="function"><name>get_Blob</name></member>
+    <member refid="classGraspDemo_1a3d0c212259e9708f114c974f4f8be5d8" kind="function"><name>set_object_name</name></member>
+    <member refid="classGraspDemo_1a0e63863ba87a3dfc2e431ef13d28b3b1" kind="function"><name>get_object_name</name></member>
+    <member refid="classGraspDemo_1aba0999973563c9c351eced78c61c387c" kind="function"><name>set_hand_for_computation</name></member>
+    <member refid="classGraspDemo_1a5a25b013010af2cefc14a7ee9537de8b" kind="function"><name>get_hand_for_computation</name></member>
+    <member refid="classGraspDemo_1a8d98d43216ba591f3859c686b15174df" kind="function"><name>set_hand_for_moving</name></member>
+    <member refid="classGraspDemo_1ad81dd2f4eb0d2e0f31faf4e23866395f" kind="function"><name>get_hand_for_moving</name></member>
+    <member refid="classGraspDemo_1aaf774f3184d8c140deb7865fa3dbe4e6" kind="function"><name>get_automatic_hand</name></member>
+    <member refid="classGraspDemo_1ae609e2ec7eea3adb5fba5b11c8e71c33" kind="function"><name>set_automatic_hand</name></member>
+    <member refid="classGraspDemo_1a478868cf5bd110f700327af69fa50a24" kind="function"><name>go_next</name></member>
+    <member refid="classGraspDemo_1a48b305f002b084ae751098e52b930b02" kind="function"><name>start_from_scratch</name></member>
+    <member refid="classGraspDemo_1aaccf8483cef8af69b7053d453ce0808e" kind="function"><name>acquire_superq</name></member>
+    <member refid="classGraspDemo_1adf4d974fbc66aa2706709985080d5625" kind="function"><name>check_superq</name></member>
+    <member refid="classGraspDemo_1a6bd2f7ffee3191be392b1deb7d6c0a39" kind="function"><name>compute_pose</name></member>
+    <member refid="classGraspDemo_1ac731568beb7e7f6fa65e18e1165a5d55" kind="function"><name>check_pose</name></member>
+    <member refid="classGraspDemo_1a42dbb269c111baf3d3bfe389e49c315c" kind="function"><name>grasp_object</name></member>
+    <member refid="classGraspDemo_1a594b0cd3274a3117f4c5e636abc3898c" kind="function"><name>go_back_home</name></member>
+    <member refid="classGraspDemo_1a6a9ed07317e2d0f3fcb39f906dd3d0f0" kind="function"><name>go_to_basket</name></member>
+    <member refid="classGraspDemo_1a26716535b8b8f3914cdb4d59c92de489" kind="function"><name>clear_poses</name></member>
+    <member refid="classGraspDemo_1a3299163baab1e29e4f036d4e1c4d0bb6" kind="function"><name>clear_superq</name></member>
+    <member refid="classGraspDemo_1ae7e85fa7ddb934061f32cb14c29a7bf7" kind="function"><name>set_filtered_superq</name></member>
+    <member refid="classGraspDemo_1a5b9cc76696c412bb7935a7d26b6f1524" kind="function"><name>get_filtered_superq</name></member>
+    <member refid="classGraspDemo_1a491b6098d6ca65dd3cc5223e50ffb86a" kind="function"><name>set_reset_filter</name></member>
+    <member refid="classGraspDemo_1ad86eaf31952318292e312051f547b18e" kind="function"><name>get_reset_filter</name></member>
+    <member refid="classGraspDemo_1a87b1af09ff3b37342e5d8d4684167c06" kind="function"><name>set_object_class</name></member>
+    <member refid="classGraspDemo_1abae15028a7341b468dd12e7d6f84b31c" kind="function"><name>get_object_class</name></member>
+    <member refid="classGraspDemo_1a86a475f7c16f2c70d486bf6a38dbb547" kind="function"><name>getperiod</name></member>
+    <member refid="classGraspDemo_1a1530446b0bb96c1c2b43be52f61cc9b4" kind="function"><name>calibrate</name></member>
+    <member refid="classGraspDemo_1a13a8d5d06b3cedbd4025237ffbe1e7b3" kind="function"><name>configure</name></member>
+    <member refid="classGraspDemo_1a22d5fb62d4c13fce0b27dfce65d3272a" kind="function"><name>close</name></member>
+    <member refid="classGraspDemo_1a97b8a4cbbc94f444651a1746bd3a8164" kind="function"><name>updateModule</name></member>
+    <member refid="classGraspDemo_1a85434849e19708c5270b41f8b68ccc81" kind="function"><name>getBlob</name></member>
+    <member refid="classGraspDemo_1ab34b34da55d93d16b344ac37faaec8cd" kind="function"><name>pointFromName</name></member>
+    <member refid="classGraspDemo_1a14780589e408a271496b3b44ac3df874" kind="function"><name>get3Dpoints</name></member>
+    <member refid="classGraspDemo_1a31f6cab85a8d544a65fb270226a9839c" kind="function"><name>readSuperq</name></member>
+    <member refid="classGraspDemo_1a4ff3132df68c4ef30b8e58b6f29f5bf9" kind="function"><name>fillProperty</name></member>
+    <member refid="classGraspDemo_1af6e521f663f44999c66cbe91aeedb23b" kind="function"><name>getBottle</name></member>
+    <member refid="classGraspDemo_1a5efe5f7b89a576b4f1e846cb7bd4bdaa" kind="function"><name>superqOk</name></member>
+    <member refid="classGraspDemo_1ae500c0a1bba0ca6898b5183450ea6bf8" kind="function"><name>getPlane</name></member>
+    <member refid="classGraspDemo_1aa2513f4568fc185fa5b00d3fc6b15cdc" kind="function"><name>poseOk</name></member>
+  </compound>
+  <compound refid="classgraspDemo__IDL" kind="class"><name>graspDemo_IDL</name>
+    <member refid="classgraspDemo__IDL_1acbdd0232c2421405ccd1c9cda94b8bea" kind="function"><name>graspDemo_IDL</name></member>
+    <member refid="classgraspDemo__IDL_1a7ad1111fcda1fd6b6759cece23c6e0f4" kind="function"><name>get_blob</name></member>
+    <member refid="classgraspDemo__IDL_1af758a4f305a714b81462a17f0f86e318" kind="function"><name>set_object_name</name></member>
+    <member refid="classgraspDemo__IDL_1a55b811e44696b496da721da5a9f9beb4" kind="function"><name>get_object_name</name></member>
+    <member refid="classgraspDemo__IDL_1adbfee0a84908c87b633b05e9b5d306c2" kind="function"><name>go_next</name></member>
+    <member refid="classgraspDemo__IDL_1a3ae8ff9135f0b72a12f423a03412e4ee" kind="function"><name>start_from_scratch</name></member>
+    <member refid="classgraspDemo__IDL_1aed9067a7983154f5189dcd833f376e40" kind="function"><name>acquire_superq</name></member>
+    <member refid="classgraspDemo__IDL_1a3dd467a705bd6977d6ee7416e439ebdc" kind="function"><name>check_superq</name></member>
+    <member refid="classgraspDemo__IDL_1aa3bc2e6efe297a22d3df556ca63103bd" kind="function"><name>compute_pose</name></member>
+    <member refid="classgraspDemo__IDL_1a2e6cb4a651443ccbd63999eeaf10d5e7" kind="function"><name>check_pose</name></member>
+    <member refid="classgraspDemo__IDL_1aec86f807d6baf8ab6b8bd5f321225c95" kind="function"><name>grasp_object</name></member>
+    <member refid="classgraspDemo__IDL_1a7fbe57e4cfca528567a8d84a659b8f12" kind="function"><name>go_back_home</name></member>
+    <member refid="classgraspDemo__IDL_1a18069fb03cae17d4e09a52adfcd06a09" kind="function"><name>go_to_basket</name></member>
+    <member refid="classgraspDemo__IDL_1af81380d0426728f5288afb35a0087891" kind="function"><name>clear_poses</name></member>
+    <member refid="classgraspDemo__IDL_1affd8c910d151bb08d4c97626f7b6c508" kind="function"><name>clear_superq</name></member>
+    <member refid="classgraspDemo__IDL_1a68a1a97bb9c29769a3fc3c5c158bed0a" kind="function"><name>set_hand_for_computation</name></member>
+    <member refid="classgraspDemo__IDL_1a68b2d4eaa388f71a5519580b56b906c7" kind="function"><name>get_hand_for_computation</name></member>
+    <member refid="classgraspDemo__IDL_1a23eeae69cf9067064b6757219abb334f" kind="function"><name>set_hand_for_moving</name></member>
+    <member refid="classgraspDemo__IDL_1a702688abfa7858c4650cd22e4516665a" kind="function"><name>get_hand_for_moving</name></member>
+    <member refid="classgraspDemo__IDL_1ab1ea4a6835cbd7a7eef2f347c11f7968" kind="function"><name>get_automatic_hand</name></member>
+    <member refid="classgraspDemo__IDL_1a0be94184ab18c9d312fb7c2e27b3d04d" kind="function"><name>set_automatic_hand</name></member>
+    <member refid="classgraspDemo__IDL_1afd4e51de3917fe3a5caaf160459ac54d" kind="function"><name>set_filtered_superq</name></member>
+    <member refid="classgraspDemo__IDL_1a17792a60708878e1962b9068eac6451d" kind="function"><name>get_filtered_superq</name></member>
+    <member refid="classgraspDemo__IDL_1a15203d03a49ac4225a2401b2b0428960" kind="function"><name>set_reset_filter</name></member>
+    <member refid="classgraspDemo__IDL_1a13d16f7545403a90df04a5a1e0faa14b" kind="function"><name>get_reset_filter</name></member>
+    <member refid="classgraspDemo__IDL_1ad05df16c2b205b0eb5f9338de63d89b4" kind="function"><name>set_object_class</name></member>
+    <member refid="classgraspDemo__IDL_1a66d89e8ebe9f764fbdd9d95bb0191b94" kind="function"><name>get_object_class</name></member>
+    <member refid="classgraspDemo__IDL_1a7b718062e0170fe1520a05b441aaecc8" kind="function"><name>calibrate</name></member>
+    <member refid="classgraspDemo__IDL_1abb26b6731fe87c79de367ae824db7483" kind="function"><name>read</name></member>
+    <member refid="classgraspDemo__IDL_1a952412e2b4df1068fa5ed0f9c2894ac5" kind="function"><name>help</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="namespaceyarp_1_1dev" kind="namespace"><name>yarp::dev</name>
+  </compound>
+  <compound refid="namespaceyarp_1_1math" kind="namespace"><name>yarp::math</name>
+  </compound>
+  <compound refid="namespaceyarp_1_1os" kind="namespace"><name>yarp::os</name>
+  </compound>
+  <compound refid="namespaceyarp_1_1sig" kind="namespace"><name>yarp::sig</name>
+  </compound>
+  <compound refid="superquadric-grasp-demo_8dox" kind="file"><name>superquadric-grasp-demo.dox</name>
+  </compound>
+  <compound refid="graspDemo__IDL_8h" kind="file"><name>graspDemo_IDL.h</name>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="group__superquadric-grasp-demo" kind="group"><name>superquadric-grasp-demo</name>
+  </compound>
+  <compound refid="dir_d6d9cae02a256ab35e2be3d8803e4934" kind="dir"><name>/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/src</name>
+  </compound>
+</doxygenindex>

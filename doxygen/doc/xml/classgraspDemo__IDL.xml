@@ -1,0 +1,557 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classgraspDemo__IDL" kind="class" language="C++" prot="public">
+    <compoundname>graspDemo_IDL</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Wire</basecompoundref>
+    <includes refid="graspDemo__IDL_8h" local="no">graspDemo_IDL.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgraspDemo__IDL_1acbdd0232c2421405ccd1c9cda94b8bea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>graspDemo_IDL::graspDemo_IDL</definition>
+        <argsstring>()</argsstring>
+        <name>graspDemo_IDL</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a7ad1111fcda1fd6b6759cece23c6e0f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>yarp::os::Bottle</type>
+        <definition>virtual yarp::os::Bottle graspDemo_IDL::get_blob</definition>
+        <argsstring>()</argsstring>
+        <name>get_blob</name>
+        <briefdescription>
+<para>Send the current 2D blob. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a bottle containing all the 2D points of the blob </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1af758a4f305a714b81462a17f0f86e318" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::set_object_name</definition>
+        <argsstring>(const std::string &amp;entry)</argsstring>
+        <name>set_object_name</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Set the name of the object (stored by the object property collector). </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the name of the object </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="32" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a55b811e44696b496da721da5a9f9beb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string graspDemo_IDL::get_object_name</definition>
+        <argsstring>()</argsstring>
+        <name>get_object_name</name>
+        <briefdescription>
+<para>Get the name of the object. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a string with the name of the object. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1adbfee0a84908c87b633b05e9b5d306c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::go_next</definition>
+        <argsstring>()</argsstring>
+        <name>go_next</name>
+        <briefdescription>
+<para>Ask to go to the next step, following the pipeline: 1- compute superquadric 2- compute pose 3- ask the robot to move. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="45" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a3ae8ff9135f0b72a12f423a03412e4ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::start_from_scratch</definition>
+        <argsstring>()</argsstring>
+        <name>start_from_scratch</name>
+        <briefdescription>
+<para>The pipeline is restarted and is waiting the command &quot;go_next&quot; to start from step 1. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="52" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1aed9067a7983154f5189dcd833f376e40" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::acquire_superq</definition>
+        <argsstring>()</argsstring>
+        <name>acquire_superq</name>
+        <briefdescription>
+<para>If you want just to perform step 1. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="57" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a3dd467a705bd6977d6ee7416e439ebdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string graspDemo_IDL::check_superq</definition>
+        <argsstring>()</argsstring>
+        <name>check_superq</name>
+        <briefdescription>
+<para>Ask if the superquadric has been computed. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="62" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1aa3bc2e6efe297a22d3df556ca63103bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::compute_pose</definition>
+        <argsstring>()</argsstring>
+        <name>compute_pose</name>
+        <briefdescription>
+<para>If you want just to perform step 2 (if step 1 has been performed). </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="68" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a2e6cb4a651443ccbd63999eeaf10d5e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string graspDemo_IDL::check_pose</definition>
+        <argsstring>()</argsstring>
+        <name>check_pose</name>
+        <briefdescription>
+<para>To ask if the pose has been computed. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="73" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1aec86f807d6baf8ab6b8bd5f321225c95" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::grasp_object</definition>
+        <argsstring>()</argsstring>
+        <name>grasp_object</name>
+        <briefdescription>
+<para>If you want just to perform step 3 (if step 2 has been performed). </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="79" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a7fbe57e4cfca528567a8d84a659b8f12" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::go_back_home</definition>
+        <argsstring>()</argsstring>
+        <name>go_back_home</name>
+        <briefdescription>
+<para>Ask the robot to stop and go back to home position with the arm that is moving. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="86" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a18069fb03cae17d4e09a52adfcd06a09" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::go_to_basket</definition>
+        <argsstring>()</argsstring>
+        <name>go_to_basket</name>
+        <briefdescription>
+<para>Ask the robot to put the object in a box on its side. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="91" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1af81380d0426728f5288afb35a0087891" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::clear_poses</definition>
+        <argsstring>()</argsstring>
+        <name>clear_poses</name>
+        <briefdescription>
+<para>Clear all the computed poses. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="96" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1affd8c910d151bb08d4c97626f7b6c508" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::clear_superq</definition>
+        <argsstring>()</argsstring>
+        <name>clear_superq</name>
+        <briefdescription>
+<para>Clear the computed superq. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="101" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a68a1a97bb9c29769a3fc3c5c158bed0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::set_hand_for_computation</definition>
+        <argsstring>(const std::string &amp;entry)</argsstring>
+        <name>set_hand_for_computation</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Set the hand for pose computation. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be &quot;right&quot;, &quot;left&quot; or &quot;both&quot;. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="107" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a68b2d4eaa388f71a5519580b56b906c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string graspDemo_IDL::get_hand_for_computation</definition>
+        <argsstring>()</argsstring>
+        <name>get_hand_for_computation</name>
+        <briefdescription>
+<para>Get the hand for pose computation. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>&quot;right&quot;, &quot;left&quot; or &quot;both&quot;. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="112" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a23eeae69cf9067064b6757219abb334f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::set_hand_for_moving</definition>
+        <argsstring>(const std::string &amp;entry)</argsstring>
+        <name>set_hand_for_moving</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Set the hand for moving. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be &quot;right&quot; or &quot;left&quot;. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="118" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a702688abfa7858c4650cd22e4516665a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string graspDemo_IDL::get_hand_for_moving</definition>
+        <argsstring>()</argsstring>
+        <name>get_hand_for_moving</name>
+        <briefdescription>
+<para>Get the hand for pose computation. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>&quot;right&quot;, &quot;left&quot; or &quot;both&quot;. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="123" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1ab1ea4a6835cbd7a7eef2f347c11f7968" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string graspDemo_IDL::get_automatic_hand</definition>
+        <argsstring>()</argsstring>
+        <name>get_automatic_hand</name>
+        <briefdescription>
+<para>Get if automatic selection of the hand is on or off. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>&quot;on&quot; or &quot;off&quot;. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="128" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a0be94184ab18c9d312fb7c2e27b3d04d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::set_automatic_hand</definition>
+        <argsstring>(const std::string &amp;entry)</argsstring>
+        <name>set_automatic_hand</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Set if automatic selection of the hand is on or off. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be &quot;on&quot; or &quot;off&quot; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="134" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1afd4e51de3917fe3a5caaf160459ac54d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::set_filtered_superq</definition>
+        <argsstring>(const std::string &amp;entry)</argsstring>
+        <name>set_filtered_superq</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Set if to ask the filtered superquadric or not. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be &quot;on&quot; or &quot;off&quot;. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>&quot;on&quot; or &quot;off&quot;. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="140" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a17792a60708878e1962b9068eac6451d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string graspDemo_IDL::get_filtered_superq</definition>
+        <argsstring>()</argsstring>
+        <name>get_filtered_superq</name>
+        <briefdescription>
+<para>Get if to ask the filtered superquadric or not. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="145" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a15203d03a49ac4225a2401b2b0428960" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::set_reset_filter</definition>
+        <argsstring>(const std::string &amp;entry)</argsstring>
+        <name>set_reset_filter</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Set if to reset the filtered superquadric or not. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be &quot;on&quot; or &quot;off&quot;. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>&quot;on&quot; or &quot;off&quot;. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="151" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a13d16f7545403a90df04a5a1e0faa14b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string graspDemo_IDL::get_reset_filter</definition>
+        <argsstring>()</argsstring>
+        <name>get_reset_filter</name>
+        <briefdescription>
+<para>Get if to reset the filtered superquadric or not. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="156" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1ad05df16c2b205b0eb5f9338de63d89b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::set_object_class</definition>
+        <argsstring>(const std::string &amp;entry)</argsstring>
+        <name>set_object_class</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Set the current object class. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the object class </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="162" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a66d89e8ebe9f764fbdd9d95bb0191b94" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string graspDemo_IDL::get_object_class</definition>
+        <argsstring>()</argsstring>
+        <name>get_object_class</name>
+        <briefdescription>
+<para>Get the current object class. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the current object class. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="167" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a7b718062e0170fe1520a05b441aaecc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::calibrate</definition>
+        <argsstring>()</argsstring>
+        <name>calibrate</name>
+        <briefdescription>
+<para>Calibrate plane height via superquadric computation. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true/false on success/failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="172" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1abb26b6731fe87c79de367ae824db7483" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool graspDemo_IDL::read</definition>
+        <argsstring>(yarp::os::ConnectionReader &amp;connection) YARP_OVERRIDE</argsstring>
+        <name>read</name>
+        <param>
+          <type>yarp::os::ConnectionReader &amp;</type>
+          <declname>connection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="173" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraspDemo__IDL_1a952412e2b4df1068fa5ed0f9c2894ac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>virtual std::vector&lt;std::string&gt; graspDemo_IDL::help</definition>
+        <argsstring>(const std::string &amp;functionName=&quot;--all&quot;)</argsstring>
+        <name>help</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>functionName</declname>
+          <defval>&quot;--all&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="174" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classgraspDemo__IDL" kindref="compound">graspDemo_IDL</ref> IDL Interface to grasp-demo services. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" line="18" column="1" bodyfile="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h" bodystart="18" bodyend="175"/>
+    <listofallmembers>
+      <member refid="classgraspDemo__IDL_1aed9067a7983154f5189dcd833f376e40" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>acquire_superq</name></member>
+      <member refid="classgraspDemo__IDL_1a7b718062e0170fe1520a05b441aaecc8" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>calibrate</name></member>
+      <member refid="classgraspDemo__IDL_1a2e6cb4a651443ccbd63999eeaf10d5e7" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>check_pose</name></member>
+      <member refid="classgraspDemo__IDL_1a3dd467a705bd6977d6ee7416e439ebdc" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>check_superq</name></member>
+      <member refid="classgraspDemo__IDL_1af81380d0426728f5288afb35a0087891" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>clear_poses</name></member>
+      <member refid="classgraspDemo__IDL_1affd8c910d151bb08d4c97626f7b6c508" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>clear_superq</name></member>
+      <member refid="classgraspDemo__IDL_1aa3bc2e6efe297a22d3df556ca63103bd" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>compute_pose</name></member>
+      <member refid="classgraspDemo__IDL_1ab1ea4a6835cbd7a7eef2f347c11f7968" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>get_automatic_hand</name></member>
+      <member refid="classgraspDemo__IDL_1a7ad1111fcda1fd6b6759cece23c6e0f4" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>get_blob</name></member>
+      <member refid="classgraspDemo__IDL_1a17792a60708878e1962b9068eac6451d" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>get_filtered_superq</name></member>
+      <member refid="classgraspDemo__IDL_1a68b2d4eaa388f71a5519580b56b906c7" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>get_hand_for_computation</name></member>
+      <member refid="classgraspDemo__IDL_1a702688abfa7858c4650cd22e4516665a" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>get_hand_for_moving</name></member>
+      <member refid="classgraspDemo__IDL_1a66d89e8ebe9f764fbdd9d95bb0191b94" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>get_object_class</name></member>
+      <member refid="classgraspDemo__IDL_1a55b811e44696b496da721da5a9f9beb4" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>get_object_name</name></member>
+      <member refid="classgraspDemo__IDL_1a13d16f7545403a90df04a5a1e0faa14b" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>get_reset_filter</name></member>
+      <member refid="classgraspDemo__IDL_1a7fbe57e4cfca528567a8d84a659b8f12" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>go_back_home</name></member>
+      <member refid="classgraspDemo__IDL_1adbfee0a84908c87b633b05e9b5d306c2" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>go_next</name></member>
+      <member refid="classgraspDemo__IDL_1a18069fb03cae17d4e09a52adfcd06a09" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>go_to_basket</name></member>
+      <member refid="classgraspDemo__IDL_1aec86f807d6baf8ab6b8bd5f321225c95" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>grasp_object</name></member>
+      <member refid="classgraspDemo__IDL_1acbdd0232c2421405ccd1c9cda94b8bea" prot="public" virt="non-virtual"><scope>graspDemo_IDL</scope><name>graspDemo_IDL</name></member>
+      <member refid="classgraspDemo__IDL_1a952412e2b4df1068fa5ed0f9c2894ac5" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>help</name></member>
+      <member refid="classgraspDemo__IDL_1abb26b6731fe87c79de367ae824db7483" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>read</name></member>
+      <member refid="classgraspDemo__IDL_1a0be94184ab18c9d312fb7c2e27b3d04d" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>set_automatic_hand</name></member>
+      <member refid="classgraspDemo__IDL_1afd4e51de3917fe3a5caaf160459ac54d" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>set_filtered_superq</name></member>
+      <member refid="classgraspDemo__IDL_1a68a1a97bb9c29769a3fc3c5c158bed0a" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>set_hand_for_computation</name></member>
+      <member refid="classgraspDemo__IDL_1a23eeae69cf9067064b6757219abb334f" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>set_hand_for_moving</name></member>
+      <member refid="classgraspDemo__IDL_1ad05df16c2b205b0eb5f9338de63d89b4" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>set_object_class</name></member>
+      <member refid="classgraspDemo__IDL_1af758a4f305a714b81462a17f0f86e318" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>set_object_name</name></member>
+      <member refid="classgraspDemo__IDL_1a15203d03a49ac4225a2401b2b0428960" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>set_reset_filter</name></member>
+      <member refid="classgraspDemo__IDL_1a3ae8ff9135f0b72a12f423a03412e4ee" prot="public" virt="virtual"><scope>graspDemo_IDL</scope><name>start_from_scratch</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

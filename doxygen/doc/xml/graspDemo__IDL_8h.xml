@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="graspDemo__IDL_8h" kind="file" language="C++">
+    <compoundname>graspDemo_IDL.h</compoundname>
+    <includes local="no">yarp/os/Wire.h</includes>
+    <includes local="no">yarp/os/idl/WireTypes.h</includes>
+    <includes local="no">yarp/os/Bottle.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>yarp/os/Bottle.h</label>
+      </node>
+      <node id="3">
+        <label>yarp/os/Wire.h</label>
+      </node>
+      <node id="2">
+        <label>/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h</label>
+        <link refid="graspDemo_IDL.h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>yarp/os/idl/WireTypes.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classgraspDemo__IDL" prot="public">graspDemo_IDL</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>This<sp/>is<sp/>an<sp/>automatically-generated<sp/>file.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>It<sp/>could<sp/>get<sp/>re-generated<sp/>if<sp/>the<sp/>ALLOW_IDL_GENERATION<sp/>flag<sp/>is<sp/>on.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YARP_THRIFT_GENERATOR_graspDemo_IDL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>YARP_THRIFT_GENERATOR_graspDemo_IDL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;yarp/os/Wire.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;yarp/os/idl/WireTypes.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;yarp/os/Bottle.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraspDemo__IDL" kindref="compound">graspDemo_IDL</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classgraspDemo__IDL" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraspDemo__IDL" kindref="compound">graspDemo_IDL</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>yarp::os::Wire<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><ref refid="classgraspDemo__IDL" kindref="compound">graspDemo_IDL</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>yarp::os::Bottle<sp/><ref refid="classgraspDemo__IDL_1a7ad1111fcda1fd6b6759cece23c6e0f4" kindref="member">get_blob</ref>();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1af758a4f305a714b81462a17f0f86e318" kindref="member">set_object_name</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>entry);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classgraspDemo__IDL_1a55b811e44696b496da721da5a9f9beb4" kindref="member">get_object_name</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1adbfee0a84908c87b633b05e9b5d306c2" kindref="member">go_next</ref>();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1a3ae8ff9135f0b72a12f423a03412e4ee" kindref="member">start_from_scratch</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1aed9067a7983154f5189dcd833f376e40" kindref="member">acquire_superq</ref>();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classgraspDemo__IDL_1a3dd467a705bd6977d6ee7416e439ebdc" kindref="member">check_superq</ref>();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1aa3bc2e6efe297a22d3df556ca63103bd" kindref="member">compute_pose</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classgraspDemo__IDL_1a2e6cb4a651443ccbd63999eeaf10d5e7" kindref="member">check_pose</ref>();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1aec86f807d6baf8ab6b8bd5f321225c95" kindref="member">grasp_object</ref>();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1a7fbe57e4cfca528567a8d84a659b8f12" kindref="member">go_back_home</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1a18069fb03cae17d4e09a52adfcd06a09" kindref="member">go_to_basket</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1af81380d0426728f5288afb35a0087891" kindref="member">clear_poses</ref>();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1affd8c910d151bb08d4c97626f7b6c508" kindref="member">clear_superq</ref>();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1a68a1a97bb9c29769a3fc3c5c158bed0a" kindref="member">set_hand_for_computation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>entry);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classgraspDemo__IDL_1a68b2d4eaa388f71a5519580b56b906c7" kindref="member">get_hand_for_computation</ref>();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1a23eeae69cf9067064b6757219abb334f" kindref="member">set_hand_for_moving</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>entry);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classgraspDemo__IDL_1a702688abfa7858c4650cd22e4516665a" kindref="member">get_hand_for_moving</ref>();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classgraspDemo__IDL_1ab1ea4a6835cbd7a7eef2f347c11f7968" kindref="member">get_automatic_hand</ref>();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1a0be94184ab18c9d312fb7c2e27b3d04d" kindref="member">set_automatic_hand</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>entry);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1afd4e51de3917fe3a5caaf160459ac54d" kindref="member">set_filtered_superq</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>entry);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classgraspDemo__IDL_1a17792a60708878e1962b9068eac6451d" kindref="member">get_filtered_superq</ref>();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1a15203d03a49ac4225a2401b2b0428960" kindref="member">set_reset_filter</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>entry);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classgraspDemo__IDL_1a13d16f7545403a90df04a5a1e0faa14b" kindref="member">get_reset_filter</ref>();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1ad05df16c2b205b0eb5f9338de63d89b4" kindref="member">set_object_class</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>entry);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classgraspDemo__IDL_1a66d89e8ebe9f764fbdd9d95bb0191b94" kindref="member">get_object_class</ref>();</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classgraspDemo__IDL_1a7b718062e0170fe1520a05b441aaecc8" kindref="member">calibrate</ref>();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>read(yarp::os::ConnectionReader&amp;<sp/>connection)<sp/>YARP_OVERRIDE;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;<sp/>help(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>functionName=</highlight><highlight class="stringliteral">&quot;--all&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/graspDemo_IDL.h"/>
+  </compounddef>
+</doxygen>

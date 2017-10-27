@@ -1,0 +1,91 @@
+
+  /**
+  *
+  * @ingroup  
+  * \defgroup superquadric-grasp-demo superquadric-grasp-demo
+  * An example on how to run the superquadric modeling and grasping demo.
+  * Version:1.0
+  * \author  Giulia Vezzani giulia.vezzani@iit.it
+  * \n
+  * \copyright Released under the terms of the GNU GPL v2.0
+  * \section intro_sec Description
+  *
+  
+This module provides a wrapper code for performing the superquadric modeling and grasping demo.
+A tutorial on how to use the module is provided here: <a href="https://github.com/robotology/superquadric-grasp-example/tree/gh-pages/grasp-demo#how-to-run-the-code"><b>tutorial</b></a>.
+
+This page illustrates the main parameters of the module (Section <b>Parameters</b>), the available ports and services.
+
+
+  * \section parameters_sec Parameters     
+  
+  *- --from: Configuration file name.
+  *- --objname: The name of the object to be modeled and grasped.
+  *- --hand_for_computing: Select the hand for which we want to compute a grasping pose. Available values: right, left, both.
+  *- --hand_for_moving: Select the hand for which we want to use for executing the grasping. Available values: right, left.
+  *- --choose_hand: Select automatically the best hand for grasping the object. Available values: true, false.
+  *- --filtered: Filter multiple superquadrics in order to improve the object model. Available values: on, off.
+  *- --n_pc: Number of point clouds used for averaging the superquadrics.
+  * \section inputports_sec Input Ports
+  * 
+  *- /superquadric-grasp-demo/img:i [yarp::sig::ImageOfPixelRgb]  [default carrier:tcp]: 
+        Receive the image from the left camera for saving the colored point cloud.
+      
+  *
+  
+  * \section outputports_sec Output Ports
+  * 
+  *
+  * \section services_sec Services
+  * 
+  *- /superquadric-grasp-demo/rpc
+  *  [rpc-server]: 
+  * service port
+  * . This service is described in graspDemo_IDL (idl.thrift)
+  * 
+  *
+  * 
+  *- /superquadric-grasp-demo/blob:rpc
+  *   [rpc-client]: 
+  * 
+        Ask for the 2D blob of the object.
+      
+  * . This service is described in yarp::os::Bottle ()
+  *
+  * 
+  *- /superquadric-grasp-demo/OPC:rpc
+  *   [rpc-client]: 
+  * 
+        Ask for the 2D bounding box of the object.
+      
+  * . This service is described in yarp::os::Bottle ()
+  *
+  * 
+  *- /superquadric-grasp-demo/SFM:rpc
+  *   [rpc-client]: 
+  * 
+        Ask for the 3D point cloud of the object.
+      
+  * . This service is described in yarp::os::Bottle ()
+  *
+  * 
+  *- /superquadric-grasp-demo/superq:rpc
+  *   [rpc-client]: 
+  * 
+        Interact with the superquadric-model module.
+      
+  * . This service is described in yarp::os::Bottle ()
+  *
+  * 
+  *- /superquadric-grasp-demo/grasp:rpc
+  *   [rpc-client]: 
+  * 
+        Interact with the superquadric-grasp module.
+      
+  * . This service is described in yarp::os::Bottle ()
+  *
+  * 
+  *
+  *
+  **/
+

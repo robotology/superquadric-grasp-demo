@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_d6d9cae02a256ab35e2be3d8803e4934" kind="dir">
+    <compoundname>/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox</compoundname>
+    <innerfile refid="graspDemo__IDL_8h">graspDemo_IDL.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/c/Users/upattacini/Desktop/superquadric-grasp-demo/idl_dox/"/>
+  </compounddef>
+</doxygen>

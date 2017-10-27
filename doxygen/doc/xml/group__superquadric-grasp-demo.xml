@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="group__superquadric-grasp-demo" kind="group">
+    <compoundname>superquadric-grasp-demo</compoundname>
+    <title>superquadric-grasp-demo</title>
+    <briefdescription>
+<para>An example on how to run the superquadric modeling and grasping demo. </para>    </briefdescription>
+    <detaileddescription>
+<para>Version:1.0 <simplesect kind="author"><para>Giulia Vezzani <ulink url="mailto:giulia.vezzani@iit.it">giulia.vezzani@iit.it</ulink> <linebreak/>
+ </para></simplesect>
+<simplesect kind="copyright"><para>Released under the terms of the GNU GPL v2.0 </para></simplesect>
+</para><sect1 id="group__superquadric-grasp-demo_1intro_sec">
+<title>Description</title>
+<para>This module provides a wrapper code for performing the superquadric modeling and grasping demo. A tutorial on how to use the module is provided here: <ulink url="https://github.com/robotology/superquadric-grasp-example/tree/gh-pages/grasp-demo#how-to-run-the-code"><bold>tutorial</bold></ulink>.</para><para>This page illustrates the main parameters of the module (Section <bold>Parameters</bold>), the available ports and services.</para></sect1>
+<sect1 id="group__superquadric-grasp-demo_1parameters_sec">
+<title>Parameters</title>
+<para><itemizedlist>
+<listitem><para><ndash/>from: Configuration file name.</para></listitem><listitem><para><ndash/>objname: The name of the object to be modeled and grasped.</para></listitem><listitem><para><ndash/>hand_for_computing: Select the hand for which we want to compute a grasping pose. Available values: right, left, both.</para></listitem><listitem><para><ndash/>hand_for_moving: Select the hand for which we want to use for executing the grasping. Available values: right, left.</para></listitem><listitem><para><ndash/>choose_hand: Select automatically the best hand for grasping the object. Available values: true, false.</para></listitem><listitem><para><ndash/>filtered: Filter multiple superquadrics in order to improve the object model. Available values: on, off.</para></listitem><listitem><para><ndash/>n_pc: Number of point clouds used for averaging the superquadrics. </para></listitem></itemizedlist>
+</para></sect1>
+<sect1 id="group__superquadric-grasp-demo_1inputports_sec">
+<title>Input Ports</title>
+<para><itemizedlist>
+<listitem><para>/superquadric-grasp-demo/img:i [yarp::sig::ImageOfPixelRgb] [default carrier:tcp]: Receive the image from the left camera for saving the colored point cloud.</para></listitem></itemizedlist>
+</para></sect1>
+<sect1 id="group__superquadric-grasp-demo_1outputports_sec">
+<title>Output Ports</title>
+</sect1>
+<sect1 id="group__superquadric-grasp-demo_1services_sec">
+<title>Services</title>
+<para><itemizedlist>
+<listitem><para>/superquadric-grasp-demo/rpc [rpc-server]: service port . This service is described in <ref refid="classgraspDemo__IDL" kindref="compound">graspDemo_IDL</ref> (idl.thrift)</para></listitem><listitem><para>/superquadric-grasp-demo/blob:rpc [rpc-client]:</para><para>Ask for the 2D blob of the object.</para><para>. This service is described in yarp::os::Bottle ()</para></listitem><listitem><para>/superquadric-grasp-demo/OPC:rpc [rpc-client]:</para><para>Ask for the 2D bounding box of the object.</para><para>. This service is described in yarp::os::Bottle ()</para></listitem><listitem><para>/superquadric-grasp-demo/SFM:rpc [rpc-client]:</para><para>Ask for the 3D point cloud of the object.</para><para>. This service is described in yarp::os::Bottle ()</para></listitem><listitem><para>/superquadric-grasp-demo/superq:rpc [rpc-client]:</para><para>Interact with the superquadric-model module.</para><para>. This service is described in yarp::os::Bottle ()</para></listitem><listitem><para>/superquadric-grasp-demo/grasp:rpc [rpc-client]:</para><para>Interact with the superquadric-grasp module.</para><para>. This service is described in yarp::os::Bottle () </para></listitem></itemizedlist>
+</para></sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
