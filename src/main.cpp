@@ -30,7 +30,7 @@
 
 #include <opencv2/opencv.hpp>
 
-#include "src/experimentOne_IDL.h"
+#include "src/graspDemo_IDL.h"
 
 using namespace std;
 using namespace yarp::os;
@@ -39,14 +39,14 @@ using namespace yarp::sig;
 using namespace yarp::math;
 
 /**
- * @brief The ExperimentOne class provides a wrapper for the superquadric
+ * @brief The  GraspDemo class provides a wrapper for the superquadric
  * modeling and grasping frameworks.
  * It implements a state machine, that communicates with external modules,
  * including the superquadric-model and -grasp modules,
  * for making the iCub grasping an unknown object.
  */
-class ExperimentOne : public RFModule,
-                    experimentOne_IDL
+class GraspDemo : public RFModule,
+                    graspDemo_IDL
 {
     string hand_for_computation;
     string hand_for_moving;
@@ -477,13 +477,13 @@ public:
             superq=fillProperty(object);
         }
 
-        portBlobRpc.open("/experiment-1/blob:rpc");
-        portOPCrpc.open("/experiment-1/OPC:rpc");
-        portSFMRpc.open("/experiment-1/SFM:rpc");
-        superqRpc.open("/experiment-1/superq:rpc");
-        graspRpc.open("/experiment-1/grasp:rpc");
-        portRpc.open("/experiment-1/rpc");
-        portImgIn.open("/experiment-1/img:i");
+        portBlobRpc.open("/grasp-demo/blob:rpc");
+        portOPCrpc.open("/grasp-demo/OPC:rpc");
+        portSFMRpc.open("/grasp-demo/SFM:rpc");
+        superqRpc.open("/grasp-demo/superq:rpc");
+        graspRpc.open("/grasp-demo/grasp:rpc");
+        portRpc.open("/grasp-demo/rpc");
+        portImgIn.open("/grasp-demo/img:i");
 
         attach(portRpc);
 
@@ -1100,9 +1100,9 @@ int main(int argc,char *argv[])
         return 1;
     }
 
-    ExperimentOne mod;
+    GraspDemo mod;
     ResourceFinder rf;
-    rf.setDefaultContext("experiment-1");
+    rf.setDefaultContext("grasp-demo");
     rf.configure(argc,argv);
     return mod.runModule(rf);
 }

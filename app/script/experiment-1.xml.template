@@ -1,5 +1,5 @@
 <application>
-    <name>experiment-1-withSFM</name>
+    <name>iCub_Grasp_Demo</name>
 
     <dependencies>
         <port>/lbpExtract/rpc:i</port>
@@ -9,7 +9,7 @@
     </dependencies>
     
     <module>
-       <name>experiment-1</name>
+       <name>grasp-demo</name>
        <parameters> --from config.ini </parameters>
        <node>icub21</node>
     </module>
@@ -20,31 +20,31 @@
     </module>
    
     <connection>
-        <from>/experiment-1/blob:rpc</from>
+        <from>/grasp-demo/blob:rpc</from>
         <to>/lbpExtract/rpc:i</to>
         <protocol>tcp</protocol>
     </connection>
 
     <connection>
-        <from>/experiment-1/OPC:rpc</from>
+        <from>/grasp-demo/OPC:rpc</from>
         <to>/memory/rpc</to>
         <protocol>tcp</protocol>
     </connection>
 
     <connection>
-        <from>/experiment-1/SFM:rpc</from>
+        <from>/grasp-demo/SFM:rpc</from>
         <to>/SFM/rpc</to>
         <protocol>tcp</protocol>
     </connection>
 
     <connection>
-        <from>/experiment-1/superq:rpc</from>
+        <from>/grasp-demo/superq:rpc</from>
         <to>/superquadric-model/rpc</to>
         <protocol>tcp</protocol>
     </connection>
 
     <connection>
-        <from>/experiment-1/grasp:rpc</from>
+        <from>/grasp-demo/grasp:rpc</from>
         <to>/superquadric-grasp/rpc</to>
         <protocol>tcp</protocol>
     </connection>

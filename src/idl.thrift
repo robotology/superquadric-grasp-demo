@@ -16,12 +16,12 @@ struct Bottle
   )
 
 /**
-* experimentOne_IDL
+* graspDemo_IDL
 *
-* IDL Interface to \ref experiment-1 services.
+* IDL Interface to \ref grasp-demo services.
 */
 
-service experimentOne_IDL
+service graspDemo_IDL
 {
 
     /**
