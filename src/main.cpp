@@ -275,6 +275,16 @@ public:
     }
 
     /**
+    * To ask if the superquadric has been computed
+    * @return true/false on success/failure.
+    */
+    /************************************************************************/
+    bool check_superq()
+    {
+        return superq_received;
+    }
+
+    /**
     *If you want just to perform step 2
     * (if step 1 has been performed).
     * @return true/false on success/failure.
@@ -292,6 +302,17 @@ public:
         else
             return false;
     }
+
+    /**
+    * To ask if the pose has been computed
+    * @return true/false on success/failure.
+    */
+    /************************************************************************/
+    bool check_pose()
+    {
+        return pose_received;
+    }
+
 
     /**
     *If you want just to perform step 3
@@ -418,7 +439,7 @@ public:
     {
         object_class=entry;
 
-        if (object_class == "box " || object_class == "sphere " || object_class == "cylinder ")
+        if (object_class == "box" || object_class == "sphere" || object_class == "cylinder")
             objname=entry;
 
         Bottle cmd, reply;

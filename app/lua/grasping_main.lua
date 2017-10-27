@@ -8,7 +8,9 @@ yarp.Network()
 shouldExit = false
 
 -- initialization
+
 grasp_demo_port = yarp.Port()
+memory_port = yarp.Port()
 
 -- load state machine model and initalize it
 
@@ -22,7 +24,7 @@ rfsm.run(fsm)
 
 repeat
     rfsm.run(fsm)
-    yarp.Time_delay(0.1)
+    --yarp.Time_delay(0.1)
 until shouldExit ~= false
 
 print("finishing")

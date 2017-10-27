@@ -66,6 +66,12 @@ service graspDemo_IDL
     * @return true.
     */
     bool acquire_superq();
+
+    /**
+    * Ask if the superquadric has been computed.
+    * @return true/false on success/failure.
+    */
+    bool check_superq();
     
     /**
     *If you want just to perform step 2
@@ -74,6 +80,12 @@ service graspDemo_IDL
     */
     bool compute_pose();
 
+    /**
+    * To ask if the pose has been computed
+    * @return true/false on success/failure.
+    */
+    bool check_pose();
+ 
     /**
     *If you want just to perform step 3
     * (if step 2 has been performed).

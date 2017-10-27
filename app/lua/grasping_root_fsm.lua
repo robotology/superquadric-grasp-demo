@@ -9,7 +9,8 @@ return rfsm.state {
    ----------------------------------
    ST_INITPORTS = rfsm.state{
            entry=function()
-                   ret = graps_demo_port:open("/grasping-lua/demo")
+                   ret = grasp_demo_port:open("/grasping-lua/demo")
+                   ret = ret and memory_port:open("/grasping-lua/memory")
 
                    if ret == false then
                            rfsm.send_events(fsm, 'e_error')
@@ -25,7 +26,7 @@ return rfsm.state {
    ST_CONNECTPORTS = rfsm.state{
            entry=function()
                    ret = yarp.NetworkBase_connect(grasp_demo_port:getName(), "/grasp-demo/rpc")
-                   ret = ret and yarp.NetworkBase_connect(grasp_demo_port:getName(), "/memory/rpc")
+                   ret = ret and yarp.NetworkBase_connect(memory_port:getName(), "/memory/rpc")
                    if ret == false then
                            print("\n\nERROR WITH CONNECTIONS, PLEASE CHECK\n\n")
                            rfsm.send_events(fsm, 'e_error')
@@ -54,7 +55,7 @@ return rfsm.state {
                    print("Closing...")
                    yarp.NetworkBase_disconnect(grasp_demo_port:getName(), "/grasp-demo/rpc")
 
-                   graps_demo_port:close()
+                   grasp_demo_port:close()
 
                    shouldExit = true;
            end
@@ -66,8 +67,8 @@ return rfsm.state {
   ST_LOOK_FOR_OBJECT  = rfsm.state{
           entry=function()
                   print(" looking for object ..")
-                  ret = GRASPING_look_for_object("/memory/rpc", grasp_demo_port)
-                  if ret == "fail" then
+                  ret = GRASPING_look_for_object(memory_port, grasp_demo_port)
+                  if ret == "false" then
                       print("\n\nNO OBJECT FOUND...\n\n")
                       rfsm.send_events(fsm, 'e_error')
                   end
@@ -92,6 +93,23 @@ return rfsm.state {
 },
 
 ----------------------------------
+  -- state CHECK_SUPERQ                --
+  ----------------------------------
+  ST_CHECK_SUPERQ = rfsm.state{
+          entry=function()
+                  print(" checking superquadric ..")
+                  ret = GRASPING_check_superq(grasp_demo_port)
+                  if ret == "fail" then
+                      print("\n\nERROR IN CHECKING SUPERQUADRIC, PLEASE CHECK\n\n")
+                      rfsm.send_events(fsm, 'e_error')
+                  elseif ret == "ok" then
+                      rfsm.send_events(fsm, 'e_done')
+                  end
+
+          end
+},
+
+----------------------------------
   -- state COMPUTE_POSE                --
   ----------------------------------
   ST_COMPUTE_POSE = rfsm.state{
@@ -101,7 +119,26 @@ return rfsm.state {
                   if ret == "fail" then
                       print("\n\nERROR WITH COMPUTING POSES, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
+                  elseif ret == "ok" then
+                      rfsm.send_events(fsm, 'e_done')
                   end
+          end
+},
+
+----------------------------------
+  -- state CHECK_COMPUTE_POSE        --
+  ----------------------------------
+  ST_CHECK_POSE = rfsm.state{
+          entry=function()
+                  print(" checking pose ..")
+                  ret = GRASPING_check_pose(grasp_demo_port)
+                  if ret == "fail" then
+                      print("\n\nERROR IN CHECKING POSE, PLEASE CHECK\n\n")
+                      rfsm.send_events(fsm, 'e_error')
+                  elseif ret == "ok" then
+                      rfsm.send_events(fsm, 'e_done')
+                  end
+
           end
 },
 
@@ -146,19 +183,28 @@ ST_INTERACT = interact_fsm,
 
  rfsm.transition { src='ST_CONNECTPORTS', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
  rfsm.transition { src='ST_LOOK_FOR_OBJECT', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_error' } },
-
- rfsm.transition { src='ST_LOOK_FOR_OBJECT', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_done' } },
  rfsm.transition { src='ST_LOOK_FOR_OBJECT', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_done' } },
 
  rfsm.transition { src='ST_ACQUIRE_SUPERQ', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_error' } },
- rfsm.transition { src='ST_ACQUIRE_SUPERQ', tgt='ST_COMPUTE_POSE', events={ 'e_done' } },
+ rfsm.transition { src='ST_ACQUIRE_SUPERQ', tgt='ST_CHECK_SUPERQ', events={ 'e_done' } },
 
- rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_COMPUTE_POSE', events={ 'e_error' } },
- rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_GRASP_OBJECT', events={ 'e_done' } },
+rfsm.transition { src='ST_CHECK_SUPERQ', tgt='ST_CHECK_SUPERQ', events={ 'e_error' } },
+rfsm.transition { src='ST_CHECK_SUPERQ', tgt='ST_COMPUTE_POSE', events={ 'e_done' } },
 
- rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_COMPUTE_POSE', events={ 'e_error' } },
- rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_GO_HOME', events={ 'e_done' } },
- rfsm.transition { src='ST_GO_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
+rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_COMPUTE_POSE', events={ 'e_error' } },
+rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_CHECK_POSE', events={ 'e_done' } },
+
+rfsm.transition { src='ST_CHECK_POSE', tgt='ST_CHECK_POSE', events={ 'e_error' } },
+--rfsm.transition { src='ST_CHECK_POSE', tgt='ST_GRASP_OBJECT', events={ 'e_done' } },
+
+--rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_error' } },
+--rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_CHECK_MOVEMENT', events={ 'e_done' } },
+
+--rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_CHECK_MOVEMENT', events={ 'e_error' } },
+--rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_GO_HOME', events={ 'e_done' } },
+
+ --rfsm.transition { src='ST_GO_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
+rfsm.transition { src='ST_CHECK_POSE', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
 
 
 
