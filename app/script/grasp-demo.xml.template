@@ -27,7 +27,7 @@
     </module>
     <module>
             <name>linearClassifierModule</name>
-            <parameters> --BufferSize 1 --CSVM 1.0 --databaseFolder IOLDatabase --WeightedSVM 1</parameters>
+            <parameters> --BufferSize 1 --CSVM 1.0 --databaseFolder tmp_giuliav2 --WeightedSVM 1</parameters>
             <node>icub-cuda</node>
     </module>
     <module>
@@ -49,12 +49,31 @@
     </module>
     <module>
             <name>iolStateMachineHandler</name>
+            <parameters>--attention stop</parameters>
             <node>icub21</node>
     </module>
     <module>
             <name>objectsPropertiesCollector</name>
             <parameters>--name memory --db memory_iol.ini</parameters>
             <node>icub21</node>
+    </module>
+
+    <module>
+       <name>grasp-demo</name>
+       <parameters> --from config.ini </parameters>
+       <node>icub21</node>
+    </module>
+
+    <module>
+       <name>superquadric-model</name>
+        <parameters> --from config-classes.ini </parameters>
+       <node>icub21</node>
+    </module>
+
+    <module>
+       <name>superquadric-grasp</name>
+       <parameters> --from config.ini </parameters>
+       <node>icub21</node>
     </module>
 
     <module>
@@ -70,24 +89,30 @@
 
     <module>
         <name>yarpview</name>
-        <parameters>--name /iolViewer/manager/tracker --x 400 --y 0 --p 50 --compact</parameters>
+        <parameters>--name /iolViewer/manager/tracker --x 750 --y 0 --p 50 --compact</parameters>
         <node>icub22</node>
     </module>
     <module>
         <name>yarpview</name>
-        <parameters>--name /iolViewer/manager/localizer --x 600 --y 0 --out /iolViewer/manager/localizer/out --p 50 --compact</parameters>
+        <parameters>--name /iolViewer/manager/localizer --x 1060 --y 0 --out /iolViewer/manager/localizer/out --p 50 --compact</parameters>
         <node>icub22</node>
     </module>
     <module>
         <name>yarpview</name>
-        <parameters>--name /iolViewer/manager/histogram --x 800 --y 0 --w 600 --h 600 --p 50 --compact</parameters>
+        <parameters>--name /iolViewer/manager/histogram --x 0 --y 370 --w 600 --w 600 --h 600 --compact</parameters>
         <node>icub22</node>
-</module>
-    
+    </module>
+
     <module>
-       <name>grasp-demo</name>
-       <parameters> --from config.ini </parameters>
-       <node>icub21</node>
+       <name>yarpview</name>
+       <parameters>--name /dispPose --out /dispPose/out --x 700 --y 370 --w 600 --h 600 --p  200</parameters>
+       <node>icub22</node>
+    </module>
+
+    <module>
+       <name>yarpview</name>
+       <parameters>--name /dispSuperq --out /dispBlobs/out --x 1600 --y 370 --w 600 --h 600 --p 200</parameters>
+       <node>icub22</node>
     </module>
 
     <module>
@@ -155,17 +180,6 @@
         <protocol>tcp</protocol>
     </connection>
 
-    <module>
-       <name>superquadric-model</name>
-        <parameters> --from config-classes.ini </parameters>
-       <node>icub21</node>
-    </module>
-    <module>
-       <name>yarpview</name>
-       <parameters>--name /dispSuperq --out /dispBlobs/out --x 1600 --y 370 --w 600 --h 600 --p 200</parameters>
-       <node>icub22</node>
-    </module>
-
     <connection>
         <from>/superquadric-model/img:o</from>
         <to>/dispSuperq</to>
@@ -184,18 +198,6 @@
         <protocol>tcp</protocol>
     </connection>
 
- <module>
-       <name>superquadric-grasp</name>
-       <parameters> --from config.ini </parameters>
-       <node>icub21</node>
-    </module>
-
-    <module>
-       <name>yarpview</name>
-       <parameters>--name /dispPose --out /dispPose/out --x 700 --y 370 --w 600 --h 600 --p  200</parameters>
-       <node>icub22</node>
-    </module>
-
     <connection>
         <from>/superquadric-grasp/img:o</from>
         <to>/dispPose</to>
@@ -208,201 +210,201 @@
         <protocol>udp</protocol>
     </connection>
 
-<connection>
-                <from>/icub/camcalib/left/out</from>
-                <to>/iolStateMachineHandler/img:i</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/icub/camcalib/left/out</from>
-                <to>/lbpExtract/image:i</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/imgClassifier:o</from>
-                <to>/himrepClassifier/img:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/icub/camcalib/left/out</from>
-                <to>/blobSelector/img:i</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/icub/camcalib/left/out</from>
-                <to>/motionCUT/img:i</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/motionCUT/blobs:o</from>
-                <to>/blobSelector/blobs:i</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/motionCUT/blobs:o</from>
-                <to>/actionsRenderingEngine/left/blobs:i</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/lbpExtract/blobs:o</from>
-                <to>/iolStateMachineHandler/blobs:i</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/classify:rpc</from>
-                <to>/himrepClassifier/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/SFM/disp:o</from>
-                <to>/iolViewer/disparity</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/lbpExtract/segmentedlbp:o</from>
-                <to>/iolViewer/lbpSegmented</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/imgTrack:o</from>
-                <to>/iolViewer/manager/tracker</to>
-                <protocol>udp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/imgLoc:o</from>
-                <to>/iolViewer/manager/localizer</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/imgHistogram:o</from>
-                <to>/iolViewer/manager/histogram</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolViewer/manager/localizer/out</from>
-                <to>/iolStateMachineHandler/histObjLocation:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/speak:o</from>
-                <to>/iSpeak</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolReachingCalibration/opc</from>
-                <to>/memory/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolReachingCalibration/are</from>
-                <to>/actionsRenderingEngine/cmd:io</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/reach_calib:rpc</from>
-                <to>/iolReachingCalibration/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/motor:rpc</from>
-                <to>/actionsRenderingEngine/cmd:io</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/motor_stop:rpc</from>
-                <to>/actionsRenderingEngine/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/actionsRenderingEngine/wbd:rpc</from>
-                <to>/wholeBodyDynamics/rpc:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/memory:rpc</from>
-                <to>/memory/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/actionsRenderingEngine/OPC:io</from>
-                <to>/memory/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolHelper/opc</from>
-                <to>/memory/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/speechRecognizer/recog/continuous:o</from>
-                <to>/iolStateMachineHandler/motor_stop:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/blobSelector/point:o</from>
-                <to>/iolStateMachineHandler/point:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/speechRecognizer/tts/iSpeak:o</from>
-                <to>/iSpeak</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iSpeak/emotions:o</from>
-                <to>/icub/face/emotions/in</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/himrepClassifier/img:o</from>
-                <to>/caffeCoder/img:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/caffeCoder/code:o</from>
-                <to>/himrepClassifier/features:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/himrepClassifier/features:o</from>
-                <to>/linearClassifier/features:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/linearClassifier/scores:o</from>
-                <to>/himrepClassifier/scores:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/himrepClassifier/classify:rpc</from>
-                <to>/linearClassifier/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/caffeCoder/img:o</from>
-                <to>/himrepClassifier/SIFTimg:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/himrepClassifier/opc</from>
-                <to>/memory/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/icub/camcalib/right/out</from>
-                <to>/SFM/right:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/icub/camcalib/left/out</from>
-                <to>/SFM/left:i</to>
-                <protocol>tcp</protocol>
-        </connection>
-        <connection>
-                <from>/iolStateMachineHandler/get3d:rpc</from>
-                <to>/SFM/rpc</to>
-                <protocol>tcp</protocol>
-        </connection>
+    <connection>
+            <from>/icub/camcalib/left/out</from>
+            <to>/iolStateMachineHandler/img:i</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/icub/camcalib/left/out</from>
+            <to>/lbpExtract/image:i</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/imgClassifier:o</from>
+            <to>/himrepClassifier/img:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/icub/camcalib/left/out</from>
+            <to>/blobSelector/img:i</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/icub/camcalib/left/out</from>
+            <to>/motionCUT/img:i</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/motionCUT/blobs:o</from>
+            <to>/blobSelector/blobs:i</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/motionCUT/blobs:o</from>
+            <to>/actionsRenderingEngine/left/blobs:i</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/lbpExtract/blobs:o</from>
+            <to>/iolStateMachineHandler/blobs:i</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/classify:rpc</from>
+            <to>/himrepClassifier/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/SFM/disp:o</from>
+            <to>/iolViewer/disparity</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/lbpExtract/segmentedlbp:o</from>
+            <to>/iolViewer/lbpSegmented</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/imgTrack:o</from>
+            <to>/iolViewer/manager/tracker</to>
+            <protocol>udp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/imgLoc:o</from>
+            <to>/iolViewer/manager/localizer</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/imgHistogram:o</from>
+            <to>/iolViewer/manager/histogram</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolViewer/manager/localizer/out</from>
+            <to>/iolStateMachineHandler/histObjLocation:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/speak:o</from>
+            <to>/iSpeak</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolReachingCalibration/opc</from>
+            <to>/memory/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolReachingCalibration/are</from>
+            <to>/actionsRenderingEngine/cmd:io</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/reach_calib:rpc</from>
+            <to>/iolReachingCalibration/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/motor:rpc</from>
+            <to>/actionsRenderingEngine/cmd:io</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/motor_stop:rpc</from>
+            <to>/actionsRenderingEngine/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/actionsRenderingEngine/wbd:rpc</from>
+            <to>/wholeBodyDynamics/rpc:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/memory:rpc</from>
+            <to>/memory/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/actionsRenderingEngine/OPC:io</from>
+            <to>/memory/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolHelper/opc</from>
+            <to>/memory/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/speechRecognizer/recog/continuous:o</from>
+            <to>/iolStateMachineHandler/motor_stop:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/blobSelector/point:o</from>
+            <to>/iolStateMachineHandler/point:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/speechRecognizer/tts/iSpeak:o</from>
+            <to>/iSpeak</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iSpeak/emotions:o</from>
+            <to>/icub/face/emotions/in</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/himrepClassifier/img:o</from>
+            <to>/caffeCoder/img:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/caffeCoder/code:o</from>
+            <to>/himrepClassifier/features:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/himrepClassifier/features:o</from>
+            <to>/linearClassifier/features:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/linearClassifier/scores:o</from>
+            <to>/himrepClassifier/scores:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/himrepClassifier/classify:rpc</from>
+            <to>/linearClassifier/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/caffeCoder/img:o</from>
+            <to>/himrepClassifier/SIFTimg:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/himrepClassifier/opc</from>
+            <to>/memory/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/icub/camcalib/right/out</from>
+            <to>/SFM/right:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/icub/camcalib/left/out</from>
+            <to>/SFM/left:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+    <connection>
+            <from>/iolStateMachineHandler/get3d:rpc</from>
+            <to>/SFM/rpc</to>
+            <protocol>tcp</protocol>
+    </connection>
 
 </application>
 
