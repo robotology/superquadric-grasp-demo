@@ -8,7 +8,7 @@ yarp.Network()
 shouldExit = false
 
 -- initialization
-exp1_port = yarp.Port()
+grasp_demo_port = yarp.Port()
 
 -- load state machine model and initalize it
 

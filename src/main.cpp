@@ -417,6 +417,10 @@ public:
     bool set_object_class(const string &entry)
     {
         object_class=entry;
+
+        if (object_class == "box " || object_class == "sphere " || object_class == "cylinder ")
+            objname=entry;
+
         Bottle cmd, reply;
         cmd.addString("set_object_class");
         cmd.addString(entry);

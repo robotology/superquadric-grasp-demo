@@ -31,6 +31,10 @@ add_definitions(${YARP_DEFINES} -D_USE_MATH_DEFINES)
 add_executable(${PROJECT_NAME} ${sources} src/idl.thrift ${IDL_GEN_FILES})
 target_link_libraries(${PROJECT_NAME} ${YARP_LIBRARIES})
 
+set(lua_fsm       ${CMAKE_CURRENT_SOURCE_DIR}/app/lua/grasping_root_fsm.lua
+                  ${CMAKE_CURRENT_SOURCE_DIR}/app/lua/grasping_funcs.lua)
+set(lua_bin       ${CMAKE_CURRENT_SOURCE_DIR}/app/lua/grasping_main.lua)
+
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 icubcontrib_add_uninstall_target()
 
@@ -39,3 +43,6 @@ file(GLOB conf ${CMAKE_CURRENT_SOURCE_DIR}/app/conf/*.ini)
 yarp_install(FILES ${conf} DESTINATION ${ICUBCONTRIB_CONTEXTS_INSTALL_DIR}/${PROJECT_NAME})
 file(GLOB scripts ${CMAKE_CURRENT_SOURCE_DIR}/app/scripts/*.template)
 yarp_install(FILES ${scripts} DESTINATION ${ICUBCONTRIB_APPLICATIONS_TEMPLATES_INSTALL_DIR})
+yarp_install(PROGRAMS ${lua_fsm} DESTINATION ${ICUBCONTRIB_CONTEXTS_INSTALL_DIR}/${PROJECTNAME}/lua)
+install(PROGRAMS ${lua_bin} DESTINATION bin)
+
