@@ -120,6 +120,21 @@ return rfsm.state {
 
 },
 
+----------------------------------
+  -- state GO_HOME                --
+  ----------------------------------
+  ST_GO_HOME = rfsm.state{
+          entry=function()
+                  print(" grasping object ..")
+                  ret = GRASPING_go_home(grasp_demo_port)
+                  if ret == "fail" then
+                      print("\n\nERROR WITH GOING HOME, PLEASE CHECK\n\n")
+                      rfsm.send_events(fsm, 'e_error')
+                  end
+          end
+
+},
+
 
 ST_INTERACT = interact_fsm,
 
@@ -142,7 +157,8 @@ ST_INTERACT = interact_fsm,
  rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_GRASP_OBJECT', events={ 'e_done' } },
 
  rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_COMPUTE_POSE', events={ 'e_error' } },
- rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
+ rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_GO_HOME', events={ 'e_done' } },
+ rfsm.transition { src='ST_GO_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
 
 
 
