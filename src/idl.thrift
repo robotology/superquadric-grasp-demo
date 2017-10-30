@@ -108,6 +108,12 @@ service graspDemo_IDL
     bool clear_poses();
 
     /**
+    *Clear the computed superq
+    * @return true.
+    */
+    bool clear_superq();
+
+    /**
     * Set the hand for pose computation.
     * @param entry can be "right", "left" or "both".
     * @return true/false on success/failure.

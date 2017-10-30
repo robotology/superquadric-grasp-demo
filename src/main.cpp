@@ -270,6 +270,7 @@ public:
     {
         go_on=true;
         superq_received=false;
+        pose_received=false;
 
         return true;
     }
@@ -355,7 +356,7 @@ public:
     }
 
     /**
-    *Clear all the computed poses
+    *Clear  the computed superq
     * @return true.
     */
     /************************************************************************/
@@ -365,6 +366,23 @@ public:
         cmd.addString("clear_poses");
 
         graspRpc.write(cmd, reply);
+
+        superq_received=false;
+    
+        pose_received=false;
+
+        return true;
+    }
+
+    /**
+    *Clear all the computed poses
+    * @return true.
+    */
+    /************************************************************************/
+    bool clear_superq()
+    {
+        Bottle cmd, reply;
+        superq_received=false;
 
         return true;
     }

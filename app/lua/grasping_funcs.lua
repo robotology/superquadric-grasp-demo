@@ -30,9 +30,11 @@ function GRASPING_look_for_object(port, port2)
         local b=yarp.Bottle()
         b=reply:get(1):asList()
         if  b then
+
              local b1=yarp.Bottle()
              b1=b:get(1):asList()
              if b1 then
+
                 wb:clear()
                 local id=b1:get(0):asInt()
                 wb:addVocab(yarp.Vocab.encode("get"))
@@ -49,23 +51,30 @@ function GRASPING_look_for_object(port, port2)
                 info4=info3:addList()
                 info4:addString("position_2d_left");
                 port:write(wb, reply)
-                local pos=yarp.Bottle()
-                pos = reply:get(1):asList()
-                local pos2d = pos:get(2):asList()
-                if pos2d then
-                   k=i 
-                   print("found")
-                   print(classes[k])
+
+                if reply:get(0):asVocab() == yarp.Vocab.encode("ack") then
+                    local pos=yarp.Bottle()               
+                    pos = reply:get(1):asList()
+                    
+                    local pos2d = pos:get(2):asList()               
+                     if pos2d then
+                        k=i 
+                        print("found")
+                        print(classes[k])
+                    --else
+                    --   k=1000
+                    end
                 end
 
              end      
         end
 
       end
-      if k < 1000 then
+
+      if k < 1000 then       
         ok=true
       elseif k==1000 then
-        ok=falses
+        ok=false
       end
     end
      if ok then
@@ -87,6 +96,7 @@ function GRASPING_get_superq(port)
     wb:clear()
     wb:addString("acquire_superq")
     port:write(wb,reply)
+    yarp.Time_delay(1.0)
     return reply:get(0):asString()
 end
 
@@ -96,6 +106,7 @@ function GRASPING_check_superq(port)
     wb:clear()
     wb:addString("check_superq")
     port:write(wb,reply)
+    print(reply:get(0):asString())
     return reply:get(0):asString()
 end
 
@@ -105,6 +116,7 @@ function GRASPING_compute_pose(port)
     wb:clear()
     wb:addString("compute_pose")
     port:write(wb,reply)
+    yarp.Time_delay(1.0)
     return reply:get(0):asString()
 end
 
@@ -122,7 +134,9 @@ function GRASPING_grasp_object(port)
     local reply = yarp.Bottle()
     wb:clear()
     wb:addString("grasp_object")
+    yarp.Time_delay(1.5)
     port:write(wb,reply)
+    yarp.Time_delay(1.5)    
     return reply:get(0):asString()
 end
 
@@ -132,6 +146,7 @@ function GRASPING_go_home(port)
     wb:clear()
     wb:addString("go_back_home")
     port:write(wb,reply)
+    yarp.Time_delay(2.0)
     return reply:get(0):asString()
 end
 
@@ -141,6 +156,7 @@ function GRASPING_check_motion(port)
     wb:clear()
     wb:addString("check_motion")
     port:write(wb,reply)
+    print(reply:get(0):asString())
     return reply:get(0):asString()
 end
 
@@ -148,10 +164,31 @@ function GRASPING_check_home(port)
     local wb = yarp.Bottle()
     local reply = yarp.Bottle()
     wb:clear()
-    wb:addString("reached_home")
+    wb:addString("check_home")
     port:write(wb,reply)
     return reply:get(0):asString()
 end
+
+function GRASPING_clear_poses(port)
+    local wb = yarp.Bottle()
+    local reply = yarp.Bottle()
+    wb:clear()
+    wb:addString("clear_poses")
+    port:write(wb,reply)
+    print(reply:get(0):asString())
+    return reply:get(0):asString()
+end
+
+function GRASPING_start_from_scratch(port)
+    local wb = yarp.Bottle()
+    local reply = yarp.Bottle()
+    wb:clear()
+    wb:addString("start_from_scratch")    
+    port:write(wb,reply)
+    print(reply:get(0):asString())
+    return reply:get(0):asString()
+end
+
 
 --function GRASPING_set_object(port, name)
 --    local wb = yarp.Bottle()
