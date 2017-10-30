@@ -10,7 +10,7 @@ return rfsm.state {
    ST_INITPORTS = rfsm.state{
            entry=function()
                    ret = grasp_demo_port:open("/grasping-lua/demo")
-                   ret = grasp_demo_port:open("/grasping-lua/motion")
+                   ret = grasp_motion_port:open("/grasping-lua/motion")
                    ret = ret and memory_port:open("/grasping-lua/memory")
 
                    if ret == false then
@@ -27,7 +27,7 @@ return rfsm.state {
    ST_CONNECTPORTS = rfsm.state{
            entry=function()
                    ret = yarp.NetworkBase_connect(grasp_demo_port:getName(), "/grasp-demo/rpc")
-                   ret = yarp.NetworkBase_connect(grasp_demo_port:getName(), "/superquadric-grasp/rpc")
+                   ret = yarp.NetworkBase_connect(grasp_motion_port:getName(), "/superquadric-grasp/rpc")
                    ret = ret and yarp.NetworkBase_connect(memory_port:getName(), "/memory/rpc")
                    if ret == false then
                            print("\n\nERROR WITH CONNECTIONS, PLEASE CHECK\n\n")
@@ -154,6 +154,8 @@ return rfsm.state {
                   if ret == "fail" then
                       print("\n\nERROR WITH GRASPING OBJECT, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
+                  elseif ret == "ok" then
+                      rfsm.send_events(fsm, 'e_done')
                   end
           end
 
@@ -165,7 +167,7 @@ return rfsm.state {
   ST_CHECK_MOVEMENT = rfsm.state{
           entry=function()
                   print(" checking movement ..")
-                  ret = GRASPING_check_movement(grasp_motion_port)
+                  ret = GRASPING_check_motion(grasp_motion_port)
                   if ret == "fail" then
                       print("\n\nERROR IN CHECKING MOVEMENT, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
@@ -194,7 +196,7 @@ return rfsm.state {
 ----------------------------------
   -- state CHECK_HOME        --
   ----------------------------------
-  ST_CHECK_MOVEMENT = rfsm.state{
+  ST_CHECK_HOME = rfsm.state{
           entry=function()
                   print(" checking home ..")
                   ret = GRASPING_check_home(grasp_motion_port)
@@ -233,18 +235,18 @@ rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_CHECK_POSE', events={ 'e_done' 
 rfsm.transition { src='ST_CHECK_POSE', tgt='ST_CHECK_POSE', events={ 'e_error' } },
 rfsm.transition { src='ST_CHECK_POSE', tgt='ST_GRASP_OBJECT', events={ 'e_done' } },
 
-rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_error' } },
+--rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_error' } },
 rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_CHECK_MOVEMENT', events={ 'e_done' } },
 
-rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_CHECK_MOVEMENT', events={ 'e_error' } },
-rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_GO_HOME', events={ 'e_done' } },
+--rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_CHECK_MOVEMENT', events={ 'e_error' } },
+--rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_GO_HOME', events={ 'e_done' } },
 
-rfsm.transition { src='ST_GO_HOME', tgt='ST_CHECK_HOME', events={ 'e_done' } },
+--rfsm.transition { src='ST_GO_HOME', tgt='ST_CHECK_HOME', events={ 'e_done' } },
 
-rfsm.transition { src='ST_CHECK_HOME', tgt='ST_CHECK_HOME', events={ 'e_error' } },
-rfsm.transition { src='ST_CHECK_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
+--rfsm.transition { src='ST_CHECK_HOME', tgt='ST_CHECK_HOME', events={ 'e_error' } },
+--rfsm.transition { src='ST_CHECK_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
 
- --rfsm.transition { src='ST_GO_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
+--rfsm.transition { src='ST_GO_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
 
 
 --rfsm.transition { src='ST_CHECK_POSE', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
