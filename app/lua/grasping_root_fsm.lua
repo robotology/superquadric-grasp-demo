@@ -71,7 +71,7 @@ return rfsm.state {
                   print(" looking for object ..")
                   ret = GRASPING_look_for_object(memory_port, grasp_demo_port)
                   if ret == false then
-                      print("\n\nNO OBJECT FOUND...\n\n")
+                      --print("\n\nNO OBJECT FOUND...\n\n")
                       rfsm.send_events(fsm, 'e_error')
                   elseif ret == true then
                       rfsm.send_events(fsm, 'e_done')
@@ -87,7 +87,9 @@ return rfsm.state {
   ST_ACQUIRE_SUPERQ = rfsm.state{
           entry=function()
                   print(" acquiring superquadric ..")
-                  ret = GRASPING_get_superq(grasp_demo_port)
+
+                  ret = GRASPING_start_from_scratch(grasp_demo_port)
+                  ret = ret and GRASPING_get_superq(grasp_demo_port)
                   if ret == "fail" then
                       print("\n\nERROR WITH ACQUIRING SUPERQUADRIC, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
@@ -103,12 +105,17 @@ return rfsm.state {
           entry=function()
                   print(" checking superquadric ..")
                   ret = GRASPING_check_superq(grasp_demo_port)
-                  if ret == "fail" then
-                      print("\n\nERROR IN CHECKING SUPERQUADRIC, PLEASE CHECK\n\n")
+                  if ret == "wait" then
+                      --print("\n\nERROR IN CHECKING SUPERQUADRIC, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
                   elseif ret == "ok" then
+                      print("\n\nSUPERQ COMPUTED!!!\n\n")
                       rfsm.send_events(fsm, 'e_done')
+                  elseif ret == "again" then
+                      print("\n\nSUPERQ COMPUTED!!!\n\n")
+                      rfsm.send_events(fsm, 'e_again')
                   end
+                    
 
           end
 },
@@ -137,9 +144,10 @@ return rfsm.state {
                   print(" checking pose ..")
                   ret = GRASPING_check_pose(grasp_demo_port)
                   if ret == "fail" then
-                      print("\n\nERROR IN CHECKING POSE, PLEASE CHECK\n\n")
+                      --print("\n\nERROR IN CHECKING POSE, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
                   elseif ret == "ok" then
+                      print("\n\nPOSE COMPUTED!!!\n\n")
                       rfsm.send_events(fsm, 'e_done')
                   end
 
@@ -171,7 +179,7 @@ return rfsm.state {
                   print(" checking movement ..")
                   ret = GRASPING_check_motion(grasp_motion_port)
                   if ret == "fail" then
-                      print("\n\nERROR IN CHECKING MOVEMENT, PLEASE CHECK\n\n")
+                      --print("\n\nERROR IN CHECKING MOVEMENT, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
                   elseif ret == "ok" then
                       rfsm.send_events(fsm, 'e_done')
@@ -188,7 +196,7 @@ return rfsm.state {
                   print(" going home ..")
                   ret = GRASPING_go_home(grasp_demo_port)
                   if ret == "fail" then
-                      print("\n\nERROR WITH GOING HOME, PLEASE CHECK\n\n")
+                      --print("\n\nERROR WITH GOING HOME, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
                   end
           end
@@ -203,7 +211,7 @@ return rfsm.state {
                   print(" clear poses ..")
                   ret = GRASPING_clear_poses(grasp_demo_port)
                   if ret == "fail" then
-                      print("\n\nERROR WITH CLEARING POSE, PLEASE CHECK\n\n")
+                      --print("\n\nERROR WITH CLEARING POSE, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
                  elseif ret == "ok" then
                       rfsm.send_events(fsm, 'e_done')
@@ -237,7 +245,7 @@ return rfsm.state {
                   print(" checking home ..")
                   ret = GRASPING_check_home(grasp_motion_port)
                   if ret == "fail" then
-                      print("\n\nERROR IN CHECKING HOME, PLEASE CHECK\n\n")
+                      --print("\n\nERROR IN CHECKING HOME, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
                   elseif ret == "ok" then
                       rfsm.send_events(fsm, 'e_done')
@@ -264,6 +272,7 @@ ST_INTERACT = interact_fsm,
  rfsm.transition { src='ST_ACQUIRE_SUPERQ', tgt='ST_CHECK_SUPERQ', events={ 'e_done' } },
 
 rfsm.transition { src='ST_CHECK_SUPERQ', tgt='ST_CHECK_SUPERQ', events={ 'e_error' } },
+rfsm.transition { src='ST_CHECK_SUPERQ', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_again' } },
 rfsm.transition { src='ST_CHECK_SUPERQ', tgt='ST_COMPUTE_POSE', events={ 'e_done' } },
 
 rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_COMPUTE_POSE', events={ 'e_error' } },
@@ -286,10 +295,6 @@ rfsm.transition { src='ST_START_FROM_SCRATCH', tgt='ST_CHECK_HOME', events={ 'e_
 rfsm.transition { src='ST_CHECK_HOME', tgt='ST_CHECK_HOME', events={ 'e_error' } },
 rfsm.transition { src='ST_CHECK_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
 
---rfsm.transition { src='ST_GO_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
-
-
---rfsm.transition { src='ST_CHECK_POSE', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
 
 
 

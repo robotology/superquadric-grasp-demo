@@ -71,7 +71,7 @@ service graspDemo_IDL
     * Ask if the superquadric has been computed.
     * @return true/false on success/failure.
     */
-    bool check_superq();
+    string check_superq();
     
     /**
     *If you want just to perform step 2

@@ -80,6 +80,7 @@ class GraspDemo : public RFModule,
     bool go_home;
     bool filtered;
     bool choose_hand;
+    bool ok_acq;
     bool superq_received;
     bool pose_received;
     bool robot_moving;
@@ -280,9 +281,19 @@ public:
     * @return true/false on success/failure.
     */
     /************************************************************************/
-    bool check_superq()
+    string check_superq()
     {
-        return superq_received;
+        if (ok_acq==false)
+        {
+            return "wait";
+        }
+        else
+        {
+            if (superq_received)
+                return "ok";
+            else
+                return "again";
+        }
     }
 
     /**
@@ -508,7 +519,7 @@ public:
         reset=(rf.check("reset", Value("off")).asString()=="on");
         hand_for_computation=rf.check("hand_for_computation", Value("both")).asString();
         hand_for_moving=rf.check("hand_for_moving", Value("right")).asString();
-        choose_hand=rf.check("hand_for_moving", Value(false)).asBool();
+        choose_hand=rf.check("choose_hand", Value(false)).asBool();
 
         n_pc=rf.check("num_point_cloud", Value(5)).asInt();
 
@@ -631,11 +642,29 @@ public:
 
                 go_on=false;
 
-                superqRpc.write(cmd, superq_b);
+                ok_acq=false;
+                ok_acq=superqRpc.write(cmd, superq_b);
 
                 yInfo()<<"Received superquadric: "<<superq_b.toString();
 
-                superq_received=true;
+                Vector sup(11,0.0);
+                sup=getBottle(superq_b, cmd);
+                
+                if (!superq_b.isNull())
+                {
+                    
+                    if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
+                   {
+                        superq_received=true;                       
+                    }
+                    else
+                    {
+                        yError()<<"Zero superquadric";
+                        superq_received=false;                       
+                    }
+                }
+                else
+                    yError()<<"Null superquadric";
             }
             else
             {
@@ -684,11 +713,29 @@ public:
 
                 go_on=false;
 
-                superqRpc.write(cmd, superq_b);
+                ok_acq=false;
+                ok_acq=superqRpc.write(cmd, superq_b);
 
                 yInfo()<<"Received superquadric: "<<superq_b.toString();
 
-                superq_received=true;
+                Vector sup(11,0.0);
+                sup=getBottle(superq_b, cmd);
+               
+                if (!superq_b.isNull())
+                {
+                    
+                    if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
+                   {
+                        superq_received=true;                       
+                    }
+                    else
+                    {
+                        yError()<<"Zero superquadric";
+                        superq_received=false;                       
+                    }
+                }
+                else
+                    yError()<<"Null superquadric";
             }
         }
         else if (online==false)
@@ -1039,7 +1086,7 @@ public:
     * Process bottle with the superquadric.
     */
     /**********************************************************************/
-    void getBottle(Bottle &estimated_superq, Bottle &cmd)
+    Vector  getBottle(Bottle &estimated_superq, Bottle &cmd)
     {
         Bottle *all=estimated_superq.get(0).asList();
 
@@ -1130,6 +1177,8 @@ public:
         b5.addString("orientation");
         Bottle &b5l=b5.addList();
         b5l.addDouble(superq_aux[8]); b5l.addDouble(superq_aux[9]); b5l.addDouble(superq_aux[10]); b5l.addDouble(superq_aux[11]);
+
+        return superq_aux;
     }
 };
 
