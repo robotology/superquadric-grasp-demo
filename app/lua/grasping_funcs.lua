@@ -135,6 +135,24 @@ function GRASPING_go_home(port)
     return reply:get(0):asString()
 end
 
+function GRASPING_check_motion(port)
+    local wb = yarp.Bottle()
+    local reply = yarp.Bottle()
+    wb:clear()
+    wb:addString("check_motion")
+    port:write(wb,reply)
+    return reply:get(0):asString()
+end
+
+function GRASPING_check_home(port)
+    local wb = yarp.Bottle()
+    local reply = yarp.Bottle()
+    wb:clear()
+    wb:addString("reached_home")
+    port:write(wb,reply)
+    return reply:get(0):asString()
+end
+
 --function GRASPING_set_object(port, name)
 --    local wb = yarp.Bottle()
 --   local reply = yarp.Bottle()
