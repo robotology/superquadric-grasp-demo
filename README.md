@@ -68,9 +68,10 @@ Before running the demo, it is recommended to correctly set up the modules. In p
 The `icub-grasp-demo` can be customized by the user by changing the configuration parameters of the [`superquadric-model`](http://robotology.github.io/superquadric-model/doxygen/doc/html/group__superquadric-model.html) and [`superquadric-grasp`](https://robotology.github.io/superquadric-grasp/doxygen/doc/html/group__superquadric-grasp.html) modules, in the proper configuration files.
 
 Some useful options for the `superquadric-grasp` module are the following:
-- `lift_object`: available values: `on` / `off`. If you want the robot to test if the pose is good enough for lifting the object
-- `grasp`: available values: `on` / `off`. If you want the robot to perform the grasp by using tactile feedback. If `off` is selected, the robot just reaches the desired pose, without closing the hand
-- `visual_servoing`: available values: `on` / `off`. If you want to reach for the pose by using the markerless visual servoing and an accurate hand pose estimation (more information are available [here](https://github.com/robotology/visual-tracking-control)). (Currently, visual servoing is available only for the right hand).
+- `lift_object`: available values: `on` (default) / `off`. If you want the robot to test if the pose is good enough for lifting the object
+- `grasp`: available values: `on`  (default)/ `off`. If you want the robot to perform the grasp by using tactile feedback. If `off` is selected, the robot just reaches the desired pose, without closing the hand
+- `visual_servoing`: available values: `on` / `off` (default). If you want to reach for the pose by using the markerless visual servoing and an accurate hand pose estimation (more information are available [here](https://github.com/robotology/visual-tracking-control)). (Currently, visual servoing is available only for the right hand).
+- `which_hand`: available values: `right`, `left`, or `both` (default). This variable represents the hand for with the grasping pose is computed. In case `both` is selected, the pose is computed for each hand and the best hand for grasping the object is automatically selected. If only one hand is chosen for the grasping pose computation, it will be consequently select also for grasping the object.
 
 ## Documentation
 The online documentation of this module is available [here](http://robotology.github.com/icub-grasp-demo).
