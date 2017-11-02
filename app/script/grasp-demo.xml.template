@@ -76,6 +76,12 @@
     </module>
 
     <module>
+        <name>rfsmGui</name>
+        <node>icub21</node>
+        <parameters>--rfsm grasping_root_fsm.lua --context icub-grasp-demo/lua --run</parameters>
+    </module>
+
+    <module>
         <name>yarpview</name>
         <parameters>--name /iolViewer/disparity --x 0 --y 0 --p 50 --compact</parameters>
         <node>icub22</node>
