@@ -60,6 +60,9 @@ lua grasping_main.lua
 ```
 6(b). Alternatively, you can launch the lua state machine with the [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui). More information about the state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
 
+#### How to costum the demo
+The `icub-grasp-demo` can be customized by the user by changing the configuration parameters of the [`superquadric-model`](https://github.com/robotology/superquadric-model) and [`superquadric-grasp`](https://github.com/robotology/superquadric-grasp)) modules.
+
 ## Documentation
 The online documentation of this module is available [here](http://robotology.github.com/icub-grasp-demo).
 
