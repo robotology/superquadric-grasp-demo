@@ -90,6 +90,16 @@ function GRASPING_look_for_object(port, port2)
     return ok
 end
 
+function GRASPING_preparation(port)
+    local wb = yarp.Bottle()
+    local reply = yarp.Bottle()
+    wb:clear()
+    wb:addString("attention")
+    wb:addString("stop")
+    port:write(wb,reply)
+    return reply:get(0):asString()
+end
+
 function GRASPING_get_superq(port)
     local wb = yarp.Bottle()
     local reply = yarp.Bottle()

@@ -12,6 +12,7 @@ return rfsm.state {
                    ret = grasp_demo_port:open("/grasping-lua/demo")
                    ret = grasp_motion_port:open("/grasping-lua/motion")
                    ret = ret and memory_port:open("/grasping-lua/memory")
+                   ret = ret and memory_port:open("/grasping-lua/attention")
 
                    if ret == false then
                            rfsm.send_events(fsm, 'e_error')
@@ -29,11 +30,29 @@ return rfsm.state {
                    ret = yarp.NetworkBase_connect(grasp_demo_port:getName(), "/grasp-demo/rpc")
                    ret = yarp.NetworkBase_connect(grasp_motion_port:getName(), "/superquadric-grasp/rpc")
                    ret = ret and yarp.NetworkBase_connect(memory_port:getName(), "/memory/rpc")
+                   ret = ret and yarp.NetworkBase_connect(memory_port:getName(), "/iolStateMachineHandler/humar:rpc")
                    if ret == false then
                            print("\n\nERROR WITH CONNECTIONS, PLEASE CHECK\n\n")
                            rfsm.send_events(fsm, 'e_error')
                    end
            end
+},
+
+----------------------------------
+  -- state PREPARATION        --
+  ----------------------------------
+  ST_PREPARATION  = rfsm.state{
+          entry=function()
+                  print(" preparing for starting ..")
+                  ret = GRASPING_preparation( grasp_attention_port)
+                  if ret == false then
+                      --print("\n\nNO OBJECT FOUND...\n\n")
+                      rfsm.send_events(fsm, 'e_error')
+                  elseif ret == true then
+                      rfsm.send_events(fsm, 'e_done')
+                  end
+
+          end
 },
 
 
@@ -267,8 +286,10 @@ ST_INTERACT = interact_fsm,
  rfsm.transition { src='ST_INITPORTS', tgt='ST_CONNECTPORTS', events={ 'e_connect' } },
  rfsm.transition { src='ST_INITPORTS', tgt='ST_FATAL', events={ 'e_error' } },
  rfsm.transition { src='ST_CONNECTPORTS', tgt='ST_FINI', events={ 'e_error' } },
+ rfsm.transition { src='ST_CONNECTPORTS', tgt='ST_PREPARATION', events={ 'e_done' } },
+rfsm.transition { src='ST_CONNECTPORTS', tgt='ST_PREPARATION', events={ 'e_error' } },
 
- rfsm.transition { src='ST_CONNECTPORTS', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
+ rfsm.transition { src='ST_PREPARATION', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_done' } },
  rfsm.transition { src='ST_LOOK_FOR_OBJECT', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_error' } },
  rfsm.transition { src='ST_LOOK_FOR_OBJECT', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_done' } },
 
