@@ -57,7 +57,8 @@ In order to run automatically the `icub-grasp-demo`, please:
 cd app/lua
 lua grasping_main.lua
 ```
-6. (b) Alternatively, you can launch the lua state machine with the [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui). More information about the state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
+6. (b) Alternatively, you can launch the lua state machine with the [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui). [Feature to be added].
+More information about the state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
 
 [`Go to the top`](#icub-grasp-demo)
 
