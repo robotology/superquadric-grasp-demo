@@ -69,7 +69,7 @@ Before running the demo, it is recommended to correctly set up the modules. In p
 [`Go to the top`](#icub-grasp-demo)
 
 #### How to costum the demo
-The `icub-grasp-demo` can be customized by the user by changing the configuration parameters of the [`superquadric-model`](http://robotology.github.io/superquadric-model/doxygen/doc/html/group__superquadric-model.html) and [`superquadric-grasp`](https://robotology.github.io/superquadric-grasp/doxygen/doc/html/group__superquadric-grasp.html) modules, in the proper configuration files.
+The `icub-grasp-demo` can be customized by the user by changing the configuration parameters of the [`superquadric-model`](http://robotology.github.io/superquadric-model/doxygen/doc/html/group__superquadric-model.html) and [`superquadric-grasp`](https://robotology.github.io/superquadric-grasp/doxygen/doc/html/group__superquadric-grasp.html) modules, in the proper configuration files (respectively: [config.ini](https://github.com/robotology/superquadric-grasp/blob/master/app/conf/config.ini) and [config.ini](https://github.com/robotology/superquadric-model/blob/master/app/conf/config-classes.ini)).
 
 Some useful options for the `superquadric-grasp` module are the following:
 - `lift_object`: available values: `on` (default) / `off`. If you want the robot to test if the pose is good enough for lifting the object.
