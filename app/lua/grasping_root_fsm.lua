@@ -12,7 +12,7 @@ return rfsm.state {
                    ret = grasp_demo_port:open("/grasping-lua/demo")
                    ret = grasp_motion_port:open("/grasping-lua/motion")
                    ret = ret and memory_port:open("/grasping-lua/memory")
-                   ret = ret and memory_port:open("/grasping-lua/attention")
+                   ret = ret and grasp_attention_port:open("/grasping-lua/attention")
 
                    if ret == false then
                            rfsm.send_events(fsm, 'e_error')
@@ -30,7 +30,7 @@ return rfsm.state {
                    ret = yarp.NetworkBase_connect(grasp_demo_port:getName(), "/grasp-demo/rpc")
                    ret = yarp.NetworkBase_connect(grasp_motion_port:getName(), "/superquadric-grasp/rpc")
                    ret = ret and yarp.NetworkBase_connect(memory_port:getName(), "/memory/rpc")
-                   ret = ret and yarp.NetworkBase_connect(memory_port:getName(), "/iolStateMachineHandler/humar:rpc")
+                   ret = ret and yarp.NetworkBase_connect(grasp_attention_port:getName(), "/iolStateMachineHandler/human:rpc")
                    if ret == false then
                            print("\n\nERROR WITH CONNECTIONS, PLEASE CHECK\n\n")
                            rfsm.send_events(fsm, 'e_error')
@@ -131,7 +131,7 @@ return rfsm.state {
                       print("\n\nSUPERQ COMPUTED!!!\n\n")
                       rfsm.send_events(fsm, 'e_done')
                   elseif ret == "again" then
-                      print("\n\nSUPERQ COMPUTED!!!\n\n")
+                      print("\n\nSUPERQ NOT COMPUTED!!!\n\n")
                       rfsm.send_events(fsm, 'e_again')
                   end
                     
@@ -166,10 +166,10 @@ return rfsm.state {
                       --print("\n\nERROR IN CHECKING SUPERQUADRIC, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
                   elseif ret == "ok" then
-                      print("\n\nSUPERQ COMPUTED!!!\n\n")
+                      print("\n\nPOSE COMPUTED!!!\n\n")
                       rfsm.send_events(fsm, 'e_done')
                   elseif ret == "again" then
-                      print("\n\nSUPERQ COMPUTED!!!\n\n")
+                      print("\n\nPOSE NOT COMPUTED!!!\n\n")
                       rfsm.send_events(fsm, 'e_again')
                   end
                     

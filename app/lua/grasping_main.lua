@@ -12,6 +12,8 @@ shouldExit = false
 grasp_demo_port = yarp.Port()
 memory_port = yarp.Port()
 grasp_motion_port = yarp.Port()
+grasp_attention_port = yarp.Port()
+
 
 -- load state machine model and initalize it
 

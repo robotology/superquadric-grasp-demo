@@ -106,7 +106,7 @@ function GRASPING_get_superq(port)
     wb:clear()
     wb:addString("acquire_superq")
     port:write(wb,reply)
-    yarp.Time_delay(1.0)
+    yarp.Time_delay(2.0)
     return reply:get(0):asString()
 end
 
@@ -116,6 +116,7 @@ function GRASPING_check_superq(port)
     wb:clear()
     wb:addString("check_superq")
     port:write(wb,reply)
+    yarp.Time_delay(1.0)
     print(reply:get(0):asString())
     return reply:get(0):asString()
 end
@@ -126,7 +127,7 @@ function GRASPING_compute_pose(port)
     wb:clear()
     wb:addString("compute_pose")
     port:write(wb,reply)
-    yarp.Time_delay(1.0)
+    yarp.Time_delay(2.0)
     return reply:get(0):asString()
 end
 
@@ -136,6 +137,8 @@ function GRASPING_check_pose(port)
     wb:clear()
     wb:addString("check_pose")
     port:write(wb,reply)
+    yarp.Time_delay(1.0)
+    print(reply:get(0):asString())
     return reply:get(0):asString()
 end
 

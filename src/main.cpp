@@ -83,6 +83,8 @@ class GraspDemo : public RFModule,
     bool choose_hand;
     bool ok_acq;
     bool ok_acq_pose;
+    bool superq_ok;
+    bool pose_ok;
     bool superq_received;
     bool pose_received;
     bool robot_moving;
@@ -260,6 +262,10 @@ public:
         superq_received=false;
         pose_received=false;
         robot_moving=false;
+        superq_ok=false;
+        pose_ok=false;
+        ok_acq=false;
+        ok_acq_pose=false;
 
         return true;
     }
@@ -285,13 +291,16 @@ public:
     /************************************************************************/
     string check_superq()
     {
+        yDebug()<<"check_superq";
+        yDebug()<<"superq rec"<<superq_ok;
+        yDebug()<<"superq rec"<<ok_acq;
         if (ok_acq==false)
         {
             return "wait";
         }
         else
         {
-            if (superq_received)
+            if (superq_ok)
                 return "ok";
             else
                 return "again";
@@ -324,16 +333,22 @@ public:
     /************************************************************************/
     string check_pose()
     {
+        
+        yDebug()<<"check_pose";
+        yDebug()<<"pose rec"<<pose_ok;
         if (ok_acq_pose==false)
         {
             return "wait";
         }
         else
         {
-            if (pose_received)
+            if (pose_ok)
                 return "ok";
             else
+            {
+                yDebug()<<"returning again";
                 return "again";
+            }
         }
     }
 
@@ -555,13 +570,15 @@ public:
 
         go_on=false;
         go_home=false;
+        superq_ok=false;
+        pose_ok=false;
         superq_received=false;
         pose_received=false;
         robot_moving=false;
 
         superq_aux.resize(12,0.0);
 
-        return true;
+        return  true;
     }
 
     /**
@@ -655,31 +672,36 @@ public:
                 go_on=false;
 
                 ok_acq=false;
-                ok_acq=superqRpc.write(cmd, superq_b);
+                //ok_acq=superqRpc.write(cmd, superq_b);
+                superqRpc.write(cmd, superq_b);
 
-                yInfo()<<"Received superquadric: "<<superq_b.toString(3);
+                yInfo()<<"Received superquadric: "<<superq_b.toString();
 
                 Vector sup(11,0.0);
                 sup=getBottle(superq_b, cmd);
                 
                 if (!superq_b.isNull())
                 {
+                    ok_acq=true;
                     
                     if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
                    {
                         if (superqOk(sup))
-                            superq_received=true;
+                            superq_ok=superq_received=true;
                         else
-                            superq_received=false;
+                            superq_ok=superq_received=false;
                     }
                     else
                     {
                         yError()<<"Zero superquadric";
-                        superq_received=false;                       
+                        superq_ok=superq_received=false;                       
                     }
                 }
                 else
-                    yError()<<"Null superquadric";
+                {
+                    yError()<<"Null superquadric";  
+                    ok_acq=false;
+                }
             }
             else
             {
@@ -731,24 +753,24 @@ public:
                 ok_acq=false;
                 ok_acq=superqRpc.write(cmd, superq_b);
 
-                yInfo()<<"Received superquadric: "<<superq_b.toString(3);
+                yInfo()<<"Received superquadric: "<<superq_b.toString();
 
                 Vector sup(11,0.0);
                 sup=getBottle(superq_b, cmd);
                
                 if (!superq_b.isNull())
                 {
-                   if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
+                    if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
                    {
                         if (superqOk(sup))
-                            superq_received=true;
+                            superq_ok=superq_received=true;
                         else
-                            superq_received=false;
+                            superq_ok=superq_received=false;
                     }
                     else
                     {
                         yError()<<"Zero superquadric";
-                        superq_received=false;                       
+                        superq_ok=superq_received=false;                       
                     }
                 }
                 else
@@ -760,33 +782,38 @@ public:
 
         if ((go_on==true) && (superq_received==true) && (pose_received==false))
         {
-            Bottle cmd, reply;
+            Bottle cmd, reply_pose;
             cmd.addString("get_grasping_pose");
 
             getBottle(superq_b, cmd);
 
             cmd.addString(hand_for_computation);
 
-            yInfo()<<"Command asked "<<cmd.toString(3);
+            yInfo()<<"Command asked "<<cmd.toString();
 
             ok_acq_pose=false;
-            ok_acq_pose=graspRpc.write(cmd, reply);
+            ok_acq_pose=graspRpc.write(cmd, reply_pose);
 
-            yInfo()<<"Received solution: "<<reply.toString(3);
+            yInfo()<<"Received solution: "<<reply_pose.toString();
 
-            if (reply.size()>0)
+            getPlane();
+
+            if (reply_pose.size()>0)
             {
-                if (poseOk(reply))
-                    pose_received=true;
+                if (poseOk(reply_pose))
+                    pose_received=pose_ok=true;
                 else
-                    pose_received=false;
+                    pose_received=pose_ok=false;
+                
+                yDebug()<<"pose rec "<<pose_received;
             }
-            else
-                pose_received=false;
+            //else
+            //    pose_received=false;
 
             if (choose_hand)
             {
                 cmd.clear();
+                Bottle reply;
                 cmd.addString("get_best_hand");
                 graspRpc.write(cmd,reply);
 
@@ -799,6 +826,7 @@ public:
                     yError()<<"No best pose received!";
 
             }
+yDebug()<<"pose rec "<<pose_received;
 
             go_on=false;
         }
@@ -810,7 +838,7 @@ public:
             cmd.addString("move");
             cmd.addString(hand_for_moving);
 
-            yInfo()<<"Asked to move: "<<cmd.toString(3);
+            yInfo()<<"Asked to move: "<<cmd.toString();
 
             graspRpc.write(cmd, reply);
 
@@ -821,6 +849,8 @@ public:
             }
 
             go_on=false;
+            superq_ok=false;
+            pose_ok=false;
         }
 
         if (go_home==true)
@@ -830,7 +860,7 @@ public:
             cmd.addString("go_home");
             cmd.addString(hand_for_moving);
 
-            yInfo()<<"Asked to stop: "<<cmd.toString(3);
+            yInfo()<<"Asked to stop: "<<cmd.toString();
 
             graspRpc.write(cmd, reply);
 
@@ -1215,11 +1245,15 @@ public:
     bool superqOk(Vector &sup)
     {
         bool ok=false;
-        if ((sup[0] <= -0.3) && (sup[1] <= -0.3) && (sup[2]<=-0.3))
+        yDebug()<<"Checking superq..";
+        cout<<endl;
+        yDebug()<<"superq "<<sup.toString();
+        if ((sup[0] <= 0.3) && (sup[1] <= 0.3) && (sup[2]<=0.3))
             ok=true;
-        if ((sup[5] <= -0.15) && (sup[5] >= -0.4) && (sup[6] <= -0.25) && (sup[6] >= 0.25) && (sup[7] >= -plane[3] + sup[2]) && (sup[7] <= 0.35) )
+        if ((sup[5] <= -0.15) && (sup[5] >= -0.4) && (sup[6] <= -0.25) && (sup[6] >= 0.25) && (sup[7] >= -plane[3]) && (sup[7] <= 0.35) )
             ok = ok && true;
 
+        cout<<"ok "<<ok<<endl;
         return ok;
     }
 
@@ -1249,7 +1283,7 @@ public:
                     Bottle *dim=group->get(1).asList();
 
                     plane[0]=dim->get(0).asDouble(); plane[1]=dim->get(1).asDouble();
-                    plane[2]=dim->get(2).asDouble(); plane[3]=dim->get(2).asDouble();
+                    plane[2]=dim->get(2).asDouble(); plane[3]=dim->get(3).asDouble();
                     yDebug()<<"plane"<<plane.toString(3,3);
                 }
             }
@@ -1273,6 +1307,8 @@ public:
     {
         bool ok=false;
         double z_left, z_right;
+        Vector left(3,0.0);
+        Vector right(3,0.0);
 
         Bottle *all=reply.get(0).asList();
 
@@ -1284,22 +1320,48 @@ public:
                 Bottle *dim=group->get(1).asList();
 
                 z_left=dim->get(2).asDouble();
+
+                left=dim->get(0).asDouble(); left=dim->get(1).asDouble(); left=dim->get(2).asDouble();
                 yDebug()<<"z_left"<<z_left;
+                yDebug()<<"left"<<left.toString();
             }
 
-            if (group->get(0).asString() == "pose_left")
+            if (group->get(0).asString() == "pose_right")
             {
                 Bottle *dim=group->get(1).asList();
 
                 z_right=dim->get(2).asDouble();
+                right=dim->get(0).asDouble(); right=dim->get(1).asDouble(); right=dim->get(2).asDouble();
                 yDebug()<<"z_right"<<z_right;
+                yDebug()<<"right"<<right.toString();
             }
         }
 
-        if ( z_left >= -plane[3] + 0.04)
-            ok =  true;
-        if ( z_right >= -plane[3] + 0.04)
-            ok =  ok && true;
+        cout<<endl<<-plane[3] + 0.04<<endl<<endl;
+
+        if ((norm(left)>0.0) && (norm(right)>0.0))
+        {
+            if ( z_left >= -plane[3] + 0.04)
+                ok=true;
+            if ( z_right >= -plane[3] + 0.04)
+                ok=ok && true;
+        }
+        else if (norm(left)>0.0) 
+        {
+            if ( z_left >= -plane[3] + 0.04)
+             ok=true;
+        }
+        else if (norm(right)>0.0) 
+        {
+            if ( z_right>= -plane[3] + 0.04)
+             ok=true;
+        }
+        else
+            ok=false;
+
+
+
+        yDebug()<<"ok "<<ok;
 
         return ok;
     }
