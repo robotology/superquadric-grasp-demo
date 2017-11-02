@@ -69,6 +69,7 @@ class GraspDemo : public RFModule,
     Property superq;
     Vector object;
     Vector superq_aux;
+    Vector plane;
 
     Bottle superq_b;
     string object_class;
@@ -81,6 +82,7 @@ class GraspDemo : public RFModule,
     bool filtered;
     bool choose_hand;
     bool ok_acq;
+    bool ok_acq_pose;
     bool superq_received;
     bool pose_received;
     bool robot_moving;
@@ -320,9 +322,19 @@ public:
     * @return true/false on success/failure.
     */
     /************************************************************************/
-    bool check_pose()
+    string check_pose()
     {
-        return pose_received;
+        if (ok_acq_pose==false)
+        {
+            return "wait";
+        }
+        else
+        {
+            if (pose_received)
+                return "ok";
+            else
+                return "again";
+        }
     }
 
 
@@ -655,7 +667,10 @@ public:
                     
                     if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
                    {
-                        superq_received=true;                       
+                        if (superqOk(sup))
+                            superq_received=true;
+                        else
+                            superq_received=false;
                     }
                     else
                     {
@@ -723,10 +738,12 @@ public:
                
                 if (!superq_b.isNull())
                 {
-                    
-                    if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
+                   if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
                    {
-                        superq_received=true;                       
+                        if (superqOk(sup))
+                            superq_received=true;
+                        else
+                            superq_received=false;
                     }
                     else
                     {
@@ -752,12 +769,20 @@ public:
 
             yInfo()<<"Command asked "<<cmd.toString(3);
 
-            graspRpc.write(cmd, reply);
+            ok_acq_pose=false;
+            ok_acq_pose=graspRpc.write(cmd, reply);
 
             yInfo()<<"Received solution: "<<reply.toString(3);
 
             if (reply.size()>0)
-                pose_received=true;
+            {
+                if (poseOk(reply))
+                    pose_received=true;
+                else
+                    pose_received=false;
+            }
+            else
+                pose_received=false;
 
             if (choose_hand)
             {
@@ -1113,6 +1138,8 @@ public:
             }
             else if (group->get(0).asString() == "orientation")
             {
+
+
                  Bottle *dim=group->get(1).asList();
 
                  superq_aux[8]=dim->get(0).asDouble(); superq_aux[9]=dim->get(1).asDouble(); superq_aux[10]=dim->get(2).asDouble(); superq_aux[11]=dim->get(3).asDouble();
@@ -1179,6 +1206,102 @@ public:
         b5l.addDouble(superq_aux[8]); b5l.addDouble(superq_aux[9]); b5l.addDouble(superq_aux[10]); b5l.addDouble(superq_aux[11]);
 
         return superq_aux;
+    }
+
+    /**
+    * Check if the reconstructed superquadric is safe for grasping.
+    */
+    /***********************************************************************/
+    bool superqOk(Vector &sup)
+    {
+        bool ok=false;
+        if ((sup[0] <= -0.3) && (sup[1] <= -0.3) && (sup[2]<=-0.3))
+            ok=true;
+        if ((sup[5] <= -0.15) && (sup[5] >= -0.4) && (sup[6] <= -0.25) && (sup[6] >= 0.25) && (sup[7] >= -plane[3] + sup[2]) && (sup[7] <= 0.35) )
+            ok = ok && true;
+
+        return ok;
+    }
+
+    /**
+    * Get plane information from superquadric-grasp module.
+    */
+    /***********************************************************************/
+    bool getPlane()
+    {
+        Bottle cmd, reply;
+        cmd.clear();
+        cmd.addString("get_options");
+        cmd.addString("pose");
+        plane.resize(4,0.0);
+
+
+        if (graspRpc.write(cmd, reply))
+        {
+            Bottle *all=reply.get(0).asList();
+
+            for (size_t i=0; i<all->size(); i++)
+            {
+
+                Bottle *group=all->get(i).asList();
+                if (group->get(0).asString() == "plane")
+                {
+                    Bottle *dim=group->get(1).asList();
+
+                    plane[0]=dim->get(0).asDouble(); plane[1]=dim->get(1).asDouble();
+                    plane[2]=dim->get(2).asDouble(); plane[3]=dim->get(2).asDouble();
+                    yDebug()<<"plane"<<plane.toString(3,3);
+                }
+            }
+        }
+
+        if (norm(plane)!=0.0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+    * Check if the reconstructed superquadric is safe for grasping.
+    */
+    /***********************************************************************/
+    bool poseOk(Bottle &reply)
+    {
+        bool ok=false;
+        double z_left, z_right;
+
+        Bottle *all=reply.get(0).asList();
+
+        for (size_t i=0; i<all->size(); i++)
+        {
+            Bottle *group=all->get(i).asList();
+            if (group->get(0).asString() == "pose_left")
+            {
+                Bottle *dim=group->get(1).asList();
+
+                z_left=dim->get(2).asDouble();
+                yDebug()<<"z_left"<<z_left;
+            }
+
+            if (group->get(0).asString() == "pose_left")
+            {
+                Bottle *dim=group->get(1).asList();
+
+                z_right=dim->get(2).asDouble();
+                yDebug()<<"z_right"<<z_right;
+            }
+        }
+
+        if ( z_left >= -plane[3] + 0.04)
+            ok =  true;
+        if ( z_right >= -plane[3] + 0.04)
+            ok =  ok && true;
+
+        return ok;
     }
 };
 

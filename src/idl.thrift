@@ -84,7 +84,7 @@ service graspDemo_IDL
     * To ask if the pose has been computed
     * @return true/false on success/failure.
     */
-    bool check_pose();
+    string check_pose();
  
     /**
     *If you want just to perform step 3

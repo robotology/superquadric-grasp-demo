@@ -143,13 +143,17 @@ return rfsm.state {
           entry=function()
                   print(" checking pose ..")
                   ret = GRASPING_check_pose(grasp_demo_port)
-                  if ret == "fail" then
-                      --print("\n\nERROR IN CHECKING POSE, PLEASE CHECK\n\n")
+                  if ret == "wait" then
+                      --print("\n\nERROR IN CHECKING SUPERQUADRIC, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
                   elseif ret == "ok" then
-                      print("\n\nPOSE COMPUTED!!!\n\n")
+                      print("\n\nSUPERQ COMPUTED!!!\n\n")
                       rfsm.send_events(fsm, 'e_done')
+                  elseif ret == "again" then
+                      print("\n\nSUPERQ COMPUTED!!!\n\n")
+                      rfsm.send_events(fsm, 'e_again')
                   end
+                    
 
           end
 },
@@ -279,6 +283,7 @@ rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_COMPUTE_POSE', events={ 'e_erro
 rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_CHECK_POSE', events={ 'e_done' } },
 
 rfsm.transition { src='ST_CHECK_POSE', tgt='ST_CHECK_POSE', events={ 'e_error' } },
+rfsm.transition { src='ST_CHECK_POSE', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_again' } },
 rfsm.transition { src='ST_CHECK_POSE', tgt='ST_GRASP_OBJECT', events={ 'e_done' } },
 
 --rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_error' } },
