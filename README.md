@@ -1,6 +1,6 @@
 # icub-grasp-demo
 
-This is a demo on how to perform object modeling and grasping with superquadrics [[1]](#references). 
+This is a demo for performing object modeling and grasping with superquadrics [[1]](#references). 
 
 
 #### Overview
@@ -43,7 +43,7 @@ make install
 [`Go to the top`](#icub-grasp-demo)
 
 #### How to run the code
-This demo has been designed in order to be executed on the iCub robot automatically. If you are interested in a interactive mode for launching the grasping algorithm, please visit [this page](http://github.com/robotology/superquadric-grasp-example)
+This demo has been designed in order to be executed on the iCub robot automatically. If you are interested in a interactive mode for launching the grasping algorithm, please visit [this page](http://github.com/robotology/superquadric-grasp-example).
 
 In order to run automatically the `icub-grasp-demo`, please:
 
@@ -52,18 +52,17 @@ In order to run automatically the `icub-grasp-demo`, please:
 3. Launch the basic modules:`iKinGazeCtrl`, `iKinCartsianSolver`- for both right and left arm. 
 4. Launch the [`skinManager`](https://github.com/robotology/icub-main/tree/master/src/modules/skinManager) and `skinManagerGui` and connect. Set the `binarization filter` off and the `compensation gain` and the `contact compensation gain` at the minimum values. 
 5. Launch and connect all the modules required from the demo, which are collected in [this xml](https://github.com/robotology/icub-grasp-demo/blob/master/app/script/grasp-demo.xml.template)
-
-6(a). Launch the lua script:
+6. (a) Launch the lua script:
 ```
 cd app/lua
 lua grasping_main.lua
 ```
-6(b). Alternatively, you can launch the lua state machine with the [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui). More information about the state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
+6. (b) Alternatively, you can launch the lua state machine with the [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui). More information about the state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
 
 #### Setting up the demo
 Before running the demo, it is recommended to correctly set up the modules. In particular:
-- for the `superquadric-model`, we suggest to [calibrate the stereo vision](https://github.com/robotology/superquadric-model/tree/master/tutorial#calibrate-the-stereo-vision-through-the-sfm-module)
-- and for  the `superquadric-grasp`, we recommend to calibrate the robot following [these instructions](https://github.com/robotology/superquadric-grasp/tree/master/tutorial#setting-up-before-running)
+- for the `superquadric-model`, we suggest to [calibrate the stereo vision](https://github.com/robotology/superquadric-model/tree/master/tutorial#calibrate-the-stereo-vision-through-the-sfm-module).
+- and for  the `superquadric-grasp`, we recommend to calibrate the robot following [these instructions](https://github.com/robotology/superquadric-grasp/tree/master/tutorial#setting-up-before-running).
 
 #### How to costum the demo
 The `icub-grasp-demo` can be customized by the user by changing the configuration parameters of the [`superquadric-model`](http://robotology.github.io/superquadric-model/doxygen/doc/html/group__superquadric-model.html) and [`superquadric-grasp`](https://robotology.github.io/superquadric-grasp/doxygen/doc/html/group__superquadric-grasp.html) modules, in the proper configuration files.
@@ -71,7 +70,7 @@ The `icub-grasp-demo` can be customized by the user by changing the configuratio
 Some useful options for the `superquadric-grasp` module are the following:
 - `lift_object`: available values: `on` / `off`. If you want the robot to test if the pose is good enough for lifting the object
 - `grasp`: available values: `on` / `off`. If you want the robot to perform the grasp by using tactile feedback. If `off` is selected, the robot just reaches the desired pose, without closing the hand
-- `visual_servoing`: available values: `on` / `off`. If you want to reach for the pose by using the markerless visual servoing and an accurate hand pose estimation (more information are available [here](https://github.com/robotology/visual-tracking-control)). (Currently, visual servoing is available only for the right hand),.
+- `visual_servoing`: available values: `on` / `off`. If you want to reach for the pose by using the markerless visual servoing and an accurate hand pose estimation (more information are available [here](https://github.com/robotology/visual-tracking-control)). (Currently, visual servoing is available only for the right hand).
 
 ## Documentation
 The online documentation of this module is available [here](http://robotology.github.com/icub-grasp-demo).
