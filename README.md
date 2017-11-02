@@ -13,16 +13,19 @@ This module implements a wrapper code for performing the superquadric modeling a
 This wrapper code communicates with existing modules developed in [`robotology repo`](https://github.com/robotology) and its structure can be summarized as follow:
 
 
-<img src="https://github.com/robotology-playground/experiment-new-grasp/blob/master/experiment-1/misc/298761_Vezzani_Figure3.JPEG" width=400 height=300> <img src="https://github.com/robotology-playground/experiment-new-grasp/blob/master/experiment-1/misc/298761_Vezzani_Figure2.JPEG" width=450 height=300> 
+<img src="https://github.com/robotology-playground/experiment-new-grasp/blob/master/experiment-1/misc/298761_Vezzani_Figure3.JPEG" width=400 height=300> <img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/pipeline.png" width=850 height=500> 
 
 
 
-1) The wrapper code asks the [object property collector](http://wiki.icub.org/brain/group__objectsPropertiesCollector.html) for the 2D bounding box information of the object.
-2) Given that, [lbpExtract module](https://github.com/robotology/segmentation) provides the 2D blob of the object.
-3) The wrapper code sends the 2D blob of the object to the [Structure From Motion module](https://github.com/robotology/stereo-vision) for getting the relative 3D point cloud.
-4) The 3D point cloud is then sent to the [superquadric-model](https://github.com/robotology/superquadric-model) for computing the superquadric modeling the object.
-5) The wrapper code sends the estimated superquadric to the [superquadric-grasp module](https://github.com/robotology/superquadric-grasp), which computes suitable poses.
-6) Finally, the superquadric-grasp is asked to perform the grasping task.
+1) The robot checks  if a`box`, `sphere` or `cylinder` is in the field of view by querying the [object property collector](http://wiki.icub.org/brain/group__objectsPropertiesCollector.html) and acquires the 2D bounding box information of the object.
+Note: `box`, `sphere` or `cylinder` are the primary shapes used for improving the object modeling. 
+2) Given that, [`lbpExtract module`](https://github.com/robotology/segmentation) provides multiple 2D blobs of the object. The demo code sends the 2D blobs of the object to the [`Structure From Motion module`](https://github.com/robotology/stereo-vision) for getting the relative 3D point clouds.
+3) The 3D point clouds are then sent to the [`superquadric-model`](https://github.com/robotology/superquadric-model) for computing several superquadrics modeling the object.
+4) A median filter computes a model by avering all the reconstructed superquadrics. This approach leads to more stable and robust models.
+5) The demo code sends the estimated superquadric to the [`superquadric-grasp module`](https://github.com/robotology/superquadric-grasp), which computes suitable poses for the right and the left hand.
+6) The best hand for grasping the object is selected according to proper criteria.
+
+7 - 8) Finally, the `superquadric-grasp` is asked to perform the grasping task.
 
 [`Go to the top`](#superquadric-graps-example)
 ## Use case
