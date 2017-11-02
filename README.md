@@ -4,7 +4,7 @@ This is a demo on how to perform object modeling and grasping with superquadrics
 
 
 #### Overview
-- [Demo description](#experiment-1)
+- [Demo description](#demo-description)
 - [Use case](#use-case)
  -[Documentation](#documentation)
 
@@ -41,10 +41,6 @@ make install
 [`Go to the top`](#icub-grasp-demo)
 
 #### How to run the code
-
-
-## Documentation
-The online documentation of this module is available [here](http://robotology.github.com/icub-grasp-demo).
 This demo has been designed in order to be executed on the iCub robot automatically. If you are interested in a interactive mode for launching the grasping algorithm, please visit [this page](http://github.com/robotology/superquadric-grasp-examp
 
 In order to run automatically the `icub-grasp-demo`, please:
@@ -58,9 +54,10 @@ In order to run automatically the `icub-grasp-demo`, please:
 cd app/lua
 lua grasping_main.lua
 ```
-5(b). Alternatively, you can launch the lua state machine with the [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui)
+5(b). Alternatively, you can launch the lua state machine with the [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui). More information about the state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
 
-
+## Documentation
+The online documentation of this module is available [here](http://robotology.github.com/icub-grasp-demo).
 
 
 
