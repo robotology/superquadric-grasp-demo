@@ -1,6 +1,6 @@
 # State Machine
 
-This is the render made by the `rfsmGui` of the state machin implemented for this demo:
+This is the render made by the `rfsmGui` of the state machine implemented for this demo:
 
 <img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/state-machine.png" width = "800">
 
