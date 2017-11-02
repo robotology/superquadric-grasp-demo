@@ -65,6 +65,7 @@ lua grasping_main.lua
 Before running the demo, it is recommended to correctly set up the modules. In particular:
 - for the `superquadric-model`, we suggest to [calibrate the stereo vision](https://github.com/robotology/superquadric-model/tree/master/tutorial#calibrate-the-stereo-vision-through-the-sfm-module).
 - and for  the `superquadric-grasp`, we recommend to calibrate the robot following [these instructions](https://github.com/robotology/superquadric-grasp/tree/master/tutorial#setting-up-before-running).
+
 [`Go to the top`](#icub-grasp-demo)
 
 #### How to costum the demo
