@@ -645,7 +645,7 @@ public:
                 ok_acq=false;
                 ok_acq=superqRpc.write(cmd, superq_b);
 
-                yInfo()<<"Received superquadric: "<<superq_b.toString();
+                yInfo()<<"Received superquadric: "<<superq_b.toString(3);
 
                 Vector sup(11,0.0);
                 sup=getBottle(superq_b, cmd);
@@ -716,7 +716,7 @@ public:
                 ok_acq=false;
                 ok_acq=superqRpc.write(cmd, superq_b);
 
-                yInfo()<<"Received superquadric: "<<superq_b.toString();
+                yInfo()<<"Received superquadric: "<<superq_b.toString(3);
 
                 Vector sup(11,0.0);
                 sup=getBottle(superq_b, cmd);
@@ -750,11 +750,11 @@ public:
 
             cmd.addString(hand_for_computation);
 
-            yInfo()<<"Command asked "<<cmd.toString();
+            yInfo()<<"Command asked "<<cmd.toString(3);
 
             graspRpc.write(cmd, reply);
 
-            yInfo()<<"Received solution: "<<reply.toString();
+            yInfo()<<"Received solution: "<<reply.toString(3);
 
             if (reply.size()>0)
                 pose_received=true;
@@ -785,7 +785,7 @@ public:
             cmd.addString("move");
             cmd.addString(hand_for_moving);
 
-            yInfo()<<"Asked to move: "<<cmd.toString();
+            yInfo()<<"Asked to move: "<<cmd.toString(3);
 
             graspRpc.write(cmd, reply);
 
@@ -805,7 +805,7 @@ public:
             cmd.addString("go_home");
             cmd.addString(hand_for_moving);
 
-            yInfo()<<"Asked to stop: "<<cmd.toString();
+            yInfo()<<"Asked to stop: "<<cmd.toString(3);
 
             graspRpc.write(cmd, reply);
 
