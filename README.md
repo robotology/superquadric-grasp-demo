@@ -37,9 +37,27 @@ ccmake ..
 make install
 ```
 
+
+[`Go to the top`](#icub-grasp-demo)
+
+#### How to run the code
+
+
 ## Documentation
 The online documentation of this module is available [here](http://robotology.github.com/icub-grasp-demo).
+This demo has been designed in order to be executed on the iCub robot automatically. If you are interested in a interactive mode for launching the grasping algorithm, please visit [this page](http://github.com/robotology/superquadric-grasp-examp
 
+In order to run automatically the `icub-grasp-demo`, please:
+
+1. Launch the `yarprobotinterface`
+2. Launch the basic modules:`iKinGazeCtrl`, `iKinCartsianSolver`- for both right and left arm. 
+3. Launch the [`skinManager`](https://github.com/robotology/icub-main/tree/master/src/modules/skinManager) and `skinManagerGui` and connect. Set the `binarization filter` off and the `compensation gain` and the `contact compensation gain` at the minimum values. 
+4. Launch and connect all the modules required from the demo, which are collected in [this xml](https://github.com/robotology/icub-grasp-demo/blob/master/app/script/grasp-demo.xml.template)
+5. Launch the lua script:
+```
+cd app/lua
+lua grasping_main.lua
+```
 
 
 
