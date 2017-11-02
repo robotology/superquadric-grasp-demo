@@ -18,7 +18,7 @@ grasp_attention_port = yarp.Port()
 -- load state machine model and initalize it
 
 rf = yarp.ResourceFinder()
-rf:setDefaultContext("superquadric-grasp/lua")
+rf:setDefaultContext("grasp-demo/lua")
 rf:configure(arg)
 fsm_file = rf:findFile("grasping_root_fsm.lua")
 fsm_model = rfsm.load(fsm_file)
