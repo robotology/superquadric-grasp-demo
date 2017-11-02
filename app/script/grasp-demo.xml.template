@@ -49,7 +49,6 @@
     </module>
     <module>
             <name>iolStateMachineHandler</name>
-            <parameters>--attention stop</parameters>
             <node>icub21</node>
     </module>
     <module>
