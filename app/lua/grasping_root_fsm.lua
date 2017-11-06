@@ -140,17 +140,23 @@ return rfsm.state {
   ST_CHECK_SUPERQ = rfsm.state{
           doo=function()
                   ----print(" checking superquadric ..")
-                  ret = GRASPING_check_superq(grasp_demo_port)
-                  if ret == "wait" then
+
+                  while true do
+                     ret = GRASPING_check_superq(grasp_demo_port)
+                     --if ret == "wait" then
                       ------print("\n\nERROR IN CHECKING SUPERQUADRIC, PLEASE CHECK\n\n")
-                      rfsm.send_events(fsm, 'e_error')
-                  elseif ret == "ok" then
+                      --  rfsm.send_events(fsm, 'e_error')
+                     if ret == "ok" then
                       ----print("\n\nSUPERQ COMPUTED!!!\n\n")
-                      rfsm.send_events(fsm, 'e_ok')
-                  elseif ret == "again" then
+                        rfsm.send_events(fsm, 'e_ok')
+                     elseif ret == "again" then
                       ----print("\n\nSUPERQ NOT COMPUTED!!!\n\n")
-                      rfsm.send_events(fsm, 'e_again')
+                        rfsm.send_events(fsm, 'e_again')
+                     end
+                     rfsm.yield(true)
                   end
+    
+                  
                     
 
           end
@@ -162,12 +168,15 @@ return rfsm.state {
   ST_COMPUTE_POSE = rfsm.state{
           doo=function()
                   ----print(" computing poses ..")
-                  ret =  GRASPING_compute_pose(grasp_demo_port)
-                  if ret == "fail" then
-                      ----print("\n\nERROR WITH COMPUTING POSES, PLEASE CHECK\n\n")
-                      rfsm.send_events(fsm, 'e_error')
-                  elseif ret == "ok" then
-                      rfsm.send_events(fsm, 'e_ok')
+                  while true do
+                      ret =  GRASPING_compute_pose(grasp_demo_port)
+                      if ret == "ok" then
+                          rfsm.send_events(fsm, 'e_ok')
+                      elseif ret == "again" then
+                      ----print("\n\nSUPERQ NOT COMPUTED!!!\n\n")
+                        rfsm.send_events(fsm, 'e_again')
+                      end
+                      rfsm.yield(true)
                   end
           end
 },
@@ -178,16 +187,19 @@ return rfsm.state {
   ST_CHECK_POSE = rfsm.state{
           doo=function()
                   ----print(" checking pose ..")
-                  ret = GRASPING_check_pose(grasp_demo_port)
-                  if ret == "wait" then
+                  while true do
+                     ret = GRASPING_check_pose(grasp_demo_port)
+                     --if ret == "wait" then
                       ------print("\n\nERROR IN CHECKING SUPERQUADRIC, PLEASE CHECK\n\n")
-                      rfsm.send_events(fsm, 'e_error')
-                  elseif ret == "ok" then
-                      ----print("\n\nPOSE COMPUTED!!!\n\n")
-                      rfsm.send_events(fsm, 'e_ok')
-                  elseif ret == "again" then
-                      ----print("\n\nPOSE NOT COMPUTED!!!\n\n")
-                      rfsm.send_events(fsm, 'e_again')
+                      --  rfsm.send_events(fsm, 'e_error')
+                     if ret == "ok" then
+                      ----print("\n\nSUPERQ COMPUTED!!!\n\n")
+                        rfsm.send_events(fsm, 'e_ok')
+                     elseif ret == "again" then
+                      ----print("\n\nSUPERQ NOT COMPUTED!!!\n\n")
+                        rfsm.send_events(fsm, 'e_again')
+                     end
+                     rfsm.yield(true)
                   end
                     
 
@@ -217,12 +229,12 @@ return rfsm.state {
   ST_CHECK_MOVEMENT = rfsm.state{
           doo=function()
                   ----print(" checking movement ..")
-                  ret = GRASPING_check_motion(grasp_motion_port)
-                  if ret == "fail" then
-                      ------print("\n\nERROR IN CHECKING MOVEMENT, PLEASE CHECK\n\n")
-                      rfsm.send_events(fsm, 'e_error')
-                  elseif ret == "ok" then
-                      rfsm.send_events(fsm, 'e_ok')
+                  while true do
+                      ret =  GRASPING_check_motion(grasp_motion_port)
+                      if ret == "ok" then
+                          rfsm.send_events(fsm, 'e_ok')
+                      end
+                      rfsm.yield(true)
                   end
 
           end
@@ -283,13 +295,12 @@ return rfsm.state {
   ST_CHECK_HOME = rfsm.state{
           doo=function()
                   ----print(" checking home ..")
-                  ret = GRASPING_check_home(grasp_motion_port)
-                  if ret == "fail" then
-                      ------print("\n\nERROR IN CHECKING HOME, PLEASE CHECK\n\n")
-                      rfsm.send_events(fsm, 'e_error')
-                  elseif ret == "ok" then
-                      rfsm.send_events(fsm, 'e_ok')
-                      yarp.Time_delay(5.0)
+                  while true do
+                      ret =  GRASPING_check_home(grasp_motion_port)
+                      if ret == "ok" then
+                          rfsm.send_events(fsm, 'e_ok')
+                      end
+                      rfsm.yield(true)
                   end
 
           end
@@ -311,21 +322,17 @@ ST_INTERACT = interact_fsm,
  rfsm.transition { src='ST_ACQUIRE_SUPERQ', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_error' } },
  rfsm.transition { src='ST_ACQUIRE_SUPERQ', tgt='ST_CHECK_SUPERQ', events={ 'e_done' } },
 
-rfsm.transition { src='ST_CHECK_SUPERQ', tgt='ST_CHECK_SUPERQ', events={ 'e_error' } },
 rfsm.transition { src='ST_CHECK_SUPERQ', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_again' } },
 rfsm.transition { src='ST_CHECK_SUPERQ', tgt='ST_COMPUTE_POSE', events={ 'e_ok' } },
 
-rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_COMPUTE_POSE', events={ 'e_error' } },
 rfsm.transition { src='ST_COMPUTE_POSE', tgt='ST_CHECK_POSE', events={ 'e_ok' } },
 
-rfsm.transition { src='ST_CHECK_POSE', tgt='ST_CHECK_POSE', events={ 'e_error' } },
 rfsm.transition { src='ST_CHECK_POSE', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_again' } },
 rfsm.transition { src='ST_CHECK_POSE', tgt='ST_GRASP_OBJECT', events={ 'e_ok' } },
 
 --rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_error' } },
 rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_CHECK_MOVEMENT', events={ 'e_ok' } },
 
-rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_CHECK_MOVEMENT', events={ 'e_error' } },
 rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_GO_HOME', events={ 'e_ok' } },
 
 rfsm.transition { src='ST_GO_HOME', tgt='ST_CLEAR_POSES', events={ 'e_ok' } },
@@ -333,7 +340,6 @@ rfsm.transition { src='ST_CLEAR_POSES', tgt='ST_START_FROM_SCRATCH', events={'e_
 rfsm.transition { src='ST_START_FROM_SCRATCH', tgt='ST_CHECK_HOME', events={ 'e_ok' } },
 
 
-rfsm.transition { src='ST_CHECK_HOME', tgt='ST_CHECK_HOME', events={ 'e_error' } },
 rfsm.transition { src='ST_CHECK_HOME', tgt='ST_LOOK_FOR_OBJECT', events={ 'e_ok' } },
 
 
