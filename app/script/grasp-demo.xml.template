@@ -78,7 +78,7 @@
     <module>
         <name>rfsmGui</name>
         <node>icub21</node>
-        <parameters>--rfsm grasping_root_fsm.lua --context icub-grasp-demo/lua --run</parameters>
+        <parameters>--rfsm grasping_root_fsm.lua --context grasp-demo/lua </parameters>
     </module>
 
     <module>
