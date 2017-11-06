@@ -59,8 +59,8 @@ function GRASPING_look_for_object(port, port2)
                     local pos2d = pos:get(2):asList()               
                      if pos2d then
                         k=i 
-                        print("found")
-                        print(classes[k])
+                        --print("found")
+                        --print(classes[k])
                     --else
                     --   k=1000
                     end
@@ -84,10 +84,9 @@ function GRASPING_look_for_object(port, port2)
         wb2:addString("set_object_class")
         wb2:addString(classes[k])
         port2:write(wb2,reply)
-        ok = ok and  reply:get(0):asString()
      end
 
-    return ok
+    return reply:get(0):asString()
 end
 
 function GRASPING_preparation(port)
@@ -117,7 +116,7 @@ function GRASPING_check_superq(port)
     wb:addString("check_superq")
     port:write(wb,reply)
     yarp.Time_delay(1.0)
-    print(reply:get(0):asString())
+    --print(reply:get(0):asString())
     return reply:get(0):asString()
 end
 
@@ -138,7 +137,7 @@ function GRASPING_check_pose(port)
     wb:addString("check_pose")
     port:write(wb,reply)
     yarp.Time_delay(1.0)
-    print(reply:get(0):asString())
+    --print(reply:get(0):asString())
     return reply:get(0):asString()
 end
 
@@ -169,7 +168,7 @@ function GRASPING_check_motion(port)
     wb:clear()
     wb:addString("check_motion")
     port:write(wb,reply)
-    print(reply:get(0):asString())
+    --print(reply:get(0):asString())
     return reply:get(0):asString()
 end
 
@@ -188,7 +187,7 @@ function GRASPING_clear_poses(port)
     wb:clear()
     wb:addString("clear_poses")
     port:write(wb,reply)
-    print(reply:get(0):asString())
+    --print(reply:get(0):asString())
     return reply:get(0):asString()
 end
 
@@ -198,7 +197,7 @@ function GRASPING_start_from_scratch(port)
     wb:clear()
     wb:addString("start_from_scratch")    
     port:write(wb,reply)
-    print(reply:get(0):asString())
+    --print(reply:get(0):asString())
     return reply:get(0):asString()
 end
 
