@@ -2,7 +2,7 @@
 
 This is the render made by the `rfsmGui` of the state machine implemented for this demo:
 
-<img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/state-machine.png" width = "800">
+<img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/state-machine.png" width = "700">
 
 - The robot looks for a box, cylinder or sphere in the field of view (<b>`ST_LOOK_FOR_OBJECT`</b>).
 - When the object is found, the `superquadric-module` acquires multiple superquadrics and filters them with the adaptive median filter (<b>`ST_ACQUIRE_SUPERQ`</b>).
