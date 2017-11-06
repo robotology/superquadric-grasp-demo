@@ -16,7 +16,7 @@ This wrapper code communicates with existing modules developed in [`robotology r
 
 
 
-1) The robot checks  if a`box`, `sphere` or `cylinder` is in the field of view by querying the [object property collector](http://wiki.icub.org/brain/group__objectsPropertiesCollector.html) and acquires the 2D bounding box information of the object. If multiple objects are in front the robot, one of them is randomly chosen for performing the demo.
+1) The robot checks  if a`box`, `sphere` or `cylinder` is in the field of view by querying the [`objectPropertyCollector`](http://wiki.icub.org/brain/group__objectsPropertiesCollector.html) and acquires the 2D bounding box information of the object. If multiple objects are in front the robot, one of them is randomly chosen for performing the demo.
 Note: The objects are classified in `box`, `sphere` or `cylinder` since they are primary shapes used for improving the object modeling. 
 2) Given that, [`lbpExtract module`](https://github.com/robotology/segmentation) provides multiple 2D blobs of the selected object. The demo code sends the 2D blobs of the object to the [`Structure From Motion module`](https://github.com/robotology/stereo-vision) for getting the relative 3D point clouds.
 3) The 3D point clouds are then sent to the [`superquadric-model`](https://github.com/robotology/superquadric-model) for computing several superquadrics modeling the object.
@@ -48,11 +48,11 @@ This demo has been designed in order to be executed on the iCub robot automatica
 In order to run automatically the `icub-grasp-demo`, please:
 
 1. Launch the `yarprobotinterface`.
-2. Launch the `cameras` .
+2. Launch the `cameras`.
 3. Launch the basic modules:`iKinGazeCtrl`, `iKinCartsianSolver`- for both right and left arm. 
 4. Launch the [`skinManager`](https://github.com/robotology/icub-main/tree/master/src/modules/skinManager) and `skinManagerGui` and connect. Set the `binarization filter` `off` and the `compensation gain` and the `contact compensation gain` at the minimum values. 
-5. Launch and connect all the modules required from the demo, which are collected in [this xml](https://github.com/robotology/icub-grasp-demo/blob/master/app/script/grasp-demo.xml.template).
-6. The [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui) will open. Play `run` on the Gui to start  the state machine executing the demo. More information about the state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
+5. Launch and connect all the modules required from the demo, which are collected in the  [`iCub_Grasp_Demo` xml](https://github.com/robotology/icub-grasp-demo/blob/master/app/script/grasp-demo.xml.template).
+6. The [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui) will open. Play `run` on the Gui to start  the state machine executing the demo. More information about the `iCub_Grasp_Demo` state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
 
 [`Go to the top`](#icub-grasp-demo)
 
@@ -64,7 +64,7 @@ Before running the demo, it is recommended to correctly set up the modules. In p
 [`Go to the top`](#icub-grasp-demo)
 
 #### How to costum the demo
-The `icub-grasp-demo` can be customized by the user by changing the configuration parameters of the [`superquadric-model`](http://robotology.github.io/superquadric-model/doxygen/doc/html/group__superquadric-model.html) and [`superquadric-grasp`](https://robotology.github.io/superquadric-grasp/doxygen/doc/html/group__superquadric-grasp.html) modules, in the proper configuration files (respectively: [config.ini](https://github.com/robotology/superquadric-grasp/blob/master/app/conf/config.ini) and [config.ini](https://github.com/robotology/superquadric-model/blob/master/app/conf/config-classes.ini)).
+The `icub-grasp-demo` can be customized by the user by changing the configuration parameters of the [`superquadric-model`](http://robotology.github.io/superquadric-model/doxygen/doc/html/group__superquadric-model.html) and [`superquadric-grasp`](https://robotology.github.io/superquadric-grasp/doxygen/doc/html/group__superquadric-grasp.html) modules, in the proper configuration files (respectively: [config-classes.ini](https://github.com/robotology/superquadric-model/blob/master/app/conf/config-classes.ini) and [config.ini](https://github.com/robotology/superquadric-grasp/blob/master/app/conf/config.ini))).
 
 Some useful options for the `superquadric-grasp` module are the following:
 - `lift_object`: available values: `on` (default) / `off`. If you want the robot to test if the pose is good enough for lifting the object.
