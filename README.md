@@ -52,13 +52,7 @@ In order to run automatically the `icub-grasp-demo`, please:
 3. Launch the basic modules:`iKinGazeCtrl`, `iKinCartsianSolver`- for both right and left arm. 
 4. Launch the [`skinManager`](https://github.com/robotology/icub-main/tree/master/src/modules/skinManager) and `skinManagerGui` and connect. Set the `binarization filter` `off` and the `compensation gain` and the `contact compensation gain` at the minimum values. 
 5. Launch and connect all the modules required from the demo, which are collected in [this xml](https://github.com/robotology/icub-grasp-demo/blob/master/app/script/grasp-demo.xml.template).
-6. (a) Launch the lua script:
-```
-cd app/lua
-lua grasping_main.lua
-```
-6. (b) Alternatively, you can launch the lua state machine with the [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui). [Feature to be added].
-More information about the state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
+6. The [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui) will open. Play `run` on the Gui to start  the state machine executing the demo. More information about the state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
 
 [`Go to the top`](#icub-grasp-demo)
 
