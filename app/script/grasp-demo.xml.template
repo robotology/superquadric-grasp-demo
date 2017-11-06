@@ -39,15 +39,6 @@
             <node>icub21</node>
     </module>
     <module>
-            <name>actionsRenderingEngine</name>
-            <parameters>--motor::block_eyes 5.0</parameters>
-            <node>icub21</node>
-    </module>
-    <module>
-            <name>iolReachingCalibration</name>
-            <node>icub21</node>
-    </module>
-    <module>
             <name>iolStateMachineHandler</name>
             <node>icub21</node>
     </module>
@@ -246,11 +237,6 @@
             <protocol>udp</protocol>
     </connection>
     <connection>
-            <from>/motionCUT/blobs:o</from>
-            <to>/actionsRenderingEngine/left/blobs:i</to>
-            <protocol>udp</protocol>
-    </connection>
-    <connection>
             <from>/lbpExtract/blobs:o</from>
             <to>/iolStateMachineHandler/blobs:i</to>
             <protocol>udp</protocol>
@@ -291,73 +277,13 @@
             <protocol>tcp</protocol>
     </connection>
     <connection>
-            <from>/iolStateMachineHandler/speak:o</from>
-            <to>/iSpeak</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/iolReachingCalibration/opc</from>
-            <to>/memory/rpc</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/iolReachingCalibration/are</from>
-            <to>/actionsRenderingEngine/cmd:io</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/iolStateMachineHandler/reach_calib:rpc</from>
-            <to>/iolReachingCalibration/rpc</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/iolStateMachineHandler/motor:rpc</from>
-            <to>/actionsRenderingEngine/cmd:io</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/iolStateMachineHandler/motor_stop:rpc</from>
-            <to>/actionsRenderingEngine/rpc</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/actionsRenderingEngine/wbd:rpc</from>
-            <to>/wholeBodyDynamics/rpc:i</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
             <from>/iolStateMachineHandler/memory:rpc</from>
             <to>/memory/rpc</to>
             <protocol>tcp</protocol>
     </connection>
     <connection>
-            <from>/actionsRenderingEngine/OPC:io</from>
-            <to>/memory/rpc</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/iolHelper/opc</from>
-            <to>/memory/rpc</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/speechRecognizer/recog/continuous:o</from>
-            <to>/iolStateMachineHandler/motor_stop:i</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
             <from>/blobSelector/point:o</from>
             <to>/iolStateMachineHandler/point:i</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/speechRecognizer/tts/iSpeak:o</from>
-            <to>/iSpeak</to>
-            <protocol>tcp</protocol>
-    </connection>
-    <connection>
-            <from>/iSpeak/emotions:o</from>
-            <to>/icub/face/emotions/in</to>
             <protocol>tcp</protocol>
     </connection>
     <connection>
