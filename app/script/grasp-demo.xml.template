@@ -53,7 +53,7 @@
     </module>
     <module>
             <name>objectsPropertiesCollector</name>
-            <parameters>--name memory --db memory_iol.ini</parameters>
+            <parameters>--name memory --db memory_grasp.ini</parameters>
             <node>icub21</node>
     </module>
 
