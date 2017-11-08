@@ -26,9 +26,7 @@ Note: The objects are classified in `box`, `sphere` or `cylinder` since they are
 
 7 - 8) Finally, the `superquadric-grasp` is asked to perform the grasping task.
 
-Here is a video of the pipeline while running:
-[<img src="https://github.com/robotology/superquadric-grasp/blob/master/misc/new-video-grasp.png" width=1000>](https://www.youtube.com/watch?v=dfYdBQ-mBJQ&feature=youtu.be)
-[`Go to the top`](#icub-grasp-demo)
+Here is a video of the pipeline while running:[<img src="https://github.com/robotology/superquadric-grasp/blob/master/misc/new-video-grasp.png" width=1000>](https://www.youtube.com/watch?v=dfYdBQ-mBJQ&feature=youtu.be)[`Go to the top`](#icub-grasp-demo)
 ## Use case
 
 #### How to compile
