@@ -14,17 +14,15 @@ This wrapper code communicates with existing modules developed in [`robotology`]
 
 <img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/pipeline.png" width=850 height=500> 
 
-
-
-1) The robot checks  if a`box`, `sphere` or `cylinder` is in the field of view by querying the [`objectPropertyCollector`](http://wiki.icub.org/brain/group__objectsPropertiesCollector.html) and acquires the 2D bounding box information of the object. If multiple objects are in front the robot, one of them is randomly chosen for performing the demo.
+1. The robot checks  if a`box`, `sphere` or `cylinder` is in the field of view by querying the [`objectPropertyCollector`](http://wiki.icub.org/brain/group__objectsPropertiesCollector.html) and acquires the 2D bounding box information of the object. If multiple objects are in front the robot, one of them is randomly chosen for performing the demo.
 Note: The objects are classified in `box`, `sphere` or `cylinder` since they are primary shapes used for improving the object modeling. 
-2) Given that, [`lbpExtract module`](https://github.com/robotology/segmentation) provides multiple 2D blobs of the selected object. The demo code sends the 2D blobs of the object to the [`Structure From Motion module`](https://github.com/robotology/stereo-vision) for getting the relative 3D point clouds.
-3) The 3D point clouds are then sent to the [`superquadric-model`](https://github.com/robotology/superquadric-model) for computing several superquadrics modeling the object.
-4) A median filter computes a model by avering all the reconstructed superquadrics. This approach leads to more stable and robust models.
-5) The demo code sends the estimated superquadric to the [`superquadric-grasp module`](https://github.com/robotology/superquadric-grasp), which computes suitable poses for the right and the left hand.
-6) The best hand for grasping the object is selected according to proper criteria.
-
-7 - 8) Finally, the `superquadric-grasp` is asked to perform the grasping task.
+1. Given that, [`lbpExtract module`](https://github.com/robotology/segmentation) provides multiple 2D blobs of the selected object. The demo code sends the 2D blobs of the object to the [`Structure From Motion module`](https://github.com/robotology/stereo-vision) for getting the relative 3D point clouds.
+1. The 3D point clouds are then sent to the [`superquadric-model`](https://github.com/robotology/superquadric-model) for computing several superquadrics modeling the object.
+1. A median filter computes a model by avering all the reconstructed superquadrics. This approach leads to more stable and robust models.
+1. The demo code sends the estimated superquadric to the [`superquadric-grasp module`](https://github.com/robotology/superquadric-grasp), which computes suitable poses for the right and the left hand.
+1. The best hand for grasping the object is selected according to proper criteria.
+1. Finally, the `superquadric-grasp` is asked to execute grasping.
+1. Once grasped, the object is lifted.
 
 Here is a video of the running pipeline:[<img src="https://github.com/robotology/superquadric-grasp/blob/master/misc/new-video-grasp.png" width=1000>](https://www.youtube.com/watch?v=dfYdBQ-mBJQ&feature=youtu.be)[`Go to the top`](#icub-grasp-demo)
 ## Use case
@@ -48,11 +46,11 @@ This demo has been designed in order to be automatically executed on the iCub ro
 In order to automatically run the `icub-grasp-demo`, please:
 
 1. Launch the `yarprobotinterface`.
-2. Launch the `cameras`.
-3. Launch the basic modules:`iKinGazeCtrl`, `iKinCartsianSolver`- for both right and left arm. 
-4. Launch the [`skinManager`](https://github.com/robotology/icub-main/tree/master/src/modules/skinManager) and `skinManagerGui` and connect. Set the `binarization filter` `off` and the `compensation gain` and the `contact compensation gain` at the minimum values. 
-5. Launch and connect all the modules required from the demo, which are collected in the  [`iCub_Grasp_Demo` xml](https://github.com/robotology/icub-grasp-demo/blob/master/app/script/grasp-demo.xml.template).
-6. The [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui) will open. Play `run` on the Gui to start  the state machine executing the demo. More information about the `iCub_Grasp_Demo` state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
+1. Launch the `cameras`.
+1. Launch the basic modules:`iKinGazeCtrl`, `iKinCartsianSolver`- for both right and left arm. 
+1. Launch the [`skinManager`](https://github.com/robotology/icub-main/tree/master/src/modules/skinManager) and `skinManagerGui` and connect. Set the `binarization filter` `off` and the `compensation gain` and the `contact compensation gain` at the minimum values. 
+1. Launch and connect all the modules required from the demo, which are collected in the  [`iCub_Grasp_Demo` xml](https://github.com/robotology/icub-grasp-demo/blob/master/app/script/grasp-demo.xml.template).
+1. The [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui) will open. Play `run` on the Gui to start  the state machine executing the demo. More information about the `iCub_Grasp_Demo` state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
 
 [`Go to the top`](#icub-grasp-demo)
 
