@@ -10,7 +10,7 @@ This demo performs object modeling and grasping with superquadrics [[1](#referen
 
 ## Demo description
 This module implements a wrapper code for performing the superquadric modeling and grasping pipeline described in [[1](#references)].
-This wrapper code communicates with existing modules developed in [`robotology`](https://github.com/robotology) and its structure can be summarized as follow:
+This wrapper code communicates with existing modules developed in [`robotology`](https://github.com/robotology) and its structure can be summarized as follows:
 
 <img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/pipeline.png" width=850 height=500> 
 
