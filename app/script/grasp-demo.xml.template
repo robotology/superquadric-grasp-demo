@@ -85,12 +85,12 @@
 
     <module>
         <name>yarpview</name>
-        <parameters>--name /iolViewer/manager/tracker --x 700 --y 0 --p 50 --compact</parameters>
+        <parameters>--name /iolViewer/manager/tracker --x 680 --y 0 --p 50 --compact</parameters>
         <node>icub22</node>
     </module>
     <module>
         <name>yarpview</name>
-        <parameters>--name /iolViewer/manager/localizer --x 1020 --y 0 --out /iolViewer/manager/localizer/out --p 50 --compact</parameters>
+        <parameters>--name /iolViewer/manager/localizer --x 990 --y 0 --out /iolViewer/manager/localizer/out --p 50 --compact</parameters>
         <node>icub22</node>
     </module>
     <module>
@@ -101,13 +101,13 @@
 
     <module>
        <name>yarpview</name>
-       <parameters>--name /dispPose --out /dispPose/out --x 700 --y 370 --w 600 --h 600 --p  200</parameters>
+       <parameters>--name /dispPose --out /dispPose/out --x 700 --y 370 --w 600 --h 600 --p  200 --compact</parameters>
        <node>icub22</node>
     </module>
 
     <module>
        <name>yarpview</name>
-       <parameters>--name /dispSuperq --out /dispBlobs/out --x 1600 --y 370 --w 600 --h 600 --p 200</parameters>
+       <parameters>--name /dispSuperq --out /dispBlobs/out --x 1600 --y 370 --w 600 --h 600 --p 200 --compact</parameters>
        <node>icub22</node>
     </module>
 
