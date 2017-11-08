@@ -1,6 +1,6 @@
 # icub-grasp-demo
 
-This demo performs object modeling and grasping with superquadrics [[1]](#references) with the iCub robot. 
+This demo performs object modeling and grasping with superquadrics [[1](#references)] with the iCub robot. 
 
 
 #### Overview
@@ -9,8 +9,8 @@ This demo performs object modeling and grasping with superquadrics [[1]](#refere
 - [Documentation](#documentation)
 
 ## Demo description
-This module implements a wrapper code for performing the superquadric modeling and grasping pipeline described in [[1]](#references).
-This wrapper code communicates with existing modules developed in [`robotology repo`](https://github.com/robotology) and its structure can be summarized as follow:
+This module implements a wrapper code for performing the superquadric modeling and grasping pipeline described in [[1](#references)].
+This wrapper code communicates with existing modules developed in [`robotology`](https://github.com/robotology) and its structure can be summarized as follow:
 
 <img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/pipeline.png" width=850 height=500> 
 
