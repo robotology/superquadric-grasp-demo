@@ -1,6 +1,6 @@
 # icub-grasp-demo
 
-This is a demo for performing object modeling and grasping with superquadrics [[1]](#references) on the iCub robot. 
+This demo performs object modeling and grasping with superquadrics [[1]](#references) with the iCub robot. 
 
 
 #### Overview
@@ -88,4 +88,4 @@ The online documentation of this module is available [here](http://robotology.gi
 [`Go to the top`](#icub-grasp-demo)
 
 # References
-[1] G. Vezzani, U. Pattacini and L. Natale, "A grasping approach based on superquadric models", IEEE-RAS International Conference on Robotics and Automation 2017, pp 1579-1586.
+[1] G. Vezzani, U. Pattacini and L. Natale, "[_A grasping approach based on superquadric models_](https://doi.org/10.1109/ICRA.2017.7989187)", IEEE-RAS International Conference on Robotics and Automation 2017, pp 1579-1586.
