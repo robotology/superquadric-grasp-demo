@@ -25,6 +25,8 @@ Note: The objects are classified in `box`, `sphere` or `cylinder` since they are
 1. Once grasped, the object is lifted.
 
 Here is a video of the running pipeline:[<img src="https://github.com/robotology/superquadric-grasp/blob/master/misc/new-video-grasp.png" width=1000>](https://www.youtube.com/watch?v=dfYdBQ-mBJQ&feature=youtu.be)[`Go to the top`](#icub-grasp-demo)
+
+More information are available in [these slides](https://github.com/robotology/icub-grasp-demo/blob/master/misc/icub-grasp-slide.pdf).
 ## Use case
 
 #### How to compile
@@ -74,6 +76,7 @@ In the [`superquadric-grasp`](https://github.com/robotology/superquadric-grasp/t
 
 ## Documentation
 The online documentation of this module is available [here](http://robotology.github.com/icub-grasp-demo).
+
 
 
 
