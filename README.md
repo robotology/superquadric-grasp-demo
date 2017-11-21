@@ -43,7 +43,7 @@ make install
 [`Go to the top`](#icub-grasp-demo)
 
 #### How to run the code
-This demo has been designed in order to be automatically executed on the iCub robot. If you are interested in a interactive mode for launching the grasping algorithm, please visit [this page](http://github.com/robotology/superquadric-grasp-example).
+This demo has been designed in order to be automatically executed on the iCub robot. If you are interested in a interactive mode for launching the grasping algorithm, please visit the [`superquadric-grasp-example`](http://github.com/robotology/superquadric-grasp-example) repository.
 
 In order to automatically run the `icub-grasp-demo`, please:
 
