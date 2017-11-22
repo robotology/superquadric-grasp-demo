@@ -80,6 +80,7 @@ class GraspDemo : public RFModule,
     bool online;   
     bool go_home;
     bool filtered;
+    bool go_basket;
     bool choose_hand;
     bool ok_acq;
     bool ok_acq_pose;
@@ -385,6 +386,24 @@ public:
     bool go_back_home()
     {
         go_home=true;
+        go_basket=false;
+
+        robot_moving=true;
+
+        go_on=false;
+
+        return true;
+    }
+
+    /**
+    * Ask the robot to put the object in a box on its side.
+    * @return true/false on success/failure.
+    */
+    /************************************************************************/
+    bool go_to_basket()
+    {
+        go_basket=true;
+        go_home=false;
 
         robot_moving=true;
 
@@ -572,6 +591,7 @@ public:
         go_home=false;
         superq_ok=false;
         pose_ok=false;
+        go_basket=false;
         superq_received=false;
         pose_received=false;
         robot_moving=false;
@@ -865,6 +885,19 @@ yDebug()<<"pose rec "<<pose_received;
             graspRpc.write(cmd, reply);
 
             go_home=false;
+        }
+        else if (go_basket==true)
+        {
+            Bottle cmd, reply;
+            cmd.clear();
+            cmd.addString("go_to_basket");
+            cmd.addString(hand_for_moving);
+
+            yInfo()<<"Asked to stop: "<<cmd.toString();
+
+            graspRpc.write(cmd, reply);
+
+            go_basket=false;
         }
 
         return true;

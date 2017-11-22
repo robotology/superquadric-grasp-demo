@@ -4,12 +4,12 @@
 if yarp == nil then
     require("yarp")
     yarp.Network()
-end        
+end
 
--- find all required files 
-if rf ~= nil then 
+-- find all required files
+if rf ~= nil then
     funcs = rf:findFile("grasping_funcs.lua")
-else 
+else
     funcs = "grasping_funcs.lua"
 end
 
@@ -155,9 +155,9 @@ return rfsm.state {
                      end
                      rfsm.yield(true)
                   end
-    
-                  
-                    
+
+
+
 
           end
 },
@@ -201,7 +201,7 @@ return rfsm.state {
                      end
                      rfsm.yield(true)
                   end
-                    
+
 
           end
 },
@@ -247,6 +247,21 @@ return rfsm.state {
           doo=function()
                   ----print(" going home ..")
                   ret = GRASPING_go_home(grasp_demo_port)
+                  if ret == "fail" then
+                      ------print("\n\nERROR WITH GOING HOME, PLEASE CHECK\n\n")
+                      rfsm.send_events(fsm, 'e_error')
+                  end
+          end
+
+},
+
+----------------------------------
+  -- state GO_TO_BASKET                --
+  ----------------------------------
+  ST_GO_TO_BASKET = rfsm.state{
+          doo=function()
+                  ----print(" going home ..")
+                  ret = GRASPING_go_to_basket(grasp_demo_port)
                   if ret == "fail" then
                       ------print("\n\nERROR WITH GOING HOME, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
@@ -333,9 +348,11 @@ rfsm.transition { src='ST_CHECK_POSE', tgt='ST_GRASP_OBJECT', events={ 'e_ok' } 
 --rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_ACQUIRE_SUPERQ', events={ 'e_error' } },
 rfsm.transition { src='ST_GRASP_OBJECT', tgt='ST_CHECK_MOVEMENT', events={ 'e_ok' } },
 
-rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_GO_HOME', events={ 'e_ok' } },
+--rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_GO_HOME', events={ 'e_ok' } },
+rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_GO_TO_BASKET', events={ 'e_ok' } },
 
-rfsm.transition { src='ST_GO_HOME', tgt='ST_CLEAR_POSES', events={ 'e_done' } },
+--rfsm.transition { src='ST_GO_HOME', tgt='ST_CLEAR_POSES', events={ 'e_done' } },
+rfsm.transition { src='ST_GO_TO_BASKET', tgt='ST_CLEAR_POSES', events={ 'e_done' } },
 rfsm.transition { src='ST_CLEAR_POSES', tgt='ST_START_FROM_SCRATCH', events={'e_ok'} },
 rfsm.transition { src='ST_START_FROM_SCRATCH', tgt='ST_CHECK_HOME', events={ 'e_ok' } },
 
