@@ -725,7 +725,7 @@ public:
                     Bottle &in0=cmd.addList();
 
                     pc.clear();
-
+                  
 
                     if (blob_points.size()>1)
                     {
@@ -740,7 +740,9 @@ public:
                         in.addDouble(pc[i][2]);                        
                     }
 
+                    yDebug()<<"before rpc "<<k;
                     superqRpc.write(cmd, reply);
+                    yDebug()<<"after rpc "<<k;
 
                     cmd.clear();
                     reply.clear();
