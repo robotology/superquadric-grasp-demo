@@ -546,6 +546,97 @@ public:
     }
 
     /**
+    * Calibrate plane height via superquadric computation
+    * @return true/false on success/failure.
+    */
+    /************************************************************************/
+    bool calibrate()
+    {
+        bool ok_calibration=false;
+
+        ImgIn=portImgIn.read();
+
+        if (blob_points.size()>1)
+        {
+            points=get3Dpoints(ImgIn);
+        }
+
+        Bottle cmd;
+        cmd.addString("get_superq");
+
+        Bottle &in1=cmd.addList();
+
+        for (size_t i=0; i<points.size(); i++)
+        {
+            Bottle &in=in1.addList();
+            in.addDouble(points[i][0]);
+            in.addDouble(points[i][1]);
+            in.addDouble(points[i][2]);
+            in.addDouble(points[i][3]);
+            in.addDouble(points[i][4]);
+            in.addDouble(points[i][5]);
+        }
+
+        go_on=false;
+
+        ok_acq=false;
+        //ok_acq=superqRpc.write(cmd, superq_b);
+        superqRpc.write(cmd, superq_b);
+
+        yInfo()<<"Received superquadric: "<<superq_b.toString();
+
+        Vector sup(11,0.0);
+        sup=getBottle(superq_b, cmd);
+
+        if (!superq_b.isNull())
+        {
+            ok_acq=true;
+
+            if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
+           {
+                if (superqOk(sup))
+                    superq_ok=superq_received=true;
+                else
+                    superq_ok=superq_received=false;
+            }
+            else
+            {
+                yError()<<"Zero superquadric";
+                superq_ok=superq_received=false;
+            }
+        }
+
+        if (superq_ok)
+        {
+            yDebug()<<"Plane height: "<<sup[7];
+        }
+
+        if (sup[7]<0.0 && sup[7]>-0.18)
+        {
+            Bottle cmd, reply_pose;
+            cmd.addString("set_options");
+
+            Bottle &content=cmd.addList();
+            content.addString("plane");
+            Bottle &plane_bottle=content.addList();
+            plane_bottle.addDouble(0.0); plane_bottle.addDouble(0.0); plane_bottle.addDouble(1.0); plane_bottle.addDouble(-sup[7]);
+
+            cmd.addString("pose");
+
+            yInfo()<<"Command asked "<<cmd.toString();
+
+            ok_calibration=graspRpc.write(cmd, reply_pose);
+
+            yDebug()<<"Ok set plane "<<ok_calibration;
+
+        }
+
+        start_from_scratch();
+
+        return ok_calibration;
+    }
+
+    /**
     * Configure method of the RFModule
     * @return true/false on success/failure.
     */
