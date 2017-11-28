@@ -1445,7 +1445,7 @@ yDebug()<<"pose rec "<<pose_received;
 
                 z_left=dim->get(2).asDouble();
 
-                left=dim->get(0).asDouble(); left=dim->get(1).asDouble(); left=dim->get(2).asDouble();
+                left[0]=dim->get(0).asDouble(); left[1]=dim->get(1).asDouble(); left[2]=dim->get(2).asDouble();
                 yDebug()<<"z_left"<<z_left;
                 yDebug()<<"left"<<left.toString();
             }
@@ -1455,7 +1455,7 @@ yDebug()<<"pose rec "<<pose_received;
                 Bottle *dim=group->get(1).asList();
 
                 z_right=dim->get(2).asDouble();
-                right=dim->get(0).asDouble(); right=dim->get(1).asDouble(); right=dim->get(2).asDouble();
+                right[0]=dim->get(0).asDouble(); right[1]=dim->get(1).asDouble(); right[2]=dim->get(2).asDouble();
                 yDebug()<<"z_right"<<z_right;
                 yDebug()<<"right"<<right.toString();
             }
@@ -1469,21 +1469,32 @@ yDebug()<<"pose rec "<<pose_received;
                 ok=true;
             if ( z_right >= -plane[3] + 0.04)
                 ok=ok && true;
+
+            if ((left[0]>-0.4) && (left[0]<-0.2))
+                ok=ok && true;
+
+            if ((right[0]>-0.4) && (right[0]<-0.2))
+                ok=ok && true;
+
         }
         else if (norm(left)>0.0) 
         {
             if ( z_left >= -plane[3] + 0.04)
              ok=true;
+
+            if ((left[0]>-0.4) && (left[0]<-0.2))
+                ok=ok && true;
         }
         else if (norm(right)>0.0) 
         {
             if ( z_right>= -plane[3] + 0.04)
              ok=true;
+
+            if ((right[0]>-0.4) && (right[0]<-0.2))
+                ok=ok && true;
         }
         else
             ok=false;
-
-
 
         yDebug()<<"ok "<<ok;
 
