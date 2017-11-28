@@ -80,6 +80,7 @@ class GraspDemo : public RFModule,
     bool online;   
     bool go_home;
     bool filtered;
+    bool go_basket;
     bool choose_hand;
     bool ok_acq;
     bool ok_acq_pose;
@@ -385,6 +386,24 @@ public:
     bool go_back_home()
     {
         go_home=true;
+        go_basket=false;
+
+        robot_moving=true;
+
+        go_on=false;
+
+        return true;
+    }
+
+    /**
+    * Ask the robot to put the object in a box on its side.
+    * @return true/false on success/failure.
+    */
+    /************************************************************************/
+    bool go_to_basket()
+    {
+        go_basket=true;
+        go_home=false;
 
         robot_moving=true;
 
@@ -527,6 +546,97 @@ public:
     }
 
     /**
+    * Calibrate plane height via superquadric computation
+    * @return true/false on success/failure.
+    */
+    /************************************************************************/
+    bool calibrate()
+    {
+        bool ok_calibration=false;
+
+        ImgIn=portImgIn.read();
+
+        if (blob_points.size()>1)
+        {
+            points=get3Dpoints(ImgIn);
+        }
+
+        Bottle cmd;
+        cmd.addString("get_superq");
+
+        Bottle &in1=cmd.addList();
+
+        for (size_t i=0; i<points.size(); i++)
+        {
+            Bottle &in=in1.addList();
+            in.addDouble(points[i][0]);
+            in.addDouble(points[i][1]);
+            in.addDouble(points[i][2]);
+            in.addDouble(points[i][3]);
+            in.addDouble(points[i][4]);
+            in.addDouble(points[i][5]);
+        }
+
+        go_on=false;
+
+        ok_acq=false;
+        //ok_acq=superqRpc.write(cmd, superq_b);
+        superqRpc.write(cmd, superq_b);
+
+        yInfo()<<"Received superquadric: "<<superq_b.toString();
+
+        Vector sup(11,0.0);
+        sup=getBottle(superq_b, cmd);
+
+        if (!superq_b.isNull())
+        {
+            ok_acq=true;
+
+            if (superq_b.size()>0 && norm(sup.subVector(0,7))>0.0)
+           {
+                if (superqOk(sup))
+                    superq_ok=superq_received=true;
+                else
+                    superq_ok=superq_received=false;
+            }
+            else
+            {
+                yError()<<"Zero superquadric";
+                superq_ok=superq_received=false;
+            }
+        }
+
+        if (superq_ok)
+        {
+            yDebug()<<"Plane height: "<<sup[7];
+        }
+
+        if (sup[7]<0.0 && sup[7]>-0.18)
+        {
+            Bottle cmd, reply_pose;
+            cmd.addString("set_options");
+
+            Bottle &content=cmd.addList();
+            content.addString("plane");
+            Bottle &plane_bottle=content.addList();
+            plane_bottle.addDouble(0.0); plane_bottle.addDouble(0.0); plane_bottle.addDouble(1.0); plane_bottle.addDouble(-sup[7]);
+
+            cmd.addString("pose");
+
+            yInfo()<<"Command asked "<<cmd.toString();
+
+            ok_calibration=graspRpc.write(cmd, reply_pose);
+
+            yDebug()<<"Ok set plane "<<ok_calibration;
+
+        }
+
+        start_from_scratch();
+
+        return ok_calibration;
+    }
+
+    /**
     * Configure method of the RFModule
     * @return true/false on success/failure.
     */
@@ -572,6 +682,7 @@ public:
         go_home=false;
         superq_ok=false;
         pose_ok=false;
+        go_basket=false;
         superq_received=false;
         pose_received=false;
         robot_moving=false;
@@ -867,6 +978,19 @@ yDebug()<<"pose rec "<<pose_received;
             graspRpc.write(cmd, reply);
 
             go_home=false;
+        }
+        else if (go_basket==true)
+        {
+            Bottle cmd, reply;
+            cmd.clear();
+            cmd.addString("go_to_basket");
+            cmd.addString(hand_for_moving);
+
+            yInfo()<<"Asked to stop: "<<cmd.toString();
+
+            graspRpc.write(cmd, reply);
+
+            go_basket=false;
         }
 
         return true;
@@ -1323,7 +1447,7 @@ yDebug()<<"pose rec "<<pose_received;
 
                 z_left=dim->get(2).asDouble();
 
-                left=dim->get(0).asDouble(); left=dim->get(1).asDouble(); left=dim->get(2).asDouble();
+                left[0]=dim->get(0).asDouble(); left[1]=dim->get(1).asDouble(); left[2]=dim->get(2).asDouble();
                 yDebug()<<"z_left"<<z_left;
                 yDebug()<<"left"<<left.toString();
             }
@@ -1333,7 +1457,7 @@ yDebug()<<"pose rec "<<pose_received;
                 Bottle *dim=group->get(1).asList();
 
                 z_right=dim->get(2).asDouble();
-                right=dim->get(0).asDouble(); right=dim->get(1).asDouble(); right=dim->get(2).asDouble();
+                right[0]=dim->get(0).asDouble(); right[1]=dim->get(1).asDouble(); right[2]=dim->get(2).asDouble();
                 yDebug()<<"z_right"<<z_right;
                 yDebug()<<"right"<<right.toString();
             }
@@ -1347,21 +1471,32 @@ yDebug()<<"pose rec "<<pose_received;
                 ok=true;
             if ( z_right >= -plane[3] + 0.04)
                 ok=ok && true;
+
+            if ((left[0]>-0.4) && (left[0]<-0.2))
+                ok=ok && true;
+
+            if ((right[0]>-0.4) && (right[0]<-0.2))
+                ok=ok && true;
+
         }
         else if (norm(left)>0.0) 
         {
             if ( z_left >= -plane[3] + 0.04)
              ok=true;
+
+            if ((left[0]>-0.4) && (left[0]<-0.2))
+                ok=ok && true;
         }
         else if (norm(right)>0.0) 
         {
             if ( z_right>= -plane[3] + 0.04)
              ok=true;
+
+            if ((right[0]>-0.4) && (right[0]<-0.2))
+                ok=ok && true;
         }
         else
             ok=false;
-
-
 
         yDebug()<<"ok "<<ok;
 

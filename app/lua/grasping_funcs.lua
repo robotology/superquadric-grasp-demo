@@ -53,12 +53,12 @@ function GRASPING_look_for_object(port, port2)
                 port:write(wb, reply)
 
                 if reply:get(0):asVocab() == yarp.Vocab.encode("ack") then
-                    local pos=yarp.Bottle()               
+                    local pos=yarp.Bottle()
                     pos = reply:get(1):asList()
-                    
-                    local pos2d = pos:get(2):asList()               
+
+                    local pos2d = pos:get(2):asList()
                      if pos2d then
-                        k=i 
+                        k=i
                         --print("found")
                         --print(classes[k])
                     --else
@@ -66,12 +66,12 @@ function GRASPING_look_for_object(port, port2)
                     end
                 end
 
-             end      
+             end
         end
 
       end
 
-      if k < 1000 then       
+      if k < 1000 then
         ok=true
       elseif k==1000 then
         ok=false
@@ -148,7 +148,7 @@ function GRASPING_grasp_object(port)
     wb:addString("grasp_object")
     yarp.Time_delay(1.5)
     port:write(wb,reply)
-    yarp.Time_delay(1.5)    
+    yarp.Time_delay(1.5)
     return reply:get(0):asString()
 end
 
@@ -157,6 +157,16 @@ function GRASPING_go_home(port)
     local reply = yarp.Bottle()
     wb:clear()
     wb:addString("go_back_home")
+    port:write(wb,reply)
+    yarp.Time_delay(2.0)
+    return reply:get(0):asString()
+end
+
+function GRASPING_go_to_basket(port)
+    local wb = yarp.Bottle()
+    local reply = yarp.Bottle()
+    wb:clear()
+    wb:addString("go_to_basket")
     port:write(wb,reply)
     yarp.Time_delay(2.0)
     return reply:get(0):asString()
@@ -195,7 +205,17 @@ function GRASPING_start_from_scratch(port)
     local wb = yarp.Bottle()
     local reply = yarp.Bottle()
     wb:clear()
-    wb:addString("start_from_scratch")    
+    wb:addString("start_from_scratch")
+    port:write(wb,reply)
+    --print(reply:get(0):asString())
+    return reply:get(0):asString()
+end
+
+function GRASPING_look_center(port)
+    local wb = yarp.Bottle()
+    local reply = yarp.Bottle()
+    wb:clear()
+    wb:addString("look_center")
     port:write(wb,reply)
     --print(reply:get(0):asString())
     return reply:get(0):asString()

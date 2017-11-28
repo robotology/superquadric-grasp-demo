@@ -102,6 +102,12 @@ service graspDemo_IDL
     bool go_back_home();
 
     /**
+    *Ask the robot to put the object in a box on its side.
+    * @return true/false on success/failure.
+    */
+    bool go_to_basket();
+
+    /**
     *Clear all the computed poses
     * @return true.
     */
