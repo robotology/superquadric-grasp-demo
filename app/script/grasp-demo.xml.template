@@ -337,5 +337,17 @@
             <protocol>tcp</protocol>
     </connection>
 
+    <connection>
+            <from>/wholeBodyDynamics/right_arm/Torques:o</from>
+            <to>/superquadric-grasp/forces:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+            <from>/wholeBodyDynamics/left_arm/Torques:o</from>
+            <to>/superquadric-grasp/forces:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+
 </application>
 
