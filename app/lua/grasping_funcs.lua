@@ -211,6 +211,16 @@ function GRASPING_start_from_scratch(port)
     return reply:get(0):asString()
 end
 
+function GRASPING_look_center(port)
+    local wb = yarp.Bottle()
+    local reply = yarp.Bottle()
+    wb:clear()
+    wb:addString("look_center")
+    port:write(wb,reply)
+    --print(reply:get(0):asString())
+    return reply:get(0):asString()
+end
+
 
 --function GRASPING_set_object(port, name)
 --    local wb = yarp.Bottle()

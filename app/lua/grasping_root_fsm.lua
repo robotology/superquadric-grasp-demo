@@ -247,6 +247,7 @@ return rfsm.state {
           doo=function()
                   ----print(" going home ..")
                   ret = GRASPING_go_home(grasp_demo_port)
+                  ret = ret and GRASPING_look_center(grasp_motion_port)
                   if ret == "fail" then
                       ------print("\n\nERROR WITH GOING HOME, PLEASE CHECK\n\n")
                       rfsm.send_events(fsm, 'e_error')
@@ -353,7 +354,7 @@ rfsm.transition { src='ST_CHECK_MOVEMENT', tgt='ST_GO_TO_BASKET', events={ 'e_ok
 rfsm.transition { src='ST_GO_TO_BASKET', tgt='ST_CLEAR_POSES', events={ 'e_done' } },
 
 rfsm.transition { src='ST_CLEAR_POSES', tgt='ST_GO_HOME', events={ 'e_done' } },
-rfsm.transition { src='ST_GO_HOME', tgt='ST_START_FROM_SCRATCH', events={'e_ok'} },
+rfsm.transition { src='ST_GO_HOME', tgt='ST_START_FROM_SCRATCH', events={'e_done'} },
 rfsm.transition { src='ST_START_FROM_SCRATCH', tgt='ST_CHECK_HOME', events={ 'e_ok' } },
 
 
