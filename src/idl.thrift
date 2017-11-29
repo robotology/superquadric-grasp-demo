@@ -197,6 +197,12 @@ service graspDemo_IDL
     */
     string get_object_class();
 
+    /**
+    * Calibrate plane height via superquadric computation
+    * @return true/false on success/failure.
+    */
+    bool calibrate();
+
 }
 
 

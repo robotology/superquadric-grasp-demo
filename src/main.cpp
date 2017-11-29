@@ -552,36 +552,13 @@ public:
     /************************************************************************/
     bool calibrate()
     {
-        bool ok_calibration=false;
-
-        ImgIn=portImgIn.read();
-
-        if (blob_points.size()>1)
-        {
-            points=get3Dpoints(ImgIn);
-        }
-
         Bottle cmd;
-        cmd.addString("get_superq");
-
-        Bottle &in1=cmd.addList();
-
-        for (size_t i=0; i<points.size(); i++)
-        {
-            Bottle &in=in1.addList();
-            in.addDouble(points[i][0]);
-            in.addDouble(points[i][1]);
-            in.addDouble(points[i][2]);
-            in.addDouble(points[i][3]);
-            in.addDouble(points[i][4]);
-            in.addDouble(points[i][5]);
-        }
-
-        go_on=false;
-
-        ok_acq=false;
-        //ok_acq=superqRpc.write(cmd, superq_b);
-        superqRpc.write(cmd, superq_b);
+        bool ok_calibration=false;
+        
+        acquire_superq();
+      
+        while (!superq_received)
+            Time::delay(0.1);
 
         yInfo()<<"Received superquadric: "<<superq_b.toString();
 
@@ -616,14 +593,13 @@ public:
             Bottle cmd, reply_pose;
             cmd.addString("set_options");
 
-            Bottle &content=cmd.addList();
+            Bottle &ext_content=cmd.addList();
+            Bottle &content=ext_content.addList();
             content.addString("plane");
             Bottle &plane_bottle=content.addList();
             plane_bottle.addDouble(0.0); plane_bottle.addDouble(0.0); plane_bottle.addDouble(1.0); plane_bottle.addDouble(-sup[7]);
 
             cmd.addString("pose");
-
-            yInfo()<<"Command asked "<<cmd.toString();
 
             ok_calibration=graspRpc.write(cmd, reply_pose);
 
@@ -783,7 +759,6 @@ public:
                 go_on=false;
 
                 ok_acq=false;
-                //ok_acq=superqRpc.write(cmd, superq_b);
                 superqRpc.write(cmd, superq_b);
 
                 yInfo()<<"Received superquadric: "<<superq_b.toString();
@@ -851,9 +826,7 @@ public:
                         in.addDouble(pc[i][2]);                        
                     }
 
-                    yDebug()<<"before rpc "<<k;
                     superqRpc.write(cmd, reply);
-                    yDebug()<<"after rpc "<<k;
 
                     cmd.clear();
                     reply.clear();
@@ -939,7 +912,7 @@ public:
                     yError()<<"No best pose received!";
 
             }
-yDebug()<<"pose rec "<<pose_received;
+            yDebug()<<"pose rec "<<pose_received;
 
             go_on=false;
         }
@@ -1191,8 +1164,6 @@ yDebug()<<"pose rec "<<pose_received;
                     point[4]=px.g;
                     point[5]=px.b;
                 }
-                //else
-                 //   yInfo()<<"No img received yet!";
 
                 count_blob+=1;
 
