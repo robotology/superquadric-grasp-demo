@@ -1345,9 +1345,9 @@ public:
         yDebug()<<"Checking superq..";
         cout<<endl;
         yDebug()<<"superq "<<sup.toString();
-        if ((sup[0] <= 0.3) && (sup[1] <= 0.3) && (sup[2]<=0.3))
+        if ((sup[0] <= 0.25) && (sup[1] <= 0.25) && (sup[2]<=0.25))
             ok=true;
-        if ((sup[5] <= -0.15) && (sup[5] >= -0.4) && (sup[6] <= -0.25) && (sup[6] >= 0.25) && (sup[7] >= -plane[3]) && (sup[7] <= 0.35) )
+        if ((sup[5] <= -0.20) && (sup[5] >= -0.4) && (sup[6] <= -0.15) && (sup[6] >= 0.15) && (sup[7] >= -plane[3]) && (sup[7] <= 0.35) )
             ok = ok && true;
 
         cout<<"ok "<<ok<<endl;

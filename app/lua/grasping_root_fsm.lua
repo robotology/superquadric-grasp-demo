@@ -123,8 +123,8 @@ return rfsm.state {
   ST_ACQUIRE_SUPERQ = rfsm.state{
           doo=function()
                   ----print(" acquiring superquadric ..")
-
-                  ret = GRASPING_start_from_scratch(grasp_demo_port)
+                  ret = GRASPING_look_center(grasp_motion_port)
+                  ret = ret and GRASPING_start_from_scratch(grasp_demo_port)
                   ret = ret and GRASPING_get_superq(grasp_demo_port)
                   if ret == "fail" then
                       ----print("\n\nERROR WITH ACQUIRING SUPERQUADRIC, PLEASE CHECK\n\n")
