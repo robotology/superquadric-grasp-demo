@@ -28,7 +28,7 @@
 #include <yarp/sig/all.h>
 #include <yarp/math/Math.h>
 
-#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
 
 #include "src/graspDemo_IDL.h"
 
