@@ -203,18 +203,18 @@
     <connection>
         <from>/icub/camcalib/left/out</from>
         <to>/superquadric-grasp/img:i</to>
-        <protocol>udp</protocol>
+        <protocol>mcast</protocol>
     </connection>
 
     <connection>
             <from>/icub/camcalib/left/out</from>
             <to>/iolStateMachineHandler/img:i</to>
-            <protocol>udp</protocol>
+            <protocol>mcast</protocol>
     </connection>
     <connection>
             <from>/icub/camcalib/left/out</from>
             <to>/lbpExtract/image:i</to>
-            <protocol>udp</protocol>
+            <protocol>mcast</protocol>
     </connection>
     <connection>
             <from>/iolStateMachineHandler/imgClassifier:o</from>
@@ -224,12 +224,12 @@
     <connection>
             <from>/icub/camcalib/left/out</from>
             <to>/blobSelector/img:i</to>
-            <protocol>udp</protocol>
+            <protocol>mcast</protocol>
     </connection>
     <connection>
             <from>/icub/camcalib/left/out</from>
             <to>/motionCUT/img:i</to>
-            <protocol>udp</protocol>
+            <protocol>mcast</protocol>
     </connection>
     <connection>
             <from>/motionCUT/blobs:o</from>
@@ -329,7 +329,7 @@
     <connection>
             <from>/icub/camcalib/left/out</from>
             <to>/SFM/left:i</to>
-            <protocol>tcp</protocol>
+            <protocol>mcast</protocol>
     </connection>
     <connection>
             <from>/iolStateMachineHandler/get3d:rpc</from>
@@ -346,6 +346,12 @@
     <connection>
             <from>/wholeBodyDynamics/left_arm/ext_ft_sens:o</from>
             <to>/superquadric-grasp/forces_left:i</to>
+            <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+            <from>/superquadric-grasp/wb:rpc</from>
+            <to>/wholeBodyDynamics/rpc:i</to>
             <protocol>tcp</protocol>
     </connection>
 
