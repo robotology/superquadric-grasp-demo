@@ -73,6 +73,12 @@ Some useful options for the `superquadric-grasp` module are the following:
 In the [`superquadric-grasp`](https://github.com/robotology/superquadric-grasp/tree/master/tutorial#fine-pose-reaching-with-visual-servoing) repository we provide more information on how the visual-servoing approach is used for a fine reaching for the final pose.
 - `which_hand`: available values: `right`, `left`, or `both` (default). This variable represents the hand for which the grasping pose is computed. In case `both` is selected, the pose is computed for each hand and the best hand for grasping the object is automatically selected. If only one hand is chosen for the grasping pose computation, it will be consequently selected also for grasping the object.
 
+**Note**: in case the `visual_servoing` is `on`, the entire pipeline is slightly different:
+
+
+<img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/pipeline-visual.png" width=650 height=300> 
+
+Once the grasping pose is computed, the robot reaches in open loop an intermediate pose (S.4). Then, a visual particle filter estimates the current robot hand pose (S.5) and this is information is used by a visual servoing controller in order to reach for the desired pose and grasp the object (S.6).
 
 ## Documentation
 The online documentation of this module is available [here](http://robotology.github.com/icub-grasp-demo).
