@@ -76,9 +76,9 @@ In the [`superquadric-grasp`](https://github.com/robotology/superquadric-grasp/t
 **Note**: in case the `visual_servoing` is `on`, the entire pipeline is slightly different:
 
 
-<img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/pipeline-visual.png" width=650 height=300> 
+<img src="https://github.com/robotology/icub-grasp-demo/blob/master/misc/pipeline-visual.png" width=650 height=400> 
 
-Once the grasping pose is computed, the robot reaches in open loop an intermediate pose (S.4). Then, a visual particle filter estimates the current robot hand pose (S.5) and this is information is used by a visual servoing controller in order to reach for the desired pose and grasp the object (S.6).
+Once the grasping pose is computed, the robot reaches in open loop an intermediate pose (S4). Then, a visual particle filter estimates the current robot hand pose (S5) and this is information is used by a visual servoing controller in order to reach for the desired pose and grasp the object (S6).
 
 ## Documentation
 The online documentation of this module is available [here](http://robotology.github.com/icub-grasp-demo).
