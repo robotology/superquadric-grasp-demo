@@ -49,8 +49,8 @@ In order to automatically run the `icub-grasp-demo`, please:
 
 1. Launch the `yarprobotinterface`.
 1. Launch the `cameras`.
-1. Launch the basic modules:`iKinGazeCtrl`, `iKinCartsianSolver`- for both right and left arm. 
-1. Launch the [`skinManager`](https://github.com/robotology/icub-main/tree/master/src/modules/skinManager) and `skinManagerGui` and connect. Set the `binarization filter` `off` and the `compensation gain` and the `contact compensation gain` at the minimum values. 
+1. Launch the basic modules:`iKinGazeCtrl`, `iKinCartsianSolver`- for both right and left arm. For a safe approach during the grasping, we recommend to launch also `wholeBodyDynamics` and `gravityCompensator`. We use in fact the estimate of the forces measured at the end-effector in order to stop the movement in case of collisions.
+1. Launch the [`skinManager`](https://github.com/robotology/icub-main/tree/master/src/modules/skinManager) and `skinManagerGui` and connect. Set the `binarization filter` `off` and the `compensation gain` and the `contact compensation gain` at the minimum values. If you do not want use the skin, we also provide a  [`FingersPositionControl`](https://github.com/robotology-playground/fingers-position-control).
 1. Launch and connect all the modules required from the demo, which are collected in the  [`iCub_Grasp_Demo` xml](https://github.com/robotology/icub-grasp-demo/blob/master/app/script/grasp-demo.xml.template).
 1. The [`rfsmGui`](https://github.com/robotology/rfsmTools#testing-the-rfsmgui) will open. Play `run` on the Gui to start  the state machine executing the demo. More information about the `iCub_Grasp_Demo` state machine are provided [here](https://github.com/robotology/icub-grasp-demo/tree/master/app/lua).
 
