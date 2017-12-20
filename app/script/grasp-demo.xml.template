@@ -49,7 +49,7 @@
     </module>
 
     <module>
-       <name>grasp-demo</name>
+       <name>superquadric-grasp-demo</name>
        <parameters> --from config.ini </parameters>
        <node>icub21</node>
     </module>
@@ -69,7 +69,7 @@
     <module>
         <name>rfsmGui</name>
         <node>icub21</node>
-        <parameters>--rfsm grasping_root_fsm.lua --context grasp-demo/lua </parameters>
+        <parameters>--rfsm grasping_root_fsm.lua --context superquadric-grasp-demo/lua </parameters>
     </module>
 
     <module>
@@ -112,31 +112,31 @@
     </module>
    
     <connection>
-        <from>/grasp-demo/blob:rpc</from>
+        <from>/superquadric-grasp-demo/blob:rpc</from>
         <to>/lbpExtract/rpc:i</to>
         <protocol>tcp</protocol>
     </connection>
 
     <connection>
-        <from>/grasp-demo/OPC:rpc</from>
+        <from>/superquadric-grasp-demo/OPC:rpc</from>
         <to>/memory/rpc</to>
         <protocol>tcp</protocol>
     </connection>
 
     <connection>
-        <from>/grasp-demo/SFM:rpc</from>
+        <from>/superquadric-grasp-demo/SFM:rpc</from>
         <to>/SFM/rpc</to>
         <protocol>tcp</protocol>
     </connection>
 
     <connection>
-        <from>/grasp-demo/superq:rpc</from>
+        <from>/superquadric-grasp-demo/superq:rpc</from>
         <to>/superquadric-model/rpc</to>
         <protocol>tcp</protocol>
     </connection>
 
     <connection>
-        <from>/grasp-demo/grasp:rpc</from>
+        <from>/superquadric-grasp-demo/grasp:rpc</from>
         <to>/superquadric-grasp/rpc</to>
         <protocol>tcp</protocol>
     </connection>

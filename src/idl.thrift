@@ -16,12 +16,12 @@ struct Bottle
   )
 
 /**
-* graspDemo_IDL
+* superquadricGraspDemo_IDL
 *
-* IDL Interface to \ref grasp-demo services.
+* IDL Interface to \ref superquadric-grasp-demo services.
 */
 
-service graspDemo_IDL
+service superquadricGraspDemo_IDL
 {
 
     /**

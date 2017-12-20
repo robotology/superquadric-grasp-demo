@@ -30,7 +30,7 @@
 
 #include <opencv2/core/core.hpp>
 
-#include "src/graspDemo_IDL.h"
+#include "src/superquadricGraspDemo_IDL.h"
 
 using namespace std;
 using namespace yarp::os;
@@ -46,7 +46,7 @@ using namespace yarp::math;
  * for making the iCub grasping an unknown object.
  */
 class GraspDemo : public RFModule,
-                    graspDemo_IDL
+                    superquadricGraspDemo_IDL
 {
     string hand_for_computation;
     string hand_for_moving;
@@ -644,13 +644,13 @@ public:
             superq=fillProperty(object);
         }
 
-        portBlobRpc.open("/grasp-demo/blob:rpc");
-        portOPCrpc.open("/grasp-demo/OPC:rpc");
-        portSFMRpc.open("/grasp-demo/SFM:rpc");
-        superqRpc.open("/grasp-demo/superq:rpc");
-        graspRpc.open("/grasp-demo/grasp:rpc");
-        portRpc.open("/grasp-demo/rpc");
-        portImgIn.open("/grasp-demo/img:i");
+        portBlobRpc.open("/superquadric-grasp-demo/blob:rpc");
+        portOPCrpc.open("/superquadric-grasp-demo/OPC:rpc");
+        portSFMRpc.open("/superquadric-grasp-demo/SFM:rpc");
+        superqRpc.open("/superquadric-grasp-demo/superq:rpc");
+        graspRpc.open("/superquadric-grasp-demo/grasp:rpc");
+        portRpc.open("/superquadric-grasp-demo/rpc");
+        portImgIn.open("/superquadric-grasp-demo/img:i");
 
         attach(portRpc);
 
@@ -1487,7 +1487,7 @@ int main(int argc,char *argv[])
 
     GraspDemo mod;
     ResourceFinder rf;
-    rf.setDefaultContext("grasp-demo");
+    rf.setDefaultContext("superquadric-grasp-demo");
     rf.configure(argc,argv);
     return mod.runModule(rf);
 }
