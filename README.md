@@ -42,6 +42,19 @@ make install
 
 [`Go to the top`](#icub-grasp-demo)
 
+
+#### Dependencies
+The `icub-grasp-demo`  is a wrapper code which communicates with several modules in order to coordinate them for the execution of the demo:
+- [`superquadric-model`](https://github.com/robotology/superquadric-model) for reconstructing the superquadric modeling the object
+- [`superquadric-grasp`](https://github.com/robotology/superquadric-grasp) for computing the grasping pose
+- [`SFM`](https://github.com/robotology/stereo-vision) for acquiring the object point cloud
+- [`lbpExtract`](https://github.com/robotology/segmentation) and [`blobExtractor`](https://github.com/robotology/segmentation) for object segmentation
+- [`caffeCoder`](https://github.com/robotology/himrep), [`linearClassifier`](https://github.com/robotology/himrep), [`himRep`](https://github.com/robotology/himrep), [`iolStateMachineHandler`](https://github.com/robotology/iol) and [`objectPropertiesCollector`](https://github.com/robotology/icub-main/tree/master/src/modules) for object classification
+- [`rFSMtool`](https://github.com/robotology/rfsmTools) for the demo state machine
+
+
+[`Go to the top`](#icub-grasp-demo)
+
 #### How to run the code
 This demo has been designed in order to be automatically executed on the iCub robot. If you are interested in a interactive mode for launching the grasping algorithm, please visit the [`superquadric-grasp-example`](http://github.com/robotology/superquadric-grasp-example) repository.
 
