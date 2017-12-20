@@ -27,7 +27,7 @@
     </module>
     <module>
             <name>linearClassifierModule</name>
-            <parameters> --BufferSize 1 --CSVM 1.0 --databaseFolder tmp_giuliav2 --WeightedSVM 1</parameters>
+            <parameters> --BufferSize 1 --CSVM 1.0  --databaseFolder ../superquadric-model/primary_shape_database --WeightedSVM 1</parameters>
             <node>icub-cuda</node>
     </module>
     <module>
