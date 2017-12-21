@@ -220,16 +220,6 @@
             <protocol>mcast</protocol>
     </connection>
     <connection>
-            <from>/icub/camcalib/left/out</from>
-            <to>/motionCUT/img:i</to>
-            <protocol>mcast</protocol>
-    </connection>
-    <connection>
-            <from>/motionCUT/blobs:o</from>
-            <to>/blobSelector/blobs:i</to>
-            <protocol>udp</protocol>
-    </connection>
-    <connection>
             <from>/lbpExtract/blobs:o</from>
             <to>/iolStateMachineHandler/blobs:i</to>
             <protocol>udp</protocol>
