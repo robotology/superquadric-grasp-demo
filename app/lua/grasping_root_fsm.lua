@@ -47,7 +47,7 @@ return rfsm.state {
    ----------------------------------
    ST_CONNECTPORTS = rfsm.state{
            doo=function()
-                   ret = yarp.NetworkBase_connect(grasp_demo_port:getName(), "/grasp-demo/rpc")
+                   ret = yarp.NetworkBase_connect(grasp_demo_port:getName(), "/superquadric-grasp-demo/rpc")
                    ret = yarp.NetworkBase_connect(grasp_motion_port:getName(), "/superquadric-grasp/rpc")
                    ret = ret and yarp.NetworkBase_connect(memory_port:getName(), "/memory/rpc")
                    ret = ret and yarp.NetworkBase_connect(grasp_attention_port:getName(), "/iolStateMachineHandler/human:rpc")
@@ -91,7 +91,7 @@ return rfsm.state {
    ST_FINI = rfsm.state{
            doo=function()
                    ----print("Closing...")
-                   yarp.NetworkBase_disconnect(grasp_demo_port:getName(), "/grasp-demo/rpc")
+                   yarp.NetworkBase_disconnect(grasp_demo_port:getName(), "/superquadric-grasp-demo/rpc")
 
                    grasp_demo_port:close()
 
