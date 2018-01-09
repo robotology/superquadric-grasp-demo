@@ -17,18 +17,18 @@
     <module>
          <name>lbpExtract</name>
           <dependencies>
-                <port timeout="5"> /icub/camcalib/left/out</port>           
+                <port timeout="5"> /icub/camcalib/left/out</port>
           </dependencies>
         <node>icub21</node>
     </module>
     <module>
         <name>SFM</name>
             <dependencies>
-                <port timeout="5"> /icub/camcalib/left/out</port>  
-                <port timeout="5"> /icub/camcalib/right/out</port>   
-                <port timeout="5">/iKinGazeCtrl/rpc</port>          
+                <port timeout="5"> /icub/camcalib/left/out</port>
+                <port timeout="5"> /icub/camcalib/right/out</port>
+                <port timeout="5">/iKinGazeCtrl/rpc</port>
           </dependencies>
-        <node>icub-cuda</node>
+        <node>icub22</node>
     </module>
     <module>
             <name>caffeCoder</name>
@@ -47,7 +47,7 @@
     <module>
             <name>blobSelector</name>
             <dependencies>
-                <port timeout="5"> /icub/camcalib/left/out</port>           
+                <port timeout="5"> /icub/camcalib/left/out</port>
           </dependencies>
             <node>icub21</node>
     </module>
@@ -64,10 +64,10 @@
     <module>
        <name>superquadric-grasp-demo</name>
         <dependencies>
-            <port timeout="5"> /superquadric-model/rpc</port> 
+            <port timeout="5"> /superquadric-model/rpc</port>
             <port timeout="5"> /superquadric-grasp/rpc</port>
-            <port timeout="5"> /lbpExtract/rpc:i</port> 
-            <port timeout="5"> /memory/rpc</port>             
+            <port timeout="5"> /lbpExtract/rpc:i</port>
+            <port timeout="5"> /memory/rpc</port>
           </dependencies>
        <parameters> --from config.ini </parameters>
        <node>icub21</node>
@@ -77,8 +77,8 @@
        <name>superquadric-model</name>
         <parameters> --from config-classes.ini </parameters>
         <dependencies>
-            <port timeout="5"> /icub/camcalib/left/out</port>  
-            <port timeout="5"> /iKinGazeCtrl/rpc</port>           
+            <port timeout="5"> /icub/camcalib/left/out</port>
+            <port timeout="5"> /iKinGazeCtrl/rpc</port>
           </dependencies>
        <node>icub21</node>
     </module>
@@ -87,7 +87,7 @@
        <name>superquadric-grasp</name>
        <parameters> --from config.ini </parameters>
         <dependencies>
-            <port timeout="5"> /icub/camcalib/left/out</port>  
+            <port timeout="5"> /icub/camcalib/left/out</port>
             <port timeout="5"> /iKinGazeCtrl/rpc</port>
             <port>/icub/cartesianController/left_arm/state:o</port>
             <port>/icub/cartesianController/right_arm/state:o</port>
@@ -98,9 +98,9 @@
     <module>
         <name>rfsmGui</name>
         <dependencies>
-            <port timeout="5"> /superquadric-model/rpc</port> 
+            <port timeout="5"> /superquadric-model/rpc</port>
             <port timeout="5"> /superquadric-grasp/rpc</port>
-            <port timeout="5"> /superquadric-grasp-demo/rpc</port>       
+            <port timeout="5"> /superquadric-grasp-demo/rpc</port>
           </dependencies>
         <node>icub21</node>
         <parameters>--rfsm grasping_root_fsm.lua --context superquadric-grasp-demo/lua </parameters>
@@ -144,7 +144,7 @@
        <parameters>--name /dispSuperq --out /dispBlobs/out --x 1600 --y 370 --w 600 --h 600 --p 200 --compact</parameters>
        <node>icub22</node>
     </module>
-   
+
     <connection>
         <from>/superquadric-grasp-demo/blob:rpc</from>
         <to>/lbpExtract/rpc:i</to>
@@ -339,4 +339,3 @@
     </connection>
 
 </application>
-
