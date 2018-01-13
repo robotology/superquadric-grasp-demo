@@ -1,5 +1,5 @@
 <application>
-    <name>iCub_Grasp_Demo</name>
+    <name>Superquadric_Grasp_Demo</name>
 
     <dependencies>
         <port>/lbpExtract/rpc:i</port>

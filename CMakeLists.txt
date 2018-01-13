@@ -23,7 +23,6 @@ source_group("IDL Files" FILES src/idl.thrift)
 source_group("DOC Files" FILES ${PROJECT_NAME}.xml)
 source_group("Source Files" FILES ${sources})
 
-
 include_directories(${PROJECT_SOURCE_DIR}/include ${YARP_INCLUDE_DIRS} ${ICUB_INCLUDE_DIRS})
 
 add_definitions(${YARP_DEFINES} -D_USE_MATH_DEFINES)
@@ -43,10 +42,9 @@ file(GLOB conf ${CMAKE_CURRENT_SOURCE_DIR}/app/conf/*.ini)
 yarp_install(FILES ${conf} DESTINATION ${ICUBCONTRIB_CONTEXTS_INSTALL_DIR}/${PROJECT_NAME})
 file(GLOB scripts ${CMAKE_CURRENT_SOURCE_DIR}/app/scripts/*.template)
 yarp_install(FILES ${scripts} DESTINATION ${ICUBCONTRIB_APPLICATIONS_TEMPLATES_INSTALL_DIR})
-yarp_install(PROGRAMS ${lua_fsm} DESTINATION ${ICUBCONTRIB_CONTEXTS_INSTALL_DIR}/${PROJECTNAME}/lua)
+yarp_install(PROGRAMS ${lua_fsm} DESTINATION ${ICUBCONTRIB_CONTEXTS_INSTALL_DIR}/${PROJECT_NAME}/lua)
 add_custom_target(copy_lua_in_build ALL)
 add_custom_command(TARGET copy_lua_in_build POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy ${lua_bin} ${CMAKE_BINARY_DIR}/bin/${CMAKE_CFG_INTDIR}
 COMMENT "Copying ${lua_bin} to ${CMAKE_BINARY_DIR}/bin/${CMAKE_CFG_INTDIR}/")
 install(PROGRAMS ${lua_bin} DESTINATION bin)
-
