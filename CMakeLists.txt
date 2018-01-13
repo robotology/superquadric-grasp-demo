@@ -37,6 +37,9 @@ set(lua_bin       ${CMAKE_CURRENT_SOURCE_DIR}/app/lua/grasping_main.lua)
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 icubcontrib_add_uninstall_target()
 
+# module
+yarp_install(FILES ${PROJECT_NAME}.xml DESTINATION ${ICUBCONTRIB_MODULES_INSTALL_DIR})
+
 # app and conf
 file(GLOB conf ${CMAKE_CURRENT_SOURCE_DIR}/app/conf/*.ini)
 yarp_install(FILES ${conf} DESTINATION ${ICUBCONTRIB_CONTEXTS_INSTALL_DIR}/${PROJECT_NAME})
